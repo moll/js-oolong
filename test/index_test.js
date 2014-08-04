@@ -1,6 +1,9 @@
 var _ = require("..")
 var demand = require("must")
 
+// Let String et al be used as constructors:
+/* jshint -W053 */
+
 describe("Overstrike", function() {
   describe(".assign", function() {
     it("must return undefined given nothing", function() {
@@ -48,6 +51,51 @@ describe("Overstrike", function() {
     it("must not add unenumerable properties", function() {
       var source = Object.defineProperty({}, "name", {value: "John"})
       _.assign({}, source).must.eql({})
+    })
+  })
+
+  describe(".isEmpty", function() {
+    describe("given a string", function() {
+      it("must return true given an empty string", function() {
+        _.isEmpty("").must.be.true()
+      })
+
+      it("must return false given a non-empty string", function() {
+        _.isEmpty("A").must.be.false()
+      })
+    })
+
+    describe("given an array", function() {
+      it("must return true given an empty array", function() {
+        _.isEmpty([]).must.be.true()
+      })
+
+      it("must return false given a non-empty array", function() {
+        _.isEmpty([1]).must.be.false()
+      })
+    })
+
+    describe("given an object", function() {
+      it("must return true given an empty object", function() {
+        _.isEmpty({}).must.be.true()
+      })
+
+      it("must return false given an non-empty object", function() {
+        _.isEmpty({name: "John"}).must.be.false()
+      })
+
+      it("must return false given an object with an inherited property",
+        function() {
+        _.isEmpty(Object.create({name: "John"})).must.be.false()
+      })
+
+      it("must return true given an empty String", function() {
+        _.isEmpty(new String("")).must.be.true()
+      })
+
+      it("must return false given a non-empty String", function() {
+        _.isEmpty(new String("A")).must.be.false()
+      })
     })
   })
 })

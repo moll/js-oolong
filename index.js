@@ -6,3 +6,9 @@ exports.assign = function(target) {
 
   return target
 }
+
+exports.isEmpty = function(value) {
+  if (typeof value == "string") return value.length == 0
+  for (value in value) return false
+  return true
+}
