@@ -131,6 +131,66 @@ describe("Overstrike", function() {
     })
   })
 
+  describe(".compose", function() {
+    it("must throw TypeError given a non-function", function() {
+      var err
+      try { _.compose(null) } catch (ex) { err = ex }
+      err.must.be.an.instanceof(TypeError)
+      err.message.must.include("is not a function")
+    })
+
+    it("must throw TypeError given a non-function with functions", function() {
+      var err
+      try { _.compose(_.noop, 42, _.noop) } catch (ex) { err = ex }
+      err.must.be.an.instanceof(TypeError)
+      err.message.must.include("is not a function")
+    })
+
+    it("must return a function that returs nothing given nothing", function() {
+      demand(_.compose()()).be.undefined()
+    })
+
+    it("must return a function that returs first argument", function() {
+      _.compose()(42).must.equal(42)
+    })
+
+    it("must call first function with all arguments", function() {
+      var spy = Sinon.spy()
+      _.compose(spy)(1, 2, 3)
+      spy.firstCall.args.must.eql([1, 2, 3])
+    })
+
+    it("must call other functions with return values", function() {
+      var a = Sinon.spy(function(value) { return value + "a" })
+      var b = Sinon.spy(function(value) { return value + "b" })
+      var c = Sinon.spy(function(value) { return value + "c" })
+
+      _.compose(c, b, a)("")
+      a.firstCall.args.must.eql([""])
+      b.firstCall.args.must.eql(["a"])
+      c.firstCall.args.must.eql(["ab"])
+    })
+
+    it("must return what last function returns", function() {
+      function a(value) { return value + "a" }
+      function b(value) { return value + "b" }
+      function c(value) { return value + "c" }
+      _.compose(c, b, a)("").must.equal("abc")
+    })
+
+    it("must call functions in context", function() {
+      var obj = {}
+      var a = Sinon.spy()
+      var b = Sinon.spy()
+      var c = Sinon.spy()
+
+      _.compose(c, b, a).call(obj)
+      a.firstCall.thisValue.must.equal(obj)
+      b.firstCall.thisValue.must.equal(obj)
+      c.firstCall.thisValue.must.equal(obj)
+    })
+  })
+
   describe(".noop", function() {
     it("must return nothing", function() {
       demand(_.noop()).be.undefined()

@@ -1,5 +1,7 @@
 var slice = Array.prototype.slice
 
+var NOT_A_FN_MSG = " is not a function"
+
 exports.assign = function(target) {
   if (target) for (var i = 1; i < arguments.length; ++i) {
     var source = arguments[i]
@@ -18,6 +20,18 @@ exports.isEmpty = function(value) {
 exports.new = function(Constructor) {
   var obj = Object.create(Constructor.prototype)
   return Constructor.apply(obj, slice.call(arguments, 1))
+}
+
+exports.compose = function() {
+  var fns = arguments
+  for (var i = 0, l = fns.length; i < l; ++i)
+    if (typeof fns[i] != "function") throw new TypeError(fns[i] + NOT_A_FN_MSG)
+
+  return function() {
+    var args = arguments, i = fns.length
+    while (i--) args = [fns[i].apply(this, args)]
+    return args[0]
+  }
 }
 
 exports.noop = function() {}
