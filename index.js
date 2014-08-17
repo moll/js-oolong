@@ -38,3 +38,4 @@ exports.noop = function() {}
 exports.identity = function(value) { return value }
 exports.constant = function(value) { return exports.identity.bind(null, value) }
 exports.clone = function(obj) { return obj ? exports.assign({}, obj)  : obj }
+exports.isBoolean = function(value) { return typeof value == "boolean" }

@@ -1,5 +1,6 @@
 ## Unreleased
 - Adds `Overstrike.compose`.
+- Adds `Overstrike.isBoolean`.
 
 ## 0.2.0 (Aug 17, 2014)
 - Adds `Overstrike.new`.

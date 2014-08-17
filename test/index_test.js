@@ -260,4 +260,18 @@ describe("Overstrike", function() {
       _.clone({age: 42}).must.eql({age: 42})
     })
   })
+
+  describe(".isBoolean", function() {
+    it("must return true given a boolean", function() {
+      _.isBoolean(false).must.be.true()
+    })
+
+    it("must return false given a Boolean", function() {
+      _.isBoolean(new Boolean(true)).must.be.false()
+    })
+
+    it("must return false given a non-boolean", function() {
+      _.isBoolean(42).must.be.false()
+    })
+  })
 })
