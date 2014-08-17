@@ -274,4 +274,18 @@ describe("Overstrike", function() {
       _.isBoolean(42).must.be.false()
     })
   })
+
+  describe(".isNumber", function() {
+    it("must return true given a number", function() {
+      _.isNumber(42).must.be.true()
+    })
+
+    it("must return false given a Number", function() {
+      _.isNumber(new Number(42)).must.be.false()
+    })
+
+    it("must return false given a non-number", function() {
+      _.isNumber(true).must.be.false()
+    })
+  })
 })
