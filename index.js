@@ -41,3 +41,4 @@ exports.clone = function(obj) { return obj ? exports.assign({}, obj)  : obj }
 exports.isBoolean = function(value) { return typeof value == "boolean" }
 exports.isNumber = function(value) { return typeof value == "number" }
 exports.isString = function(value) { return typeof value == "string" }
+exports.isFunction = function(value) { return typeof value == "function" }
