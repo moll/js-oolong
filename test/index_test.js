@@ -11,6 +11,10 @@ describe("Overstrike", function() {
       demand(_.assign()).be.undefined()
     })
 
+    it("must return null given null", function() {
+      demand(_.assign(null)).be.null()
+    })
+
     it("must return undefined given undefined and a source", function() {
       demand(_.assign(undefined, {name: "John"})).be.undefined()
     })
@@ -151,6 +155,49 @@ describe("Overstrike", function() {
     it("must return a function that returns first argument given two",
       function() {
       _.constant(42, 69)().must.equal(42)
+    })
+  })
+
+  describe(".clone", function() {
+    it("must return undefined given nothing", function() {
+      demand(_.clone()).be.undefined()
+    })
+
+    it("must return null given null", function() {
+      demand(_.clone(null)).be.null()
+    })
+
+    it("must return new object", function() {
+      var obj = {}
+      _.clone(obj).must.not.equal(obj)
+    })
+
+    it("must clone properties", function() {
+      _.clone({name: "John", age: 42}).must.eql({name: "John", age: 42})
+    })
+
+    it("must assign functions", function() {
+      function fn() {}
+      _.clone({fn: fn}).must.eql({fn: fn})
+    })
+
+    it("must not change target given no source", function() {
+      _.clone({name: "John"}).must.eql({name: "John"})
+    })
+
+    it("must clone properties from inherited sources", function() {
+      _.clone(Object.create({name: "John"})).must.eql({name: "John"})
+    })
+
+    it("must not clone unenumerable properties", function() {
+      var source = Object.defineProperty({}, "name", {value: "John"})
+      _.clone(source).must.eql({})
+    })
+
+    // Just to ensure the target isn't shared between invocations.
+    it("must clone properties when called twice", function() {
+      _.clone({name: "John"})
+      _.clone({age: 42}).must.eql({age: 42})
     })
   })
 })
