@@ -2,6 +2,7 @@
 - Adds `Overstrike.compose`.
 - Adds `Overstrike.isBoolean`.
 - Adds `Overstrike.isNumber`.
+- Adds `Overstrike.isString`.
 
 ## 0.2.0 (Aug 17, 2014)
 - Adds `Overstrike.new`.

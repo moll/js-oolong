@@ -288,4 +288,18 @@ describe("Overstrike", function() {
       _.isNumber(true).must.be.false()
     })
   })
+
+  describe(".isString", function() {
+    it("must return true given a string", function() {
+      _.isString("Hello").must.be.true()
+    })
+
+    it("must return false given a String", function() {
+      _.isString(new String("Hello")).must.be.false()
+    })
+
+    it("must return false given a non-string", function() {
+      _.isString(true).must.be.false()
+    })
+  })
 })
