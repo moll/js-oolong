@@ -142,4 +142,15 @@ describe("Overstrike", function() {
       _.identity(42, 69).must.equal(42)
     })
   })
+
+  describe(".constant", function() {
+    it("must return a function that returns argument", function() {
+      _.constant(42)().must.equal(42)
+    })
+
+    it("must return a function that returns first argument given two",
+      function() {
+      _.constant(42, 69)().must.equal(42)
+    })
+  })
 })

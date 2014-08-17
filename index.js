@@ -22,3 +22,4 @@ exports.new = function(Constructor) {
 
 exports.noop = function() {}
 exports.identity = function(value) { return value }
+exports.constant = function(value) { return exports.identity.bind(null, value) }
