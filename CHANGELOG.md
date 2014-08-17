@@ -1,4 +1,4 @@
-## Unreleased
+## 0.3.0 (Aug 17, 2014)
 - Adds `Overstrike.compose`.
 - Adds `Overstrike.isBoolean`.
 - Adds `Overstrike.isNumber`.
