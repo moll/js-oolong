@@ -21,3 +21,4 @@ exports.new = function(Constructor) {
 }
 
 exports.noop = function() {}
+exports.identity = function(value) { return value }

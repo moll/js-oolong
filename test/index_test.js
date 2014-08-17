@@ -132,4 +132,14 @@ describe("Overstrike", function() {
       demand(_.noop()).be.undefined()
     })
   })
+
+  describe(".identity", function() {
+    it("must return argument", function() {
+      _.identity(42).must.equal(42)
+    })
+
+    it("must return first argument given two", function() {
+      _.identity(42, 69).must.equal(42)
+    })
+  })
 })
