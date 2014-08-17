@@ -1,3 +1,5 @@
+var slice = Array.prototype.slice
+
 exports.assign = function(target) {
   if (target) for (var i = 1; i < arguments.length; ++i) {
     var source = arguments[i]
@@ -11,4 +13,9 @@ exports.isEmpty = function(value) {
   if (typeof value == "string") return value.length == 0
   for (value in value) return false
   return true
+}
+
+exports.new = function(Constructor) {
+  var obj = Object.create(Constructor.prototype)
+  return Constructor.apply(obj, slice.call(arguments, 1))
 }

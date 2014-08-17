@@ -1,4 +1,5 @@
 var _ = require("..")
+var Sinon = require("sinon")
 var demand = require("must")
 
 // Let String et al be used as constructors:
@@ -96,6 +97,33 @@ describe("Overstrike", function() {
       it("must return false given a non-empty String", function() {
         _.isEmpty(new String("A")).must.be.false()
       })
+    })
+  })
+
+  describe(".new", function() {
+    it("must create and call given constructor", function() {
+      var Model = Sinon.spy(function Model() {})
+      var model = _.new(Model)
+      model.must.be.an.instanceof(Model)
+
+      Model.callCount.must.equal(1)
+      Model.firstCall.thisValue.must.be.an.instanceof(Model)
+      Model.firstCall.args.must.eql([])
+    })
+
+    it("must create and call given constructor with arguments", function() {
+      var Model = Sinon.spy(function Model() {})
+      var model = _.new(Model, 1, 2, 3)
+      model.must.be.an.instanceof(Model)
+
+      Model.callCount.must.equal(1)
+      Model.firstCall.thisValue.must.be.an.instanceof(Model)
+      Model.firstCall.args.must.eql([1, 2, 3])
+    })
+
+    it("must return what constructor returns ", function() {
+      function Model() { return 42 }
+      _.new(Model).must.equal(42)
     })
   })
 })
