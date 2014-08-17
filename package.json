@@ -1,6 +1,6 @@
 {
 	"name": "overstrike",
-	"version": "0.1.337",
+	"version": "0.2.0",
 	"description": "A utility library in the style of Underscore.js with consistent inherited property handling, the simplest implementation and curation by yours truly.",
 	"keywords": [
 		"functional",

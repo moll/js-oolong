@@ -1,4 +1,4 @@
-## Unreleased 
+## 0.2.0 (Aug 17, 2014)
 - Adds `Overstrike.new`.
 - Adds `Overstrike.noop`.
 - Adds `Overstrike.identity`.
