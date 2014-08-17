@@ -312,4 +312,14 @@ describe("Overstrike", function() {
       _.isFunction(true).must.be.false()
     })
   })
+
+  describe(".isArray", function() {
+    it("must return true given an array", function() {
+      _.isArray([]).must.be.true()
+    })
+
+    it("must return false given a non-array", function() {
+      _.isArray(true).must.be.false()
+    })
+  })
 })

@@ -4,6 +4,7 @@
 - Adds `Overstrike.isNumber`.
 - Adds `Overstrike.isString`.
 - Adds `Overstrike.isFunction`.
+- Adds `Overstrike.isArray`.
 
 ## 0.2.0 (Aug 17, 2014)
 - Adds `Overstrike.new`.
