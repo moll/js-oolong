@@ -19,3 +19,5 @@ exports.new = function(Constructor) {
   var obj = Object.create(Constructor.prototype)
   return Constructor.apply(obj, slice.call(arguments, 1))
 }
+
+exports.noop = function() {}

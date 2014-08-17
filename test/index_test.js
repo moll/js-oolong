@@ -126,4 +126,10 @@ describe("Overstrike", function() {
       _.new(Model).must.equal(42)
     })
   })
+
+  describe(".noop", function() {
+    it("must return nothing", function() {
+      demand(_.noop()).be.undefined()
+    })
+  })
 })
