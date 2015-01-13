@@ -4,6 +4,7 @@ Objectware.js API Documentation
 - [assign](#Objectware.assign)(target, source...)
 - [clone](#Objectware.clone)(object)
 - [isEmpty](#Objectware.isEmpty)(object)
+- [values](#Objectware.values)(object)
 
 
 <a name="Objectware" />
@@ -46,4 +47,13 @@ or not.
 Objectware.isEmpty({name: "John"}) // => false
 Objectware.isEmpty(Object.create({name: "John"})) // => false
 Objectware.isEmpty({}) // => true
+```
+
+<a name="Objectware.values" />
+### Objectware.values(object)
+Returns all `enumerable` property values as an array.
+
+**Examples**:
+```javascript
+Objectware.values({name: "John", age: 32}) // => ["John", 32]
 ```

@@ -60,3 +60,19 @@ exports.isEmpty = function(obj) {
   for (obj in obj) return false
   return true
 }
+
+/**
+ * Returns all `enumerable` property values as an array.
+ *
+ * @example
+ * Objectware.values({name: "John", age: 32}) // => ["John", 32]
+ *
+ * @static
+ * @method values
+ * @param object
+ */
+exports.values = function(obj) {
+  var values = []
+  for (var key in obj) values.push(obj[key])
+  return values
+}

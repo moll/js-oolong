@@ -41,6 +41,7 @@ Documentation][api].
 - [assign](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.assign)(target, source...)
 - [clone](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.clone)(object)
 - [isEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isEmpty)(object)
+- [values](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.values)(object)
 
 
 License

@@ -112,4 +112,14 @@ describe("Objectware", function() {
       _.isEmpty(Object.create({name: "John"})).must.be.false()
     })
   })
+
+  describe(".values", function() {
+    it("must return all enumerable values of an object", function() {
+      _.values({a: 1, b: 2}).must.eql([1, 2])
+    })
+
+    it("must return inherited enumerable values of an object", function() {
+      _.values(Object.create({a: 1, b: 2})).must.eql([1, 2])
+    })
+  })
 })
