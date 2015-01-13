@@ -44,6 +44,35 @@ exports.clone = function(obj) {
 }
 
 /**
+ * Filters all enumerable properties and returns a new object with only those
+ * properties for which the given function returned truthy for.
+ *
+ * The function will be called with arguments `value`, `key` and `object` and
+ * bound to `thisArg`.
+ *
+ * @example
+ * var obj = {a: 1, b: 2, c: 3, d: 4}
+ * Objectware.filter(obj, function(value, key) { return value % 2 == 0 })
+ * // => {b: 2, d: 4}
+ *
+ * @static
+ * @method filter
+ * @param object
+ * @param callback
+ * @param [thisArg]
+ */
+exports.filter = function(obj, fn, context) {
+  var filtered = {}
+
+  for (var key in obj) {
+    var value = obj[key]
+    if (fn.call(context, value, key, obj)) filtered[key] = value
+  }
+
+  return filtered
+}
+
+/**
  * Checks whether the given object has any enumerable properties, inherited
  * or not.
  *

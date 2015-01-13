@@ -3,6 +3,7 @@ Objectware.js API Documentation
 ### [Objectware](#Objectware)
 - [assign](#Objectware.assign)(target, source...)
 - [clone](#Objectware.clone)(object)
+- [filter](#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](#Objectware.isEmpty)(object)
 - [keys](#Objectware.keys)(object)
 - [mapKeys](#Objectware.mapKeys)(object, callback, [thisArg])
@@ -37,6 +38,21 @@ Shallow means if you've got nested objects, those will be shared.
 ```javascript
 Objectware.clone({name: "John", age: 32})
 // => {name: "John", age: 32}
+```
+
+<a name="Objectware.filter" />
+### Objectware.filter(object, callback, [thisArg])
+Filters all enumerable properties and returns a new object with only those
+properties for which the given function returned truthy for.
+
+The function will be called with arguments `value`, `key` and `object` and
+bound to `thisArg`.
+
+**Examples**:
+```javascript
+var obj = {a: 1, b: 2, c: 3, d: 4}
+Objectware.filter(obj, function(value, key) { return value % 2 == 0 })
+// => {b: 2, d: 4}
 ```
 
 <a name="Objectware.isEmpty" />

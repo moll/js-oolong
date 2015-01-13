@@ -40,6 +40,7 @@ Documentation][api].
 ### [Objectware](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware)
 - [assign](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.assign)(target, source...)
 - [clone](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.clone)(object)
+- [filter](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isEmpty)(object)
 - [keys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.keys)(object)
 - [mapKeys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.mapKeys)(object, callback, [thisArg])
