@@ -25,11 +25,35 @@ publish:
 tag:
 	git tag "v$$(node -e 'console.log(require("./package").version)')"
 
+# NOTE: Sorry, mocumentation is not yet published.
+doc: doc.json
+	@mkdir -p doc
+	@~/Documents/Mocumentation/bin/mocument \
+		--type yui \
+		--title Objectware.js \
+		tmp/doc/data.json > doc/API.md
+
+toc: doc.json
+	@~/Documents/Mocumentation/bin/mocument \
+		--type yui \
+		--template toc \
+		--include Objectware \
+		--var api_url=https://github.com/moll/js-objectware/blob/master/doc/API.md \
+		tmp/doc/data.json > tmp/TOC.md
+
+	echo "/^### \[Objectware\]/,/^\$$/{/^#/r tmp/TOC.md\n/^\$$/!d;}" |\
+		sed -i "" -f /dev/stdin README.md
+
+doc.json:
+	@mkdir -p tmp
+	@yuidoc --exclude test,node_modules --parse-only --outdir tmp/doc .
+
 clean:
-	rm -f *.tgz
+	rm -f *.tgz tmp
 	npm prune --production
 
 .PHONY: love
 .PHONY: test spec autotest autospec
 .PHONY: pack publish tag
 .PHONY: clean
+.PHONY: doc toc doc.json
