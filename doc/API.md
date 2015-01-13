@@ -14,7 +14,7 @@ Objectware
 
 <a name="Objectware.assign" />
 ### Objectware.assign(target, source...)
-Assigns all `enumerable` properties on `source` objects to `target`.  
+Assigns all enumerable properties on `source` objects to `target`.  
 Similar to `Object.assign`, but takes inherited properties into account.
 
 Think of it as _extending_ the first object step by step with others.
@@ -27,7 +27,7 @@ Objectware.assign({name: "John"}, {age: 32}, {shirt: "blue"})
 
 <a name="Objectware.clone" />
 ### Objectware.clone(object)
-Creates a shallow clone of the given object, taking all `enumerable`
+Creates a shallow clone of the given object, taking all enumerable
 properties into account.  
 Shallow means if you've got nested objects, those will be shared.
 
@@ -39,7 +39,7 @@ Objectware.clone({name: "John", age: 32})
 
 <a name="Objectware.isEmpty" />
 ### Objectware.isEmpty(object)
-Checks whether the given object has any `enumerable` properties, inherited
+Checks whether the given object has any enumerable properties, inherited
 or not.
 
 **Examples**:
@@ -51,7 +51,7 @@ Objectware.isEmpty({}) // => true
 
 <a name="Objectware.values" />
 ### Objectware.values(object)
-Returns all `enumerable` property values as an array.
+Returns all enumerable property values as an array.
 
 **Examples**:
 ```javascript

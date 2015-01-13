@@ -3,7 +3,7 @@
  */
 
 /**
- * Assigns all `enumerable` properties on `source` objects to `target`.  
+ * Assigns all enumerable properties on `source` objects to `target`.  
  * Similar to `Object.assign`, but takes inherited properties into account.
  *
  * Think of it as _extending_ the first object step by step with others.
@@ -27,7 +27,7 @@ exports.assign = function(target) {
 }
 
 /**
- * Creates a shallow clone of the given object, taking all `enumerable`
+ * Creates a shallow clone of the given object, taking all enumerable
  * properties into account.  
  * Shallow means if you've got nested objects, those will be shared.
  *
@@ -44,7 +44,7 @@ exports.clone = function(obj) {
 }
 
 /**
- * Checks whether the given object has any `enumerable` properties, inherited
+ * Checks whether the given object has any enumerable properties, inherited
  * or not.
  *
  * @example
@@ -62,7 +62,7 @@ exports.isEmpty = function(obj) {
 }
 
 /**
- * Returns all `enumerable` property values as an array.
+ * Returns all enumerable property values as an array.
  *
  * @example
  * Objectware.values({name: "John", age: 32}) // => ["John", 32]
