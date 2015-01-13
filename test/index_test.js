@@ -126,14 +126,19 @@ describe("Objectware", function() {
   })
 
   describe(".mapKeys", function() {
-    it("must transform keys with given function", function() {
+    it("must transform keys", function() {
       var obj = _.mapKeys({name: "John", age: 32}, toUpperCase)
       obj.must.eql({NAME: "John", AGE: 32})
     })
 
+    it("must transform keys of inherited properties", function() {
+      var obj = _.mapKeys(Object.create({name: "John", age: 32}), toUpperCase)
+      obj.must.eql({NAME: "John", AGE: 32})
+    })
+
     it("must call function with key, value and object", function() {
-      var spy = Sinon.spy()
       var obj = {name: "John"}
+      var spy = Sinon.spy()
       var context = {}
       _.mapKeys(obj, spy, context)
 
@@ -145,9 +150,9 @@ describe("Objectware", function() {
     })
 
     it("must not change the given object", function() {
-      var obj = {a: 1}
-      _.mapKeys(obj, function() { return "b" }).must.not.equal(obj)
-      obj.must.eql({a: 1})
+      var obj = {name: "John"}
+      _.mapKeys(obj, function() { return "NAME" }).must.not.equal(obj)
+      obj.must.eql({name: "John"})
     })
   })
 
