@@ -1,9 +1,5 @@
 var _ = require("..")
-var Sinon = require("sinon")
 var demand = require("must")
-
-// Let String et al be used as constructors:
-/* jshint -W053 */
 
 describe("Objectware", function() {
   describe(".assign", function() {
@@ -60,26 +56,6 @@ describe("Objectware", function() {
   })
 
   describe(".isEmpty", function() {
-    describe("given a string", function() {
-      it("must return true given an empty string", function() {
-        _.isEmpty("").must.be.true()
-      })
-
-      it("must return false given a non-empty string", function() {
-        _.isEmpty("A").must.be.false()
-      })
-    })
-
-    describe("given an array", function() {
-      it("must return true given an empty array", function() {
-        _.isEmpty([]).must.be.true()
-      })
-
-      it("must return false given a non-empty array", function() {
-        _.isEmpty([1]).must.be.false()
-      })
-    })
-
     describe("given an object", function() {
       it("must return true given an empty object", function() {
         _.isEmpty({}).must.be.true()
@@ -93,128 +69,6 @@ describe("Objectware", function() {
         function() {
         _.isEmpty(Object.create({name: "John"})).must.be.false()
       })
-
-      it("must return true given an empty String", function() {
-        _.isEmpty(new String("")).must.be.true()
-      })
-
-      it("must return false given a non-empty String", function() {
-        _.isEmpty(new String("A")).must.be.false()
-      })
-    })
-  })
-
-  describe(".new", function() {
-    it("must create and call given constructor", function() {
-      var Model = Sinon.spy(function Model() {})
-      var model = _.new(Model)
-      model.must.be.an.instanceof(Model)
-
-      Model.callCount.must.equal(1)
-      Model.firstCall.thisValue.must.be.an.instanceof(Model)
-      Model.firstCall.args.must.eql([])
-    })
-
-    it("must create and call given constructor with arguments", function() {
-      var Model = Sinon.spy(function Model() {})
-      var model = _.new(Model, 1, 2, 3)
-      model.must.be.an.instanceof(Model)
-
-      Model.callCount.must.equal(1)
-      Model.firstCall.thisValue.must.be.an.instanceof(Model)
-      Model.firstCall.args.must.eql([1, 2, 3])
-    })
-
-    it("must return what constructor returns ", function() {
-      function Model() { return 42 }
-      _.new(Model).must.equal(42)
-    })
-  })
-
-  describe(".compose", function() {
-    it("must throw TypeError given a non-function", function() {
-      var err
-      try { _.compose(null) } catch (ex) { err = ex }
-      err.must.be.an.instanceof(TypeError)
-      err.message.must.include("is not a function")
-    })
-
-    it("must throw TypeError given a non-function with functions", function() {
-      var err
-      try { _.compose(_.noop, 42, _.noop) } catch (ex) { err = ex }
-      err.must.be.an.instanceof(TypeError)
-      err.message.must.include("is not a function")
-    })
-
-    it("must return a function that returs nothing given nothing", function() {
-      demand(_.compose()()).be.undefined()
-    })
-
-    it("must return a function that returs first argument", function() {
-      _.compose()(42).must.equal(42)
-    })
-
-    it("must call first function with all arguments", function() {
-      var spy = Sinon.spy()
-      _.compose(spy)(1, 2, 3)
-      spy.firstCall.args.must.eql([1, 2, 3])
-    })
-
-    it("must call other functions with return values", function() {
-      var a = Sinon.spy(function(value) { return value + "a" })
-      var b = Sinon.spy(function(value) { return value + "b" })
-      var c = Sinon.spy(function(value) { return value + "c" })
-
-      _.compose(c, b, a)("")
-      a.firstCall.args.must.eql([""])
-      b.firstCall.args.must.eql(["a"])
-      c.firstCall.args.must.eql(["ab"])
-    })
-
-    it("must return what last function returns", function() {
-      function a(value) { return value + "a" }
-      function b(value) { return value + "b" }
-      function c(value) { return value + "c" }
-      _.compose(c, b, a)("").must.equal("abc")
-    })
-
-    it("must call functions in context", function() {
-      var obj = {}
-      var a = Sinon.spy()
-      var b = Sinon.spy()
-      var c = Sinon.spy()
-
-      _.compose(c, b, a).call(obj)
-      a.firstCall.thisValue.must.equal(obj)
-      b.firstCall.thisValue.must.equal(obj)
-      c.firstCall.thisValue.must.equal(obj)
-    })
-  })
-
-  describe(".noop", function() {
-    it("must return nothing", function() {
-      demand(_.noop()).be.undefined()
-    })
-  })
-
-  describe(".identity", function() {
-    it("must return argument", function() {
-      _.identity(42).must.equal(42)
-    })
-
-    it("must return first argument given two", function() {
-      _.identity(42, 69).must.equal(42)
-    })
-  })
-
-  describe(".constant", function() {
-    it("must return a function that returns argument", function() {
-      _.constant(42)().must.equal(42)
-    })
-
-    it("must return a function that returns first argument given two",
-      function() {
-      _.constant(42, 69)().must.equal(42)
     })
   })
 
@@ -258,68 +112,6 @@ describe("Objectware", function() {
     it("must clone properties when called twice", function() {
       _.clone({name: "John"})
       _.clone({age: 42}).must.eql({age: 42})
-    })
-  })
-
-  describe(".isBoolean", function() {
-    it("must return true given a boolean", function() {
-      _.isBoolean(false).must.be.true()
-    })
-
-    it("must return false given a Boolean", function() {
-      _.isBoolean(new Boolean(true)).must.be.false()
-    })
-
-    it("must return false given a non-boolean", function() {
-      _.isBoolean(42).must.be.false()
-    })
-  })
-
-  describe(".isNumber", function() {
-    it("must return true given a number", function() {
-      _.isNumber(42).must.be.true()
-    })
-
-    it("must return false given a Number", function() {
-      _.isNumber(new Number(42)).must.be.false()
-    })
-
-    it("must return false given a non-number", function() {
-      _.isNumber(true).must.be.false()
-    })
-  })
-
-  describe(".isString", function() {
-    it("must return true given a string", function() {
-      _.isString("Hello").must.be.true()
-    })
-
-    it("must return false given a String", function() {
-      _.isString(new String("Hello")).must.be.false()
-    })
-
-    it("must return false given a non-string", function() {
-      _.isString(true).must.be.false()
-    })
-  })
-
-  describe(".isFunction", function() {
-    it("must return true given a function", function() {
-      _.isFunction(function() {}).must.be.true()
-    })
-
-    it("must return false given a non-function", function() {
-      _.isFunction(true).must.be.false()
-    })
-  })
-
-  describe(".isArray", function() {
-    it("must return true given an array", function() {
-      _.isArray([]).must.be.true()
-    })
-
-    it("must return false given a non-array", function() {
-      _.isArray(true).must.be.false()
     })
   })
 })
