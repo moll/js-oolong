@@ -12,4 +12,6 @@ exports.isEmpty = function(value) {
   return true
 }
 
-exports.clone = function(obj) { return obj ? exports.assign({}, obj)  : obj }
+exports.clone = function(obj) {
+  return obj ? exports.assign({}, obj) : obj
+}
