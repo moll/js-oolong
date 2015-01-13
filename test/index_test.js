@@ -157,6 +157,38 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".map", function() {
+    function double(value) { return value * 2 }
+
+    it("must map properties", function() {
+      _.map({a: 1, b: 2, c: 3}, double).must.eql({a: 2, b: 4, c: 6})
+    })
+
+    it("must map inherited properties", function() {
+      var obj = Object.create({a: 1, b: 2, c: 3})
+      _.map(obj, double).must.eql({a: 2, b: 4, c: 6})
+    })
+
+    it("must call function with value, key and object", function() {
+      var obj = {name: "John"}
+      var spy = Sinon.spy()
+      var context = {}
+      _.map(obj, spy, context)
+
+      spy.callCount.must.equal(1)
+      spy.firstCall.args[0].must.equal("John")
+      spy.firstCall.args[1].must.equal("name")
+      spy.firstCall.args[2].must.equal(obj)
+      spy.firstCall.thisValue.must.equal(context)
+    })
+
+    it("must not change the given object", function() {
+      var obj = {name: "John"}
+      _.map(obj, function() { return "Mike" }).must.not.equal(obj)
+      obj.must.eql({name: "John"})
+    })
+  })
+
   describe(".mapKeys", function() {
     it("must transform keys", function() {
       var obj = _.mapKeys({name: "John", age: 32}, toUpperCase)

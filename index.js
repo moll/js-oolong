@@ -108,6 +108,29 @@ exports.keys = function(obj) {
 }
 
 /**
+ * Maps all enumerable property values and returns a new object.
+ *
+ * The function will be called with arguments `value`, `key` and `object` and
+ * bound to `thisArg`.
+ *
+ * @example
+ * var obj = {a: 1, b: 2, c: 3}
+ * Objectware.map(obj, function(value, key) { return value * 2 })
+ * // => {a: 2, b: 4, c: 6}
+ *
+ * @static
+ * @method map
+ * @param object
+ * @param callback
+ * @param [thisArg]
+ */
+exports.map = function(obj, fn, context) {
+  var mapped = {}
+  for (var key in obj) mapped[key] = fn.call(context, obj[key], key, obj)
+  return mapped
+}
+
+/**
  * Transforms all enumerable keys and returns a new object.
  *
  * The function will be called with arguments `key`, `value` and `object` and

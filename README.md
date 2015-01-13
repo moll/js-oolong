@@ -43,6 +43,7 @@ Documentation][api].
 - [filter](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isEmpty)(object)
 - [keys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.keys)(object)
+- [map](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.map)(object, callback, [thisArg])
 - [mapKeys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.mapKeys)(object, callback, [thisArg])
 - [values](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.values)(object)
 

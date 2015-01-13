@@ -6,6 +6,7 @@ Objectware.js API Documentation
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](#Objectware.isEmpty)(object)
 - [keys](#Objectware.keys)(object)
+- [map](#Objectware.map)(object, callback, [thisArg])
 - [mapKeys](#Objectware.mapKeys)(object, callback, [thisArg])
 - [values](#Objectware.values)(object)
 
@@ -75,6 +76,20 @@ Similar to `Object.keys`, but takes inherited properties into account.
 **Examples**:
 ```javascript
 Objectware.keys({name: "John", age: 32}) // => ["name", "age"]
+```
+
+<a name="Objectware.map" />
+### Objectware.map(object, callback, [thisArg])
+Maps all enumerable property values and returns a new object.
+
+The function will be called with arguments `value`, `key` and `object` and
+bound to `thisArg`.
+
+**Examples**:
+```javascript
+var obj = {a: 1, b: 2, c: 3}
+Objectware.map(obj, function(value, key) { return value * 2 })
+// => {a: 2, b: 4, c: 6}
 ```
 
 <a name="Objectware.mapKeys" />
