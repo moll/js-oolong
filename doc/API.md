@@ -4,6 +4,7 @@ Objectware.js API Documentation
 - [assign](#Objectware.assign)(target, source...)
 - [clone](#Objectware.clone)(object)
 - [isEmpty](#Objectware.isEmpty)(object)
+- [mapKeys](#Objectware.mapKeys)(object, function, context)
 - [values](#Objectware.values)(object)
 
 
@@ -47,6 +48,17 @@ or not.
 Objectware.isEmpty({name: "John"}) // => false
 Objectware.isEmpty(Object.create({name: "John"})) // => false
 Objectware.isEmpty({}) // => true
+```
+
+<a name="Objectware.mapKeys" />
+### Objectware.mapKeys(object, function, context)
+Transforms all enumerable keys of the given object with the given function.
+
+**Examples**:
+```javascript
+var person = {name: "John", age: 32}
+Objectware.mapKeys(person, function(key) { return key.toUpperCase() })
+// => {NAME: "John", AGE: 32}
 ```
 
 <a name="Objectware.values" />

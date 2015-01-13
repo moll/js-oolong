@@ -62,6 +62,31 @@ exports.isEmpty = function(obj) {
 }
 
 /**
+ * Transforms all enumerable keys of the given object with the given function.
+ *
+ * @example
+ * var person = {name: "John", age: 32}
+ * Objectware.mapKeys(person, function(key) { return key.toUpperCase() })
+ * // => {NAME: "John", AGE: 32}
+ *
+ * @static
+ * @method mapKeys
+ * @param object
+ * @param function
+ * @param context
+ */
+exports.mapKeys = function(obj, fn, context) {
+	var result = {}
+
+	for (var key in obj) {
+    var value = obj[key]
+    result[fn.call(context, key, value, obj)] = value
+  }
+
+	return result
+}
+
+/**
  * Returns all enumerable property values as an array.
  *
  * @example

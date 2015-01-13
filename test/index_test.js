@@ -1,5 +1,7 @@
 var _ = require("..")
+var Sinon = require("sinon")
 var demand = require("must")
+var toUpperCase = Function.call.bind(String.prototype.toUpperCase)
 
 describe("Objectware", function() {
   describe(".assign", function() {
@@ -110,6 +112,32 @@ describe("Objectware", function() {
     it("must return false given an object with an inherited property",
       function() {
       _.isEmpty(Object.create({name: "John"})).must.be.false()
+    })
+  })
+
+  describe(".mapKeys", function() {
+    it("must transform keys with given function", function() {
+      var obj = _.mapKeys({name: "John", age: 32}, toUpperCase)
+      obj.must.eql({NAME: "John", AGE: 32})
+    })
+
+    it("must call function with key, value and object", function() {
+      var spy = Sinon.spy()
+      var obj = {name: "John"}
+      var context = {}
+      _.mapKeys(obj, spy, context)
+
+      spy.callCount.must.equal(1)
+      spy.firstCall.args[0].must.equal("name")
+      spy.firstCall.args[1].must.equal("John")
+      spy.firstCall.args[2].must.equal(obj)
+      spy.firstCall.thisValue.must.equal(context)
+    })
+
+    it("must not change the given object", function() {
+      var obj = {a: 1}
+      _.mapKeys(obj, function() { return "b" }).must.not.equal(obj)
+      obj.must.eql({a: 1})
     })
   })
 
