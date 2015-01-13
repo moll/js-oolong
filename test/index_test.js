@@ -99,19 +99,17 @@ describe("Objectware", function() {
   })
 
   describe(".isEmpty", function() {
-    describe("given an object", function() {
-      it("must return true given an empty object", function() {
-        _.isEmpty({}).must.be.true()
-      })
+    it("must return true given an empty object", function() {
+      _.isEmpty({}).must.be.true()
+    })
 
-      it("must return false given an non-empty object", function() {
-        _.isEmpty({name: "John"}).must.be.false()
-      })
+    it("must return false given an non-empty object", function() {
+      _.isEmpty({name: "John"}).must.be.false()
+    })
 
-      it("must return false given an object with an inherited property",
-        function() {
-        _.isEmpty(Object.create({name: "John"})).must.be.false()
-      })
+    it("must return false given an object with an inherited property",
+      function() {
+      _.isEmpty(Object.create({name: "John"})).must.be.false()
     })
   })
 })
