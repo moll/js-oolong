@@ -62,6 +62,23 @@ exports.isEmpty = function(obj) {
 }
 
 /**
+ * Returns all enumerable keys of an object as an array.
+ * Similar to `Object.keys`, but takes inherited properties into account.
+ *
+ * @example
+ * Objectware.keys({name: "John", age: 32}) // => ["name", "age"]
+ *
+ * @static
+ * @method keys
+ * @param object
+ */
+exports.keys = function(obj) {
+  var keys = []
+  for (var key in obj) keys.push(key)
+  return keys
+}
+
+/**
  * Transforms all enumerable keys of the given object with the given function.
  *
  * @example

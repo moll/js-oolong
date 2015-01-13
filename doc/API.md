@@ -4,6 +4,7 @@ Objectware.js API Documentation
 - [assign](#Objectware.assign)(target, source...)
 - [clone](#Objectware.clone)(object)
 - [isEmpty](#Objectware.isEmpty)(object)
+- [keys](#Objectware.keys)(object)
 - [mapKeys](#Objectware.mapKeys)(object, function, context)
 - [values](#Objectware.values)(object)
 
@@ -48,6 +49,16 @@ or not.
 Objectware.isEmpty({name: "John"}) // => false
 Objectware.isEmpty(Object.create({name: "John"})) // => false
 Objectware.isEmpty({}) // => true
+```
+
+<a name="Objectware.keys" />
+### Objectware.keys(object)
+Returns all enumerable keys of an object as an array.
+Similar to `Object.keys`, but takes inherited properties into account.
+
+**Examples**:
+```javascript
+Objectware.keys({name: "John", age: 32}) // => ["name", "age"]
 ```
 
 <a name="Objectware.mapKeys" />

@@ -115,6 +115,16 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".keys", function() {
+    it("must return all enumerable keys of an object", function() {
+      _.keys({a: 1, b: 2}).must.eql(["a", "b"])
+    })
+
+    it("must return inherited enumerable keys of an object", function() {
+      _.keys(Object.create({a: 1, b: 2})).must.eql(["a", "b"])
+    })
+  })
+
   describe(".mapKeys", function() {
     it("must transform keys with given function", function() {
       var obj = _.mapKeys({name: "John", age: 32}, toUpperCase)
