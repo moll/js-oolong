@@ -5,7 +5,7 @@ Objectware.js API Documentation
 - [clone](#Objectware.clone)(object)
 - [isEmpty](#Objectware.isEmpty)(object)
 - [keys](#Objectware.keys)(object)
-- [mapKeys](#Objectware.mapKeys)(object, function, context)
+- [mapKeys](#Objectware.mapKeys)(object, callback, [thisArg])
 - [values](#Objectware.values)(object)
 
 
@@ -62,8 +62,11 @@ Objectware.keys({name: "John", age: 32}) // => ["name", "age"]
 ```
 
 <a name="Objectware.mapKeys" />
-### Objectware.mapKeys(object, function, context)
+### Objectware.mapKeys(object, callback, [thisArg])
 Transforms all enumerable keys of the given object with the given function.
+
+The function will be called with arguments `key`, `value` and `object` and
+bound to `thisArg`.
 
 **Examples**:
 ```javascript

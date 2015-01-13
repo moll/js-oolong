@@ -81,6 +81,9 @@ exports.keys = function(obj) {
 /**
  * Transforms all enumerable keys of the given object with the given function.
  *
+ * The function will be called with arguments `key`, `value` and `object` and
+ * bound to `thisArg`.
+ *
  * @example
  * var person = {name: "John", age: 32}
  * Objectware.mapKeys(person, function(key) { return key.toUpperCase() })
@@ -89,8 +92,8 @@ exports.keys = function(obj) {
  * @static
  * @method mapKeys
  * @param object
- * @param function
- * @param context
+ * @param callback
+ * @param [thisArg]
  */
 exports.mapKeys = function(obj, fn, context) {
 	var result = {}
