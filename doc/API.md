@@ -79,7 +79,7 @@ Objectware.keys({name: "John", age: 32}) // => ["name", "age"]
 
 <a name="Objectware.mapKeys" />
 ### Objectware.mapKeys(object, callback, [thisArg])
-Transforms all enumerable keys of the given object with the given function.
+Transforms all enumerable keys and returns a new object.
 
 The function will be called with arguments `key`, `value` and `object` and
 bound to `thisArg`.
