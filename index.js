@@ -27,6 +27,23 @@ exports.assign = function(target) {
 }
 
 /**
+ * Creates a shallow clone of the given object, taking all `enumerable`
+ * properties into account.  
+ * Shallow means if you've got nested objects, those will be shared.
+ *
+ * @example
+ * Objectware.clone({name: "John", age: 32})
+ * // => {name: "John", age: 32}
+ *
+ * @static
+ * @method clone
+ * @param object
+ */
+exports.clone = function(obj) {
+  return obj ? exports.assign({}, obj) : obj
+}
+
+/**
  * Checks whether the given object has any `enumerable` properties, inherited
  * or not.
  *
@@ -42,21 +59,4 @@ exports.assign = function(target) {
 exports.isEmpty = function(obj) {
   for (obj in obj) return false
   return true
-}
-
-/**
- * Creates a shallow clone of the given object, taking all `enumerable`
- * properties into account.  
- * Shallow means if you've got nested objects, those will be shared.
- *
- * @example
- * Objectware.clone({name: "John", age: 32})
- * // => {name: "John", age: 32}
- *
- * @static
- * @method clone
- * @param object
- */
-exports.clone = function(obj) {
-  return obj ? exports.assign({}, obj) : obj
 }
