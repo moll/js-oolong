@@ -147,6 +147,78 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".isPlainObject", function() {
+    it("must return true given an object literal", function() {
+      _.isPlainObject({}).must.be.true()
+    })
+
+    it("must return true given an object inheriting from a literal",
+      function() {
+      _.isPlainObject(Object.create({})).must.be.true()
+    })
+
+    it("must return true given Object.prototype", function() {
+      _.isPlainObject(Object.prototype).must.be.true()
+    })
+
+    it("must return true given an Object inheritng from null", function() {
+      _.isPlainObject(Object.create(null)).must.be.true()
+    })
+
+    it("must return true given Math", function() {
+      _.isPlainObject(Math).must.be.true()
+    })
+
+    it("must return true given JSON", function() {
+      _.isPlainObject(JSON).must.be.true()
+    })
+
+    // Arguments have all the qualities of a plain object, so it might as well
+    // be one.
+    it("must return true given arguments", function() {
+      _.isPlainObject(arguments).must.be.true()
+    })
+
+    it("must return false given undefined", function() {
+      _.isPlainObject(undefined).must.be.false()
+    })
+
+    it("must return false given null", function() {
+      _.isPlainObject(null).must.be.false()
+    })
+
+    it("must return false given a number", function() {
+      _.isPlainObject(function() {}).must.be.false()
+    })
+
+    it("must return false given a string", function() {
+      _.isPlainObject("").must.be.false()
+    })
+
+    it("must return false given a function", function() {
+      _.isPlainObject(function() {}).must.be.false()
+    })
+
+    it("must return false given a regular expression", function() {
+      _.isPlainObject(/./).must.be.false()
+    })
+
+    it("must return false given an instance of Date", function() {
+      _.isPlainObject(new Date).must.be.false()
+    })
+
+    it("must return false given an instance of a class", function() {
+      function Model() {}
+      _.isPlainObject(new Model).must.be.false()
+    })
+
+    it("must return false given an object inheriting from an instance",
+      function() {
+      function Model() {}
+      _.isPlainObject(Object.create(new Model)).must.be.false()
+    })
+  })
+
   describe(".keys", function() {
     it("must return all enumerable keys of an object", function() {
       _.keys({a: 1, b: 2}).must.eql(["a", "b"])

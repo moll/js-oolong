@@ -91,6 +91,34 @@ exports.isEmpty = function(obj) {
 }
 
 /**
+ * Checks whether the given object is one constructed by `Object` or inheriting
+ * from `null`.
+ *
+ * A non-plain object has a `constructor` property set to anything but `Object`.
+ * That's the case when you do, for example, `new MyModel`, `new Date`.
+ *
+ * @example
+ * Objectware.isPlainObject({name: "John", age: 42}) // => true
+ * Objectware.isPlainObject(Object.create(null)) // => true
+ * Objectware.isPlainObject(Math) // => true
+ * Objectware.isPlainObject(new Date) // => false
+ * Objectware.isPlainObject("John") // => false
+ *
+ * @static
+ * @method isPlainObject
+ * @param object
+ */
+exports.isPlainObject = function(obj) {
+  if (obj == null) return false
+  if (typeof obj != "object") return false
+
+  var prototype = Object.getPrototypeOf(obj)
+  if (prototype === null) return true
+  if (!("constructor" in prototype)) return true
+  return prototype.constructor === Object
+}
+
+/**
  * Returns all enumerable keys of an object as an array.
  * Similar to `Object.keys`, but takes inherited properties into account.
  *

@@ -32,8 +32,8 @@ depend on its major version with something like `>= 1.0.0 < 2` (a.k.a `^1.0.0`)
 
 API
 ---
-For extended documentation on all functions, please see the [Objectware.js API
-Documentation][api].
+For extended documentation on all functions, please see the
+[Objectware.js API Documentation][api].
 
 [api]: https://github.com/moll/js-objectware/blob/master/doc/API.md
 
@@ -42,6 +42,7 @@ Documentation][api].
 - [clone](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.clone)(object)
 - [filter](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isEmpty)(object)
+- [isPlainObject](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isPlainObject)(object)
 - [keys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.keys)(object)
 - [map](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.map)(object, callback, [thisArg])
 - [mapKeys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.mapKeys)(object, callback, [thisArg])

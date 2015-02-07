@@ -5,6 +5,7 @@ Objectware.js API Documentation
 - [clone](#Objectware.clone)(object)
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](#Objectware.isEmpty)(object)
+- [isPlainObject](#Objectware.isPlainObject)(object)
 - [keys](#Objectware.keys)(object)
 - [map](#Objectware.map)(object, callback, [thisArg])
 - [mapKeys](#Objectware.mapKeys)(object, callback, [thisArg])
@@ -66,6 +67,23 @@ or not.
 Objectware.isEmpty({name: "John"}) // => false
 Objectware.isEmpty(Object.create({name: "John"})) // => false
 Objectware.isEmpty({}) // => true
+```
+
+<a name="Objectware.isPlainObject" />
+### Objectware.isPlainObject(object)
+Checks whether the given object is one constructed by `Object` or inheriting
+from `null`.
+
+A non-plain object has a `constructor` property set to anything but `Object`.
+That's the case when you do, for example, `new MyModel`, `new Date`.
+
+**Examples**:
+```javascript
+Objectware.isPlainObject({name: "John", age: 42}) // => true
+Objectware.isPlainObject(Object.create(null)) // => true
+Objectware.isPlainObject(Math) // => true
+Objectware.isPlainObject(new Date) // => false
+Objectware.isPlainObject("John") // => false
 ```
 
 <a name="Objectware.keys" />
