@@ -22,6 +22,7 @@ Objectware
 ### Objectware.assign(target, source...)
 Assigns all enumerable properties on `source` objects to `target`.  
 Similar to `Object.assign`, but takes inherited properties into account.
+Does not modify anything in the source objects.
 
 Think of it as _extending_ the first object step by step with others.
 
