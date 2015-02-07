@@ -45,6 +45,22 @@ exports.clone = function(obj) {
 }
 
 /**
+ * Creates a deep clone of the given object, taking all enumerable properties
+ * into account.
+ *
+ * @example
+ * Objectware.cloneDeep({name: "John", attributes: {age: 42}})
+ * // => {name: "John", attributes: {age: 42}}
+ *
+ * @static
+ * @method cloneDeep
+ * @param object
+ */
+exports.cloneDeep = function(obj) {
+  return obj ? exports.merge({}, obj) : obj
+}
+
+/**
  * Filters all enumerable properties and returns a new object with only those
  * properties for which the given function returned truthy for.
  *

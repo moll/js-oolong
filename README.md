@@ -40,6 +40,7 @@ For extended documentation on all functions, please see the
 ### [Objectware](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware)
 - [assign](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.assign)(target, source...)
 - [clone](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.clone)(object)
+- [cloneDeep](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.cloneDeep)(object)
 - [filter](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isEmpty)(object)
 - [isPlainObject](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isPlainObject)(object)

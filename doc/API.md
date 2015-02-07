@@ -3,6 +3,7 @@ Objectware.js API Documentation
 ### [Objectware](#Objectware)
 - [assign](#Objectware.assign)(target, source...)
 - [clone](#Objectware.clone)(object)
+- [cloneDeep](#Objectware.cloneDeep)(object)
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](#Objectware.isEmpty)(object)
 - [isPlainObject](#Objectware.isPlainObject)(object)
@@ -42,6 +43,17 @@ Shallow means if you've got nested objects, those will be shared.
 ```javascript
 Objectware.clone({name: "John", age: 32})
 // => {name: "John", age: 32}
+```
+
+<a name="Objectware.cloneDeep" />
+### Objectware.cloneDeep(object)
+Creates a deep clone of the given object, taking all enumerable properties
+into account.
+
+**Examples**:
+```javascript
+Objectware.cloneDeep({name: "John", attributes: {age: 42}})
+// => {name: "John", attributes: {age: 42}}
 ```
 
 <a name="Objectware.filter" />
