@@ -1,4 +1,4 @@
-## Unreleased
+## 1.2.0 (Feb 7, 2015)
 - Fixes [`Objectware.merge`][merge] to clone plain objects objects
   recursively.  
   Previously in some cases it cloned objects shallowly.
