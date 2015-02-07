@@ -46,6 +46,7 @@ For extended documentation on all functions, please see the
 - [keys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.keys)(object)
 - [map](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.map)(object, callback, [thisArg])
 - [mapKeys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.mapKeys)(object, callback, [thisArg])
+- [merge](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.merge)(target, source...)
 - [values](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.values)(object)
 
 

@@ -9,6 +9,7 @@ Objectware.js API Documentation
 - [keys](#Objectware.keys)(object)
 - [map](#Objectware.map)(object, callback, [thisArg])
 - [mapKeys](#Objectware.mapKeys)(object, callback, [thisArg])
+- [merge](#Objectware.merge)(target, source...)
 - [values](#Objectware.values)(object)
 
 
@@ -122,6 +123,23 @@ bound to `thisArg`.
 var person = {name: "John", age: 32}
 Objectware.mapKeys(person, function(key) { return key.toUpperCase() })
 // => {NAME: "John", AGE: 32}
+```
+
+<a name="Objectware.merge" />
+### Objectware.merge(target, source...)
+Assigns all enumerable properties on `source` objects to `target`
+recursively.  
+Only plain objects a merged. Refer to
+[`Objectware.isPlainObject`](#Objectware.isPlainObject) for the definition of
+a plain object. Does not modify anything in the source objects.
+
+Think of it as _extending_ the first object step by step with others.
+
+**Examples**:
+```javascript
+var person = {name: "John", attributes: {age: 42}}
+Objectware.merge(person, {attributes: {height: 190}})
+person // => {name: "John", attributes: {age: 42, height: 190}}
 ```
 
 <a name="Objectware.values" />

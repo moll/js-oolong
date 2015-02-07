@@ -187,6 +187,44 @@ exports.mapKeys = function(obj, fn, context) {
 }
 
 /**
+ * Assigns all enumerable properties on `source` objects to `target`
+ * recursively.  
+ * Only plain objects a merged. Refer to
+ * [`Objectware.isPlainObject`](#Objectware.isPlainObject) for the definition of
+ * a plain object. Does not modify anything in the source objects.
+ *
+ * Think of it as _extending_ the first object step by step with others.
+ *
+ * @example
+ * var person = {name: "John", attributes: {age: 42}}
+ * Objectware.merge(person, {attributes: {height: 190}})
+ * person // => {name: "John", attributes: {age: 42, height: 190}}
+ *
+ * @static
+ * @method merge
+ * @param target
+ * @param source...
+ */
+exports.merge = function merge(target) {
+  if (target != null) for (var i = 1; i < arguments.length; ++i) {
+    var source = arguments[i]
+
+    for (var key in source) {
+      var a = target[key]
+      var b = source[key]
+      var aIsObject = exports.isPlainObject(a)
+      var bIsObject = exports.isPlainObject(b)
+
+      if (aIsObject && bIsObject) merge(a, b)
+      else if (bIsObject) target[key] = exports.clone(b)
+      else target[key] = b
+    }
+  }
+
+  return target
+}
+
+/**
  * Returns all enumerable property values as an array.
  *
  * @example
