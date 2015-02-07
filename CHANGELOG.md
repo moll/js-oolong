@@ -1,4 +1,4 @@
-## Unreleased
+## 1.1.0 (Feb 7, 2015)
 - Adds [`Objectware.isPlainObject`][isPlainObject].
 - Adds [`Objectware.merge`][merge].
 
