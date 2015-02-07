@@ -217,7 +217,7 @@ exports.merge = function merge(target) {
       var bIsObject = exports.isPlainObject(b)
 
       if (aIsObject && bIsObject) merge(a, b)
-      else if (bIsObject) target[key] = exports.clone(b)
+      else if (bIsObject) target[key] = merge({}, b)
       else target[key] = b
     }
   }

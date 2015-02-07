@@ -359,6 +359,13 @@ describe("Objectware", function() {
       a.must.eql({attributes: {age: 13}})
     })
 
+    it("must not modify deep second sources objects", function() {
+      var a = {john: {attributes: {age: 13}}}
+      var b = {john: {attributes: {height: 190}}}
+      _.merge({}, a, b)
+      a.must.eql({john: {attributes: {age: 13}}})
+    })
+
     it("must assign non-plain objects directly", function() {
       var date = new Date
       var obj = _.merge({name: "John"}, {date: date})
