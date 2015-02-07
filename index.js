@@ -41,7 +41,7 @@ exports.assign = function(target) {
  * @param object
  */
 exports.clone = function(obj) {
-  return obj ? exports.assign({}, obj) : obj
+  return obj == null ? obj : exports.assign({}, obj)
 }
 
 /**
@@ -57,7 +57,7 @@ exports.clone = function(obj) {
  * @param object
  */
 exports.cloneDeep = function(obj) {
-  return obj ? exports.merge({}, obj) : obj
+  return obj == null ? obj : exports.merge({}, obj)
 }
 
 /**
