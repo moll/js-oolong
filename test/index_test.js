@@ -370,6 +370,11 @@ describe("Objectware", function() {
       obj.must.eql({name: "John", age: 42})
     })
 
+    it("must not assign unenumerable properties", function() {
+      var source = Object.defineProperty({}, "name", {value: "John"})
+      _.merge({}, source).must.eql({})
+    })
+
     it("must assign properties with undefined value", function() {
       _.merge({name: "John"}, {name: undefined}).must.eql({name: undefined})
     })
