@@ -55,6 +55,10 @@ describe("Objectware", function() {
       var source = Object.defineProperty({}, "name", {value: "John"})
       _.assign({}, source).must.eql({})
     })
+
+    it("must assign properties with undefined value", function() {
+      _.assign({name: "John"}, {name: undefined}).must.eql({name: undefined})
+    })
   })
 
   describe(".clone", function() {
@@ -364,6 +368,10 @@ describe("Objectware", function() {
     it("must merge inherited properties", function() {
       var obj = _.merge({name: "John"}, Object.create({age: 42}))
       obj.must.eql({name: "John", age: 42})
+    })
+
+    it("must assign properties with undefined value", function() {
+      _.merge({name: "John"}, {name: undefined}).must.eql({name: undefined})
     })
   })
 
