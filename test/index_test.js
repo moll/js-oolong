@@ -31,11 +31,11 @@ describe("Objectware", function() {
       _.assign(obj, {name: "John"}).must.equal(obj)
     })
 
-    it("must add properties to target from one source", function() {
+    it("must assign properties to target from one source", function() {
       _.assign({}, {name: "John"}).must.eql({name: "John"})
     })
 
-    it("must add properties to target from two sources", function() {
+    it("must assign properties to target from two sources", function() {
       _.assign({}, {name: "John"}, {age: 13}).must.eql({name: "John", age: 13})
     })
 
@@ -47,11 +47,11 @@ describe("Objectware", function() {
       _.assign({name: "John"}).must.eql({name: "John"})
     })
 
-    it("must add properties from inherited sources", function() {
+    it("must assign properties from inherited sources", function() {
       _.assign({}, Object.create({name: "John"})).must.eql({name: "John"})
     })
 
-    it("must not add unenumerable properties", function() {
+    it("must not assign unenumerable properties", function() {
       var source = Object.defineProperty({}, "name", {value: "John"})
       _.assign({}, source).must.eql({})
     })
