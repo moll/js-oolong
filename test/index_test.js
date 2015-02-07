@@ -66,6 +66,10 @@ describe("Objectware", function() {
       demand(_.clone()).be.undefined()
     })
 
+    it("must return undefined given undefined", function() {
+      demand(_.clone(undefined)).be.undefined()
+    })
+
     it("must return null given null", function() {
       demand(_.clone(null)).be.null()
     })
@@ -79,13 +83,15 @@ describe("Objectware", function() {
       _.clone({name: "John", age: 42}).must.eql({name: "John", age: 42})
     })
 
+    it("must assign nested properties", function() {
+      var attrs = {age: 42}
+      var obj = _.clone({name: "John", attrs: attrs})
+      obj.attrs.must.equal(attrs)
+    })
+
     it("must assign functions", function() {
       function fn() {}
       _.clone({fn: fn}).must.eql({fn: fn})
-    })
-
-    it("must not change target given no source", function() {
-      _.clone({name: "John"}).must.eql({name: "John"})
     })
 
     it("must clone properties from inherited sources", function() {
