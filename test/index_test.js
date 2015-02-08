@@ -460,6 +460,38 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".reject", function() {
+    function isEven(value) { return value % 2 == 0 }
+
+    it("must reject properties", function() {
+      _.reject({a: 1, b: 2, c: 3, d: 4}, isEven).must.eql({a: 1, c: 3})
+    })
+
+    it("must reject inherited properties", function() {
+      var obj = Object.create({a: 1, b: 2, c: 3, d: 4})
+      _.reject(obj, isEven).must.eql({a: 1, c: 3})
+    })
+
+    it("must call function with value, key and object", function() {
+      var obj = {name: "John"}
+      var spy = Sinon.spy()
+      var context = {}
+      _.reject(obj, spy, context)
+
+      spy.callCount.must.equal(1)
+      spy.firstCall.args[0].must.equal("John")
+      spy.firstCall.args[1].must.equal("name")
+      spy.firstCall.args[2].must.equal(obj)
+      spy.firstCall.thisValue.must.equal(context)
+    })
+
+    it("must not change the given object", function() {
+      var obj = {name: "John"}
+      _.reject(obj, function() { return true }).must.not.equal(obj)
+      obj.must.eql({name: "John"})
+    })
+  })
+
   describe(".values", function() {
     it("must return all enumerable values of an object", function() {
       _.values({a: 1, b: 2}).must.eql([1, 2])

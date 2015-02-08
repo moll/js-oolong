@@ -258,6 +258,29 @@ exports.merge = function merge(target) {
 }
 
 /**
+ * Rejects all enumerable properties and returns a new object without those
+ * properties for which the given function returned truthy for.  
+ * Opposite of [`filter`](#Objectware.filter).
+ *
+ * The function will be called with arguments `value`, `key` and `object` and
+ * bound to `thisArg`.
+ *
+ * @example
+ * var obj = {a: 1, b: 2, c: 3, d: 4}
+ * Objectware.reject(obj, function(value, key) { return value % 2 == 0 })
+ * // => {a: 1, c: 3}
+ *
+ * @static
+ * @method reject
+ * @param object
+ * @param callback
+ * @param [thisArg]
+ */
+exports.reject = function(obj, fn, context) {
+  return exports.filter(obj, not(fn), context)
+}
+
+/**
  * Returns all enumerable property values as an array.
  *
  * @example
@@ -272,3 +295,5 @@ exports.values = function(obj) {
   for (var key in obj) values.push(obj[key])
   return values
 }
+
+function not(fn) { return function() { return !fn.apply(this, arguments) }}

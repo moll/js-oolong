@@ -12,6 +12,7 @@ Objectware.js API Documentation
 - [map](#Objectware.map)(object, callback, [thisArg])
 - [mapKeys](#Objectware.mapKeys)(object, callback, [thisArg])
 - [merge](#Objectware.merge)(target, source...)
+- [reject](#Objectware.reject)(object, callback, [thisArg])
 - [values](#Objectware.values)(object)
 
 
@@ -164,6 +165,22 @@ Think of it as _extending_ the first object step by step with others.
 var person = {name: "John", attributes: {age: 42}}
 Objectware.merge(person, {attributes: {height: 190}})
 person // => {name: "John", attributes: {age: 42, height: 190}}
+```
+
+<a name="Objectware.reject" />
+### Objectware.reject(object, callback, [thisArg])
+Rejects all enumerable properties and returns a new object without those
+properties for which the given function returned truthy for.  
+Opposite of [`filter`](#Objectware.filter).
+
+The function will be called with arguments `value`, `key` and `object` and
+bound to `thisArg`.
+
+**Examples**:
+```javascript
+var obj = {a: 1, b: 2, c: 3, d: 4}
+Objectware.reject(obj, function(value, key) { return value % 2 == 0 })
+// => {a: 1, c: 3}
 ```
 
 <a name="Objectware.values" />
