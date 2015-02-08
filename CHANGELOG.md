@@ -1,4 +1,4 @@
-## Unreleased
+## 1.3.0 (Feb 8, 2015)
 - Adds [`Objectware.isIn`][isIn].
 
 [isIn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isIn
