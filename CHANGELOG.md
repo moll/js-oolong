@@ -1,3 +1,8 @@
+## Unreleased
+- Adds [`Objectware.isIn`][isIn].
+
+[isIn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isIn
+
 ## 1.2.0 (Feb 7, 2015)
 - Fixes [`Objectware.merge`][merge] to clone plain objects objects
   recursively.  

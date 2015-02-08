@@ -43,6 +43,7 @@ For extended documentation on all functions, please see the
 - [cloneDeep](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.cloneDeep)(object)
 - [filter](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isEmpty)(object)
+- [isIn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isIn)(object, key)
 - [isPlainObject](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isPlainObject)(object)
 - [keys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.keys)(object)
 - [map](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.map)(object, callback, [thisArg])

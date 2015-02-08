@@ -210,6 +210,20 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".isIn", function() {
+    it("must return true if key in object", function() {
+      _.isIn({name: "John"}, "name").must.be.true()
+    })
+
+    it("must return true if key in inherited object", function() {
+      _.isIn(Object.create({name: "John"}), "name").must.be.true()
+    })
+
+    it("must return false if key not in object", function() {
+      _.isIn({}, "name").must.be.false()
+    })
+  })
+
   describe(".isPlainObject", function() {
     it("must return true given an object literal", function() {
       _.isPlainObject({}).must.be.true()

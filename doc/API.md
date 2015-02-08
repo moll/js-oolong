@@ -6,6 +6,7 @@ Objectware.js API Documentation
 - [cloneDeep](#Objectware.cloneDeep)(object)
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](#Objectware.isEmpty)(object)
+- [isIn](#Objectware.isIn)(object, key)
 - [isPlainObject](#Objectware.isPlainObject)(object)
 - [keys](#Objectware.keys)(object)
 - [map](#Objectware.map)(object, callback, [thisArg])
@@ -81,6 +82,16 @@ or not.
 Objectware.isEmpty({name: "John"}) // => false
 Objectware.isEmpty(Object.create({name: "John"})) // => false
 Objectware.isEmpty({}) // => true
+```
+
+<a name="Objectware.isIn" />
+### Objectware.isIn(object, key)
+Checks whether the given object has the given property. Uses `key in obj`.
+
+**Examples**:
+```javascript
+_.isIn({name: "John"}, "name") // => true
+_.isIn({name: "John"}, "age") // => false
 ```
 
 <a name="Objectware.isPlainObject" />

@@ -108,6 +108,22 @@ exports.isEmpty = function(obj) {
 }
 
 /**
+ * Checks whether the given object has the given property. Uses `key in obj`.
+ *
+ * @example
+ * _.isIn({name: "John"}, "name") // => true
+ * _.isIn({name: "John"}, "age") // => false
+ *
+ * @static
+ * @method isIn
+ * @param object
+ * @param key
+ */
+exports.isIn = function(obj, key) {
+  return key in obj
+}
+
+/**
  * Checks whether the given object is one constructed by `Object` or inheriting
  * from `null`.
  *
