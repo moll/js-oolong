@@ -1,3 +1,5 @@
+var hasOwn = Object.prototype.hasOwnProperty
+
 /**
  * @class Objectware
  */
@@ -121,6 +123,23 @@ exports.isEmpty = function(obj) {
  */
 exports.isIn = function(obj, key) {
   return key in obj
+}
+
+/**
+ * Checks whether the given object has any _own_ enumerable properties.
+ *
+ * @example
+ * Objectware.isOwnEmpty({name: "John"}) // => false
+ * Objectware.isOwnEmpty(Object.create({name: "John"})) // => true
+ * Objectware.isOwnEmpty({}) // => true
+ *
+ * @static
+ * @method isOwnEmpty
+ * @param object
+ */
+exports.isOwnEmpty = function(obj) {
+  for (var name in obj) if (hasOwn.call(obj, name)) return false
+  return true
 }
 
 /**

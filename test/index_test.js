@@ -224,6 +224,25 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".isOwnEmpty", function() {
+    it("must return true given an empty object", function() {
+      _.isOwnEmpty({}).must.be.true()
+    })
+
+    it("must return false given an non-empty object", function() {
+      _.isOwnEmpty({name: "John"}).must.be.false()
+    })
+
+    it("must return false given an object with hasOwnProperty", function() {
+      _.isOwnEmpty({hasOwnProperty: 42}).must.be.false()
+    })
+
+    it("must return true given an object with an inherited property",
+      function() {
+      _.isOwnEmpty(Object.create({name: "John"})).must.be.true()
+    })
+  })
+
   describe(".isPlainObject", function() {
     it("must return true given an object literal", function() {
       _.isPlainObject({}).must.be.true()

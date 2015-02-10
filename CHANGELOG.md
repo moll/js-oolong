@@ -1,3 +1,8 @@
+## Unreleased
+- Adds [`Objectware.isOwnEmpty`][isOwnEmpty].
+
+[isOwnEmpty]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isOwnEmpty
+
 ## 1.4.0 (Feb 8, 2015)
 - Adds [`Objectware.reject`][reject].
 

@@ -7,6 +7,7 @@ Objectware.js API Documentation
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [isEmpty](#Objectware.isEmpty)(object)
 - [isIn](#Objectware.isIn)(object, key)
+- [isOwnEmpty](#Objectware.isOwnEmpty)(object)
 - [isPlainObject](#Objectware.isPlainObject)(object)
 - [keys](#Objectware.keys)(object)
 - [map](#Objectware.map)(object, callback, [thisArg])
@@ -93,6 +94,17 @@ Checks whether the given object has the given property. Uses `key in obj`.
 ```javascript
 _.isIn({name: "John"}, "name") // => true
 _.isIn({name: "John"}, "age") // => false
+```
+
+<a name="Objectware.isOwnEmpty" />
+### Objectware.isOwnEmpty(object)
+Checks whether the given object has any _own_ enumerable properties.
+
+**Examples**:
+```javascript
+Objectware.isOwnEmpty({name: "John"}) // => false
+Objectware.isOwnEmpty(Object.create({name: "John"})) // => true
+Objectware.isOwnEmpty({}) // => true
 ```
 
 <a name="Objectware.isPlainObject" />
