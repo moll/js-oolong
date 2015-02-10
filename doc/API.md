@@ -6,6 +6,7 @@ Objectware.js API Documentation
 - [cloneDeep](#Objectware.cloneDeep)(object)
 - [each](#Objectware.each)(object, callback, [thisArg])
 - [filter](#Objectware.filter)(object, callback, [thisArg])
+- [forEach](#Objectware.forEach)(object, callback, [thisArg])
 - [has](#Objectware.has)(object, name)
 - [hasOwn](#Objectware.hasOwn)(object, name)
 - [isEmpty](#Objectware.isEmpty)(object)
@@ -90,6 +91,10 @@ var obj = {a: 1, b: 2, c: 3, d: 4}
 Objectware.filter(obj, function(value, key) { return value % 2 == 0 })
 // => {b: 2, d: 4}
 ```
+
+<a name="Objectware.forEach" />
+### Objectware.forEach(object, callback, [thisArg])
+Alias of [`each`](#Objectware.each).  
 
 <a name="Objectware.has" />
 ### Objectware.has(object, name)

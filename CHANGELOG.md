@@ -3,11 +3,13 @@
 - Adds [`Objectware.has`][has].
 - Adds [`Objectware.hasOwn`][hasOwn].
 - Adds [`Objectware.each`][each].
+- Adds [`Objectware.forEach`][forEach].
 
 [isOwnEmpty]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isOwnEmpty
 [has]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.has
 [hasOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.hasOwn
 [each]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.each
+[forEach]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.forEach
 
 ## 1.4.0 (Feb 8, 2015)
 - Adds [`Objectware.reject`][reject].

@@ -247,6 +247,12 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".forEach", function() {
+    it("must be an alias to .each", function() {
+      _.forEach.must.equal(_.each)
+    })
+  })
+
   describe(".has", function() {
     it("must return false given an object without property", function() {
       _.has({}, "name").must.be.false()
