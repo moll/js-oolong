@@ -132,10 +132,10 @@ exports.forEach = exports.each
  * @static
  * @method has
  * @param object
- * @param name
+ * @param key
  */
-exports.has = function(obj, name) {
-  return name in obj
+exports.has = function(obj, key) {
+  return key in obj
 }
 
 /**
@@ -150,10 +150,10 @@ exports.has = function(obj, name) {
  * @static
  * @method hasOwn
  * @param object
- * @param name
+ * @param key
  */
-exports.hasOwn = function(obj, name) {
-  return hasOwn.call(obj, name)
+exports.hasOwn = function(obj, key) {
+  return hasOwn.call(obj, key)
 }
 
 /**
@@ -203,7 +203,7 @@ exports.isIn = function(obj, key) {
  * @param object
  */
 exports.isOwnEmpty = function(obj) {
-  for (var name in obj) if (hasOwn.call(obj, name)) return false
+  for (var key in obj) if (hasOwn.call(obj, key)) return false
   return true
 }
 

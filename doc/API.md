@@ -7,8 +7,8 @@ Objectware.js API Documentation
 - [each](#Objectware.each)(object, callback, [thisArg])
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [forEach](#Objectware.forEach)(object, callback, [thisArg])
-- [has](#Objectware.has)(object, name)
-- [hasOwn](#Objectware.hasOwn)(object, name)
+- [has](#Objectware.has)(object, key)
+- [hasOwn](#Objectware.hasOwn)(object, key)
 - [isEmpty](#Objectware.isEmpty)(object)
 - [isIn](#Objectware.isIn)(object, key)
 - [isOwnEmpty](#Objectware.isOwnEmpty)(object)
@@ -97,7 +97,7 @@ Objectware.filter(obj, function(value, key) { return value % 2 == 0 })
 Alias of [`each`](#Objectware.each).  
 
 <a name="Objectware.has" />
-### Objectware.has(object, name)
+### Objectware.has(object, key)
 Checks whether the given object has the given property, inherited or not.  
 Given a set, but `undefined` property will still return `true`.
 
@@ -109,7 +109,7 @@ Objectware.has({}, "name") // => false
 ```
 
 <a name="Objectware.hasOwn" />
-### Objectware.hasOwn(object, name)
+### Objectware.hasOwn(object, key)
 Checks whether the given object has the given property as an own property.  
 Given a set, but `undefined` property will still return `true`.
 
