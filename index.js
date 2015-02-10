@@ -206,20 +206,11 @@ exports.isEmpty = function(obj) {
 }
 
 /**
- * Checks whether the given object has the given property. Uses `key in obj`.
- *
- * @example
- * _.isIn({name: "John"}, "name") // => true
- * _.isIn({name: "John"}, "age") // => false
- *
  * @static
  * @method isIn
- * @param object
- * @param key
+ * @alias has
  */
-exports.isIn = function(obj, key) {
-  return key in obj
-}
+exports.isIn = exports.has
 
 /**
  * Checks whether the given object has any _own_ enumerable properties.

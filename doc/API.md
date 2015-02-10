@@ -154,13 +154,7 @@ Objectware.isEmpty({}) // => true
 
 <a name="Objectware.isIn" />
 ### Objectware.isIn(object, key)
-Checks whether the given object has the given property. Uses `key in obj`.
-
-**Examples**:
-```javascript
-_.isIn({name: "John"}, "name") // => true
-_.isIn({name: "John"}, "age") // => false
-```
+Alias of [`has`](#Objectware.has).  
 
 <a name="Objectware.isOwnEmpty" />
 ### Objectware.isOwnEmpty(object)

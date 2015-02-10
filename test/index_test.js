@@ -361,16 +361,8 @@ describe("Objectware", function() {
   })
 
   describe(".isIn", function() {
-    it("must return true if key in object", function() {
-      _.isIn({name: "John"}, "name").must.be.true()
-    })
-
-    it("must return true if key in inherited object", function() {
-      _.isIn(Object.create({name: "John"}), "name").must.be.true()
-    })
-
-    it("must return false if key not in object", function() {
-      _.isIn({}, "name").must.be.false()
+    it("must be an alias to .has", function() {
+      _.isIn.must.equal(_.has)
     })
   })
 
