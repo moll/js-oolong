@@ -1,4 +1,4 @@
-## Unreleased
+## 1.5.0 (Feb 10, 2015)
 - Adds [`Objectware.each`][each].
 - Adds [`Objectware.eachOwn`][eachOwn].
 - Adds [`Objectware.forEach`][forEach].

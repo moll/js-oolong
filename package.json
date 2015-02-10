@@ -1,6 +1,6 @@
 {
 	"name": "objectware",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"description": "Utilities for objects. Simple, tasteful and plentiful. Supports inherited properties.",
 	"keywords": [
 		"functional",
