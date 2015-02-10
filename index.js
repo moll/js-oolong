@@ -71,7 +71,7 @@ exports.cloneDeep = function(obj) {
  *
  * @example
  * var obj = {name: "John", age: 42}
- * Objectware.each(obj, function(val, key) { console.log("%s=%s", key, val) })
+ * Objectware.each(obj, function(val, key) { console.log(key + "=" + val) })
  *
  * @static
  * @method each
@@ -81,6 +81,30 @@ exports.cloneDeep = function(obj) {
  */
 exports.each = function(obj, fn, context) {
   for (var key in obj) fn.call(context, obj[key], key, obj)
+  return obj
+}
+
+/**
+ * Calls the given function for all _own_ enumerable properties.  
+ * Returns the given object.
+ *
+ * The function will be called with arguments `value`, `key` and `object` and
+ * bound to `thisArg`.
+ *
+ * @example
+ * var obj = {name: "John", age: 42}
+ * Objectware.eachOwn(obj, function(val, key) { console.log(key + "=" + val) })
+ *
+ * @static
+ * @method eachOwn
+ * @param object
+ * @param callback
+ * @param [thisArg]
+ */
+exports.eachOwn = function(obj, fn, context) {
+  for (var key in obj)
+    if (hasOwn.call(obj, key)) fn.call(context, obj[key], key, obj)
+
   return obj
 }
 
