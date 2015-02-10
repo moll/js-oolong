@@ -213,6 +213,13 @@ exports.isEmpty = function(obj) {
 exports.isIn = exports.has
 
 /**
+ * @static
+ * @method isInOwn
+ * @alias hasOwn
+ */
+exports.isInOwn = exports.hasOwn
+
+/**
  * Checks whether the given object has any _own_ enumerable properties.
  *
  * @example

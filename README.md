@@ -50,6 +50,7 @@ For extended documentation on all functions, please see the
 - [hasOwn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.hasOwn)(object, key)
 - [isEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isEmpty)(object)
 - [isIn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isIn)(object, key)
+- [isInOwn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isInOwn)(object, key)
 - [isOwnEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isOwnEmpty)(object)
 - [isPlainObject](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isPlainObject)(object)
 - [keys](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.keys)(object)

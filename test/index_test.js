@@ -366,6 +366,12 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".isInOwn", function() {
+    it("must be an alias to .hasOwn", function() {
+      _.isInOwn.must.equal(_.hasOwn)
+    })
+  })
+
   describe(".isOwnEmpty", function() {
     it("must return true given an empty object", function() {
       _.isOwnEmpty({}).must.be.true()

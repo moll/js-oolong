@@ -13,6 +13,7 @@ Objectware.js API Documentation
 - [hasOwn](#Objectware.hasOwn)(object, key)
 - [isEmpty](#Objectware.isEmpty)(object)
 - [isIn](#Objectware.isIn)(object, key)
+- [isInOwn](#Objectware.isInOwn)(object, key)
 - [isOwnEmpty](#Objectware.isOwnEmpty)(object)
 - [isPlainObject](#Objectware.isPlainObject)(object)
 - [keys](#Objectware.keys)(object)
@@ -155,6 +156,10 @@ Objectware.isEmpty({}) // => true
 <a name="Objectware.isIn" />
 ### Objectware.isIn(object, key)
 Alias of [`has`](#Objectware.has).  
+
+<a name="Objectware.isInOwn" />
+### Objectware.isInOwn(object, key)
+Alias of [`hasOwn`](#Objectware.hasOwn).  
 
 <a name="Objectware.isOwnEmpty" />
 ### Objectware.isOwnEmpty(object)
