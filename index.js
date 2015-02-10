@@ -92,6 +92,24 @@ exports.filter = function(obj, fn, context) {
 }
 
 /**
+ * Checks whether the given object has the given property, inherited or not.  
+ * Given a set, but `undefined` property will still return `true`.
+ *
+ * @example
+ * Objectware.has({name: "John"}) // => true
+ * Objectware.has(Object.create({name: "John"}), "name") // => true
+ * Objectware.has({}, "name") // => false
+ *
+ * @static
+ * @method has
+ * @param object
+ * @param name
+ */
+exports.has = function(obj, name) {
+  return name in obj
+}
+
+/**
  * Checks whether the given object has any enumerable properties, inherited
  * or not.
  *

@@ -5,6 +5,7 @@ Objectware.js API Documentation
 - [clone](#Objectware.clone)(object)
 - [cloneDeep](#Objectware.cloneDeep)(object)
 - [filter](#Objectware.filter)(object, callback, [thisArg])
+- [has](#Objectware.has)(object, name)
 - [isEmpty](#Objectware.isEmpty)(object)
 - [isIn](#Objectware.isIn)(object, key)
 - [isOwnEmpty](#Objectware.isOwnEmpty)(object)
@@ -72,6 +73,18 @@ bound to `thisArg`.
 var obj = {a: 1, b: 2, c: 3, d: 4}
 Objectware.filter(obj, function(value, key) { return value % 2 == 0 })
 // => {b: 2, d: 4}
+```
+
+<a name="Objectware.has" />
+### Objectware.has(object, name)
+Checks whether the given object has the given property, inherited or not.  
+Given a set, but `undefined` property will still return `true`.
+
+**Examples**:
+```javascript
+Objectware.has({name: "John"}) // => true
+Objectware.has(Object.create({name: "John"}), "name") // => true
+Objectware.has({}, "name") // => false
 ```
 
 <a name="Objectware.isEmpty" />
