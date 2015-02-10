@@ -7,6 +7,7 @@
 - Adds [`Objectware.hasOwn`][hasOwn].
 - Adds [`Objectware.isInOwn`][isInOwn].
 - Adds [`Objectware.isOwnEmpty`][isOwnEmpty].
+- Adds [`Objectware.ownKeys`][ownKeys].
 
 [each]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.each
 [eachOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.eachOwn
@@ -16,6 +17,7 @@
 [hasOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.hasOwn
 [isInOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isInOwn
 [isOwnEmpty]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isOwnEmpty
+[ownKeys]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.ownKeys
 
 ## 1.4.0 (Feb 8, 2015)
 - Adds [`Objectware.reject`][reject].

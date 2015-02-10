@@ -371,6 +371,21 @@ exports.merge = function merge(target) {
 }
 
 /**
+ * Returns all enumerable _own_ keys of an object as an array.  
+ * Same as `Object.keys`, really.
+ *
+ * @example
+ * var person = Object.create({name: "John"})
+ * person.age = 42
+ * Objectware.ownKeys(person) // => ["age"]
+ *
+ * @static
+ * @method ownKeys
+ * @param object
+ */
+exports.ownKeys = Object.keys
+
+/**
  * Rejects all enumerable properties and returns a new object without those
  * properties for which the given function returned truthy for.  
  * Opposite of [`filter`](#Objectware.filter).

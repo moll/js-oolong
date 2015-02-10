@@ -627,6 +627,18 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".ownKeys", function() {
+    it("must return all enumerable keys of an object", function() {
+      _.ownKeys({a: 1, b: 2}).must.eql(["a", "b"])
+    })
+
+    it("must not return inherited enumerable keys of an object", function() {
+      var obj = Object.create({a: 1})
+      obj.b = 2
+      _.ownKeys(obj).must.eql(["b"])
+    })
+  })
+
   describe(".reject", function() {
     function isEven(value) { return value % 2 == 0 }
 

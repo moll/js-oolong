@@ -20,6 +20,7 @@ Objectware.js API Documentation
 - [map](#Objectware.map)(object, callback, [thisArg])
 - [mapKeys](#Objectware.mapKeys)(object, callback, [thisArg])
 - [merge](#Objectware.merge)(target, source...)
+- [ownKeys](#Objectware.ownKeys)(object)
 - [reject](#Objectware.reject)(object, callback, [thisArg])
 - [values](#Objectware.values)(object)
 
@@ -242,6 +243,18 @@ Think of it as _extending_ the first object step by step with others.
 var person = {name: "John", attributes: {age: 42}}
 Objectware.merge(person, {attributes: {height: 190}})
 person // => {name: "John", attributes: {age: 42, height: 190}}
+```
+
+<a name="Objectware.ownKeys" />
+### Objectware.ownKeys(object)
+Returns all enumerable _own_ keys of an object as an array.  
+Same as `Object.keys`, really.
+
+**Examples**:
+```javascript
+var person = Object.create({name: "John"})
+person.age = 42
+Objectware.ownKeys(person) // => ["age"]
 ```
 
 <a name="Objectware.reject" />
