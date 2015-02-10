@@ -63,6 +63,28 @@ exports.cloneDeep = function(obj) {
 }
 
 /**
+ * Calls the given function for all enumerable properties.  
+ * Returns the given object.
+ *
+ * The function will be called with arguments `value`, `key` and `object` and
+ * bound to `thisArg`.
+ *
+ * @example
+ * var obj = {name: "John", age: 42}
+ * Objectware.each(obj, function(val, key) { console.log("%s=%s", key, val) })
+ *
+ * @static
+ * @method each
+ * @param object
+ * @param callback
+ * @param [thisArg]
+ */
+exports.each = function(obj, fn, context) {
+  for (var key in obj) fn.call(context, obj[key], key, obj)
+  return obj
+}
+
+/**
  * Filters all enumerable properties and returns a new object with only those
  * properties for which the given function returned truthy for.
  *

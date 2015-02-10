@@ -4,6 +4,7 @@ Objectware.js API Documentation
 - [assign](#Objectware.assign)(target, source...)
 - [clone](#Objectware.clone)(object)
 - [cloneDeep](#Objectware.cloneDeep)(object)
+- [each](#Objectware.each)(object, callback, [thisArg])
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [has](#Objectware.has)(object, name)
 - [hasOwn](#Objectware.hasOwn)(object, name)
@@ -59,6 +60,20 @@ into account.
 ```javascript
 Objectware.cloneDeep({name: "John", attributes: {age: 42}})
 // => {name: "John", attributes: {age: 42}}
+```
+
+<a name="Objectware.each" />
+### Objectware.each(object, callback, [thisArg])
+Calls the given function for all enumerable properties.  
+Returns the given object.
+
+The function will be called with arguments `value`, `key` and `object` and
+bound to `thisArg`.
+
+**Examples**:
+```javascript
+var obj = {name: "John", age: 42}
+Objectware.each(obj, function(val, key) { console.log("%s=%s", key, val) })
 ```
 
 <a name="Objectware.filter" />

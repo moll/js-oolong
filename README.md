@@ -41,6 +41,7 @@ For extended documentation on all functions, please see the
 - [assign](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.assign)(target, source...)
 - [clone](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.clone)(object)
 - [cloneDeep](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.cloneDeep)(object)
+- [each](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.each)(object, callback, [thisArg])
 - [filter](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.filter)(object, callback, [thisArg])
 - [has](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.has)(object, name)
 - [hasOwn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.hasOwn)(object, name)
