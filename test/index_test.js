@@ -374,7 +374,7 @@ describe("Objectware", function() {
     })
 
     it("must return false given a number", function() {
-      _.isPlainObject(function() {}).must.be.false()
+      _.isPlainObject(noop).must.be.false()
     })
 
     it("must return false given a string", function() {
@@ -382,7 +382,7 @@ describe("Objectware", function() {
     })
 
     it("must return false given a function", function() {
-      _.isPlainObject(function() {}).must.be.false()
+      _.isPlainObject(noop).must.be.false()
     })
 
     it("must return false given a regular expression", function() {
