@@ -301,6 +301,12 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".forEachOwn", function() {
+    it("must be an alias to .eachOwn", function() {
+      _.forEachOwn.must.equal(_.eachOwn)
+    })
+  })
+
   describe(".has", function() {
     it("must return false given an object without property", function() {
       _.has({}, "name").must.be.false()

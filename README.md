@@ -45,6 +45,7 @@ For extended documentation on all functions, please see the
 - [eachOwn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.eachOwn)(object, callback, [thisArg])
 - [filter](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.filter)(object, callback, [thisArg])
 - [forEach](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.forEach)(object, callback, [thisArg])
+- [forEachOwn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.forEachOwn)(object, callback, [thisArg])
 - [has](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.has)(object, key)
 - [hasOwn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.hasOwn)(object, key)
 - [isEmpty](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isEmpty)(object)

@@ -8,6 +8,7 @@ Objectware.js API Documentation
 - [eachOwn](#Objectware.eachOwn)(object, callback, [thisArg])
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [forEach](#Objectware.forEach)(object, callback, [thisArg])
+- [forEachOwn](#Objectware.forEachOwn)(object, callback, [thisArg])
 - [has](#Objectware.has)(object, key)
 - [hasOwn](#Objectware.hasOwn)(object, key)
 - [isEmpty](#Objectware.isEmpty)(object)
@@ -110,6 +111,10 @@ Objectware.filter(obj, function(value, key) { return value % 2 == 0 })
 <a name="Objectware.forEach" />
 ### Objectware.forEach(object, callback, [thisArg])
 Alias of [`each`](#Objectware.each).  
+
+<a name="Objectware.forEachOwn" />
+### Objectware.forEachOwn(object, callback, [thisArg])
+Alias of [`eachOwn`](#Objectware.eachOwn).  
 
 <a name="Objectware.has" />
 ### Objectware.has(object, key)

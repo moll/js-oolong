@@ -145,6 +145,13 @@ exports.filter = function(obj, fn, context) {
 exports.forEach = exports.each
 
 /**
+ * @static
+ * @method forEachOwn
+ * @alias eachOwn
+ */
+exports.forEachOwn = exports.eachOwn
+
+/**
  * Checks whether the given object has the given property, inherited or not.  
  * Given a set, but `undefined` property will still return `true`.
  *
