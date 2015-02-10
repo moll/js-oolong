@@ -1,21 +1,21 @@
 ## Unreleased
-- Adds [`Objectware.isOwnEmpty`][isOwnEmpty].
+- Adds [`Objectware.each`][each].
+- Adds [`Objectware.eachOwn`][eachOwn].
+- Adds [`Objectware.forEach`][forEach].
+- Adds [`Objectware.forEachOwn`][forEachOwn].
 - Adds [`Objectware.has`][has].
 - Adds [`Objectware.hasOwn`][hasOwn].
-- Adds [`Objectware.each`][each].
-- Adds [`Objectware.forEach`][forEach].
-- Adds [`Objectware.eachOwn`][eachOwn].
-- Adds [`Objectware.forEachOwn`][forEachOwn].
 - Adds [`Objectware.isInOwn`][isInOwn].
+- Adds [`Objectware.isOwnEmpty`][isOwnEmpty].
 
-[isOwnEmpty]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isOwnEmpty
+[each]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.each
+[eachOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.eachOwn
+[forEach]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.forEach
+[forEachOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.forEachOwn
 [has]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.has
 [hasOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.hasOwn
-[each]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.each
-[forEach]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.forEach
-[eachOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.eachOwn
-[forEachOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.forEachOwn
 [isInOwn]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isInOwn
+[isOwnEmpty]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.isOwnEmpty
 
 ## 1.4.0 (Feb 8, 2015)
 - Adds [`Objectware.reject`][reject].
