@@ -6,6 +6,7 @@ Objectware.js API Documentation
 - [cloneDeep](#Objectware.cloneDeep)(object)
 - [filter](#Objectware.filter)(object, callback, [thisArg])
 - [has](#Objectware.has)(object, name)
+- [hasOwn](#Objectware.hasOwn)(object, name)
 - [isEmpty](#Objectware.isEmpty)(object)
 - [isIn](#Objectware.isIn)(object, key)
 - [isOwnEmpty](#Objectware.isOwnEmpty)(object)
@@ -85,6 +86,18 @@ Given a set, but `undefined` property will still return `true`.
 Objectware.has({name: "John"}) // => true
 Objectware.has(Object.create({name: "John"}), "name") // => true
 Objectware.has({}, "name") // => false
+```
+
+<a name="Objectware.hasOwn" />
+### Objectware.hasOwn(object, name)
+Checks whether the given object has the given property as an own property.  
+Given a set, but `undefined` property will still return `true`.
+
+**Examples**:
+```javascript
+Objectware.hasOwn({name: "John"}) // => true
+Objectware.hasOwn(Object.create({name: "John"}), "name") // => false
+Objectware.hasOwn({}, "name") // => false
 ```
 
 <a name="Objectware.isEmpty" />

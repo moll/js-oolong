@@ -110,6 +110,24 @@ exports.has = function(obj, name) {
 }
 
 /**
+ * Checks whether the given object has the given property as an own property.  
+ * Given a set, but `undefined` property will still return `true`.
+ *
+ * @example
+ * Objectware.hasOwn({name: "John"}) // => true
+ * Objectware.hasOwn(Object.create({name: "John"}), "name") // => false
+ * Objectware.hasOwn({}, "name") // => false
+ *
+ * @static
+ * @method hasOwn
+ * @param object
+ * @param name
+ */
+exports.hasOwn = function(obj, name) {
+  return hasOwn.call(obj, name)
+}
+
+/**
  * Checks whether the given object has any enumerable properties, inherited
  * or not.
  *

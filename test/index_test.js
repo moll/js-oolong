@@ -214,6 +214,25 @@ describe("Objectware", function() {
     })
   })
 
+  describe(".hasOwn", function() {
+    it("must return false given an object without property", function() {
+      _.hasOwn({}, "name").must.be.false()
+    })
+
+    it("must return true given an object with property", function() {
+      _.hasOwn({"name": "John"}, "name").must.be.true()
+    })
+
+    it("must return true given a property set undefined", function() {
+      _.hasOwn({"name": undefined}, "name").must.be.true()
+    })
+
+    it("must return false given an object with an inherited property",
+      function() {
+      _.hasOwn(Object.create({name: "John"}), "name").must.be.false()
+    })
+  })
+
   describe(".isEmpty", function() {
     it("must return true given an empty object", function() {
       _.isEmpty({}).must.be.true()
