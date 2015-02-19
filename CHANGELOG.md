@@ -1,4 +1,4 @@
-## Unreleased
+## 1.6.0 (Feb 19, 2015)
 - Adds [`Objectware.create`][create].
 - Adds [`Objectware.defaults`][defaults].
 
