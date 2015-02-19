@@ -5,6 +5,7 @@ Objectware.js API Documentation
 - [clone](#Objectware.clone)(object)
 - [cloneDeep](#Objectware.cloneDeep)(object)
 - [create](#Objectware.create)(prototype, [source...])
+- [defaults](#Objectware.defaults)(target, source...)
 - [each](#Objectware.each)(object, callback, [thisArg])
 - [eachOwn](#Objectware.eachOwn)(object, callback, [thisArg])
 - [filter](#Objectware.filter)(object, callback, [thisArg])
@@ -35,7 +36,8 @@ Objectware
 ### Objectware.assign(target, source...)
 Assigns all enumerable properties on `source` objects to `target`.  
 Similar to `Object.assign`, but takes inherited properties into account.
-Does not modify anything in the source objects.
+Does not modify anything in the source objects.  
+Returns `target`.
 
 Think of it as _extending_ the first object step by step with others.
 
@@ -81,6 +83,26 @@ Does not modify the given `prototype` nor source objects.
 var PERSON = {name: "Unknown", age: 0}
 Objectware.create(PERSON, {name: "John"}, {shirt: "blue"})
 // => {name: "John", age: 0, shirt: "blue"}
+```
+
+<a name="Objectware.defaults" />
+### Objectware.defaults(target, source...)
+Assigns all enumerable properties on `source` objects to `target` that the
+`target` already _doesn't_ have. Uses `key in obj` to check for existence.  
+Does not modify anything in the source objects.  
+Returns `target`.
+
+Note that because **inherited properties** on `target` are checked, any
+property that exists on `Object.prototype` (e.g. `toString`, `valueOf`)
+will be skipped. Usually that's not a problem, but if you want to use
+`Objectware.defaults` for hashmaps/dictionaries with unknown keys, ensure
+`target` inherits from `null` instead (use `Object.create(null)`).
+
+**Examples**:
+```javascript
+var PERSON = {name: "Unknown", age: 0, shirt: "blue"}
+Objectware.defaults({name: "John", age: 42}, PERSON)
+// => {name: "John", age: 42, shirt: "blue"}
 ```
 
 <a name="Objectware.each" />

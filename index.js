@@ -86,6 +86,37 @@ exports.create = function(obj) {
 }
 
 /**
+ * Assigns all enumerable properties on `source` objects to `target` that the
+ * `target` already _doesn't_ have. Uses `key in obj` to check for existence.  
+ * Does not modify anything in the source objects.  
+ * Returns `target`.
+ *
+ * Note that because **inherited properties** on `target` are checked, any
+ * property that exists on `Object.prototype` (e.g. `toString`, `valueOf`)
+ * will be skipped. Usually that's not a problem, but if you want to use
+ * `Objectware.defaults` for hashmaps/dictionaries with unknown keys, ensure
+ * `target` inherits from `null` instead (use `Object.create(null)`).
+ *
+ * @example
+ * var PERSON = {name: "Unknown", age: 0, shirt: "blue"}
+ * Objectware.defaults({name: "John", age: 42}, PERSON)
+ * // => {name: "John", age: 42, shirt: "blue"}
+ *
+ * @static
+ * @method defaults
+ * @param target
+ * @param source...
+ */
+exports.defaults = function(target) {
+  if (target != null) for (var i = 1; i < arguments.length; ++i) {
+    var source = arguments[i]
+    for (var key in source) if (!(key in target)) target[key] = source[key]
+  }
+
+  return target
+}
+
+/**
  * Calls the given function for all enumerable properties.  
  * Returns the given object.
  *
