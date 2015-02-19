@@ -41,6 +41,7 @@ For extended documentation on all functions, please see the
 - [assign](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.assign)(target, source...)
 - [clone](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.clone)(object)
 - [cloneDeep](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.cloneDeep)(object)
+- [create](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.create)(prototype, [source...])
 - [each](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.each)(object, callback, [thisArg])
 - [eachOwn](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.eachOwn)(object, callback, [thisArg])
 - [filter](https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.filter)(object, callback, [thisArg])

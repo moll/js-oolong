@@ -1,3 +1,8 @@
+## Unreleased
+- Adds [`Objectware.create`][create].
+
+[create]: https://github.com/moll/js-objectware/blob/master/doc/API.md#Objectware.create
+
 ## 1.5.0 (Feb 10, 2015)
 - Adds [`Objectware.each`][each].
 - Adds [`Objectware.eachOwn`][eachOwn].

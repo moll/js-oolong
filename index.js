@@ -63,6 +63,28 @@ exports.cloneDeep = function(obj) {
 }
 
 /**
+ * Creates and returns an object inheriting from `prototype` and, optionally,
+ * assigns enumerable properties from `source` objects to the new object.  
+ * Uses `Object.create` and [`Objectware.assign`](#Objectware.assign)
+ * internally.  
+ * Does not modify the given `prototype` nor source objects.
+ *
+ * @example
+ * var PERSON = {name: "Unknown", age: 0}
+ * Objectware.create(PERSON, {name: "John"}, {shirt: "blue"})
+ * // => {name: "John", age: 0, shirt: "blue"}
+ *
+ * @static
+ * @method create
+ * @param prototype
+ * @param [source...]
+ */
+exports.create = function(obj) {
+  obj = Object.create(obj)
+  return arguments.length == 1 ? obj : exports.assign.apply(this, arguments)
+}
+
+/**
  * Calls the given function for all enumerable properties.  
  * Returns the given object.
  *

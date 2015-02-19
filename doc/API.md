@@ -4,6 +4,7 @@ Objectware.js API Documentation
 - [assign](#Objectware.assign)(target, source...)
 - [clone](#Objectware.clone)(object)
 - [cloneDeep](#Objectware.cloneDeep)(object)
+- [create](#Objectware.create)(prototype, [source...])
 - [each](#Objectware.each)(object, callback, [thisArg])
 - [eachOwn](#Objectware.eachOwn)(object, callback, [thisArg])
 - [filter](#Objectware.filter)(object, callback, [thisArg])
@@ -65,6 +66,21 @@ into account.
 ```javascript
 Objectware.cloneDeep({name: "John", attributes: {age: 42}})
 // => {name: "John", attributes: {age: 42}}
+```
+
+<a name="Objectware.create" />
+### Objectware.create(prototype, [source...])
+Creates and returns an object inheriting from `prototype` and, optionally,
+assigns enumerable properties from `source` objects to the new object.  
+Uses `Object.create` and [`Objectware.assign`](#Objectware.assign)
+internally.  
+Does not modify the given `prototype` nor source objects.
+
+**Examples**:
+```javascript
+var PERSON = {name: "Unknown", age: 0}
+Objectware.create(PERSON, {name: "John"}, {shirt: "blue"})
+// => {name: "John", age: 0, shirt: "blue"}
 ```
 
 <a name="Objectware.each" />
