@@ -3,7 +3,7 @@ TEST_OPTS =
 
 # NOTE: Sorry, mocumentation is not yet published.
 MOCUMENT = ~/Documents/Mocumentation/bin/mocument
-MOCUMENT_OPTS = --type yui --title Objectware.js --priority SquareBatman
+MOCUMENT_OPTS = --type yui --title Objectware.js
 GITHUB_URL = https://github.com/moll/js-objectware
 
 love:
