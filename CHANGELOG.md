@@ -1,4 +1,4 @@
-## Unreleased
+## 1.7.0 (Apr 15, 2015)
 - Renames Objectware to Oolong.
 
 ## 1.6.0 (Feb 19, 2015)
