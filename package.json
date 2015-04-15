@@ -1,5 +1,5 @@
 {
-	"name": "objectware",
+	"name": "oolong",
 	"version": "1.6.0",
 	"description": "Utilities for objects. Simple, tasteful and plentiful. Supports inherited properties.",
 	"keywords": [
@@ -7,8 +7,8 @@
 		"underscore",
 		"util"
 	],
-	"homepage": "https://github.com/moll/js-objectware",
-	"bugs": "https://github.com/moll/js-objectware/issues",
+	"homepage": "https://github.com/moll/js-oolong",
+	"bugs": "https://github.com/moll/js-oolong/issues",
 
 	"author": {
 		"name": "Andri Möll",
@@ -18,12 +18,12 @@
 
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/moll/js-objectware.git"
+		"url": "git://github.com/moll/js-oolong.git"
 	},
 
 	"licenses": [{
 		"type": "LAGPL",
-		"url": "https://github.com/moll/js-objectware/blob/master/LICENSE"
+		"url": "https://github.com/moll/js-oolong/blob/master/LICENSE"
 	}],
 
 	"main": "index.js",

@@ -3,8 +3,8 @@ TEST_OPTS =
 
 # NOTE: Sorry, mocumentation is not yet published.
 MOCUMENT = ~/Documents/Mocumentation/bin/mocument
-MOCUMENT_OPTS = --type yui --title Objectware.js
-GITHUB_URL = https://github.com/moll/js-objectware
+MOCUMENT_OPTS = --type yui --title Oolong.js
+GITHUB_URL = https://github.com/moll/js-oolong
 
 love:
 	@echo "Feel like makin' love."

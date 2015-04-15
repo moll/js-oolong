@@ -1,39 +1,39 @@
-Objectware.js API Documentation
-===============================
-### [Objectware](#Objectware)
-- [assign](#Objectware.assign)(target, source...)
-- [clone](#Objectware.clone)(object)
-- [cloneDeep](#Objectware.cloneDeep)(object)
-- [create](#Objectware.create)(prototype, [source...])
-- [defaults](#Objectware.defaults)(target, source...)
-- [each](#Objectware.each)(object, callback, [thisArg])
-- [eachOwn](#Objectware.eachOwn)(object, callback, [thisArg])
-- [filter](#Objectware.filter)(object, callback, [thisArg])
-- [forEach](#Objectware.forEach)(object, callback, [thisArg])
-- [forEachOwn](#Objectware.forEachOwn)(object, callback, [thisArg])
-- [has](#Objectware.has)(object, key)
-- [hasOwn](#Objectware.hasOwn)(object, key)
-- [isEmpty](#Objectware.isEmpty)(object)
-- [isIn](#Objectware.isIn)(object, key)
-- [isInOwn](#Objectware.isInOwn)(object, key)
-- [isOwnEmpty](#Objectware.isOwnEmpty)(object)
-- [isPlainObject](#Objectware.isPlainObject)(object)
-- [keys](#Objectware.keys)(object)
-- [map](#Objectware.map)(object, callback, [thisArg])
-- [mapKeys](#Objectware.mapKeys)(object, callback, [thisArg])
-- [merge](#Objectware.merge)(target, source...)
-- [ownKeys](#Objectware.ownKeys)(object)
-- [reject](#Objectware.reject)(object, callback, [thisArg])
-- [values](#Objectware.values)(object)
+Oolong.js API Documentation
+===========================
+### [Oolong](#Oolong)
+- [assign](#Oolong.assign)(target, source...)
+- [clone](#Oolong.clone)(object)
+- [cloneDeep](#Oolong.cloneDeep)(object)
+- [create](#Oolong.create)(prototype, [source...])
+- [defaults](#Oolong.defaults)(target, source...)
+- [each](#Oolong.each)(object, callback, [thisArg])
+- [eachOwn](#Oolong.eachOwn)(object, callback, [thisArg])
+- [filter](#Oolong.filter)(object, callback, [thisArg])
+- [forEach](#Oolong.forEach)(object, callback, [thisArg])
+- [forEachOwn](#Oolong.forEachOwn)(object, callback, [thisArg])
+- [has](#Oolong.has)(object, key)
+- [hasOwn](#Oolong.hasOwn)(object, key)
+- [isEmpty](#Oolong.isEmpty)(object)
+- [isIn](#Oolong.isIn)(object, key)
+- [isInOwn](#Oolong.isInOwn)(object, key)
+- [isOwnEmpty](#Oolong.isOwnEmpty)(object)
+- [isPlainObject](#Oolong.isPlainObject)(object)
+- [keys](#Oolong.keys)(object)
+- [map](#Oolong.map)(object, callback, [thisArg])
+- [mapKeys](#Oolong.mapKeys)(object, callback, [thisArg])
+- [merge](#Oolong.merge)(target, source...)
+- [ownKeys](#Oolong.ownKeys)(object)
+- [reject](#Oolong.reject)(object, callback, [thisArg])
+- [values](#Oolong.values)(object)
 
 
-<a name="Objectware" />
-Objectware
-----------
+<a name="Oolong" />
+Oolong
+------
 
 
-<a name="Objectware.assign" />
-### Objectware.assign(target, source...)
+<a name="Oolong.assign" />
+### Oolong.assign(target, source...)
 Assigns all enumerable properties on `source` objects to `target`.  
 Similar to `Object.assign`, but takes inherited properties into account.
 Does not modify anything in the source objects.  
@@ -43,50 +43,50 @@ Think of it as _extending_ the first object step by step with others.
 
 **Examples**:
 ```javascript
-Objectware.assign({name: "John"}, {age: 32}, {shirt: "blue"})
+Oolong.assign({name: "John"}, {age: 32}, {shirt: "blue"})
 // => {name: "John", age: 32, shirt: "blue"}
 ```
 
-<a name="Objectware.clone" />
-### Objectware.clone(object)
+<a name="Oolong.clone" />
+### Oolong.clone(object)
 Creates a shallow clone of the given object, taking all enumerable
 properties into account.  
 Shallow means if you've got nested objects, those will be shared.
 
 **Examples**:
 ```javascript
-Objectware.clone({name: "John", age: 32})
+Oolong.clone({name: "John", age: 32})
 // => {name: "John", age: 32}
 ```
 
-<a name="Objectware.cloneDeep" />
-### Objectware.cloneDeep(object)
+<a name="Oolong.cloneDeep" />
+### Oolong.cloneDeep(object)
 Creates a deep clone of the given object, taking all enumerable properties
 into account.
 
 **Examples**:
 ```javascript
-Objectware.cloneDeep({name: "John", attributes: {age: 42}})
+Oolong.cloneDeep({name: "John", attributes: {age: 42}})
 // => {name: "John", attributes: {age: 42}}
 ```
 
-<a name="Objectware.create" />
-### Objectware.create(prototype, [source...])
+<a name="Oolong.create" />
+### Oolong.create(prototype, [source...])
 Creates and returns an object inheriting from `prototype` and, optionally,
 assigns enumerable properties from `source` objects to the new object.  
-Uses `Object.create` and [`Objectware.assign`](#Objectware.assign)
+Uses `Object.create` and [`Oolong.assign`](#Oolong.assign)
 internally.  
 Does not modify the given `prototype` nor source objects.
 
 **Examples**:
 ```javascript
 var PERSON = {name: "Unknown", age: 0}
-Objectware.create(PERSON, {name: "John"}, {shirt: "blue"})
+Oolong.create(PERSON, {name: "John"}, {shirt: "blue"})
 // => {name: "John", age: 0, shirt: "blue"}
 ```
 
-<a name="Objectware.defaults" />
-### Objectware.defaults(target, source...)
+<a name="Oolong.defaults" />
+### Oolong.defaults(target, source...)
 Assigns all enumerable properties on `source` objects to `target` that the
 `target` already _doesn't_ have. Uses `key in obj` to check for existence.  
 Does not modify anything in the source objects.  
@@ -95,18 +95,18 @@ Returns `target`.
 Note that because **inherited properties** on `target` are checked, any
 property that exists on `Object.prototype` (e.g. `toString`, `valueOf`)
 will be skipped. Usually that's not a problem, but if you want to use
-`Objectware.defaults` for hashmaps/dictionaries with unknown keys, ensure
+`Oolong.defaults` for hashmaps/dictionaries with unknown keys, ensure
 `target` inherits from `null` instead (use `Object.create(null)`).
 
 **Examples**:
 ```javascript
 var PERSON = {name: "Unknown", age: 0, shirt: "blue"}
-Objectware.defaults({name: "John", age: 42}, PERSON)
+Oolong.defaults({name: "John", age: 42}, PERSON)
 // => {name: "John", age: 42, shirt: "blue"}
 ```
 
-<a name="Objectware.each" />
-### Objectware.each(object, callback, [thisArg])
+<a name="Oolong.each" />
+### Oolong.each(object, callback, [thisArg])
 Calls the given function for all enumerable properties.  
 Returns the given object.
 
@@ -116,11 +116,11 @@ bound to `thisArg`.
 **Examples**:
 ```javascript
 var obj = {name: "John", age: 42}
-Objectware.each(obj, function(val, key) { console.log(key + "=" + val) })
+Oolong.each(obj, function(val, key) { console.log(key + "=" + val) })
 ```
 
-<a name="Objectware.eachOwn" />
-### Objectware.eachOwn(object, callback, [thisArg])
+<a name="Oolong.eachOwn" />
+### Oolong.eachOwn(object, callback, [thisArg])
 Calls the given function for all _own_ enumerable properties.  
 Returns the given object.
 
@@ -130,11 +130,11 @@ bound to `thisArg`.
 **Examples**:
 ```javascript
 var obj = {name: "John", age: 42}
-Objectware.eachOwn(obj, function(val, key) { console.log(key + "=" + val) })
+Oolong.eachOwn(obj, function(val, key) { console.log(key + "=" + val) })
 ```
 
-<a name="Objectware.filter" />
-### Objectware.filter(object, callback, [thisArg])
+<a name="Oolong.filter" />
+### Oolong.filter(object, callback, [thisArg])
 Filters all enumerable properties and returns a new object with only those
 properties for which the given function returned truthy for.
 
@@ -144,75 +144,75 @@ bound to `thisArg`.
 **Examples**:
 ```javascript
 var obj = {a: 1, b: 2, c: 3, d: 4}
-Objectware.filter(obj, function(value, key) { return value % 2 == 0 })
+Oolong.filter(obj, function(value, key) { return value % 2 == 0 })
 // => {b: 2, d: 4}
 ```
 
-<a name="Objectware.forEach" />
-### Objectware.forEach(object, callback, [thisArg])
-Alias of [`each`](#Objectware.each).  
+<a name="Oolong.forEach" />
+### Oolong.forEach(object, callback, [thisArg])
+Alias of [`each`](#Oolong.each).  
 
-<a name="Objectware.forEachOwn" />
-### Objectware.forEachOwn(object, callback, [thisArg])
-Alias of [`eachOwn`](#Objectware.eachOwn).  
+<a name="Oolong.forEachOwn" />
+### Oolong.forEachOwn(object, callback, [thisArg])
+Alias of [`eachOwn`](#Oolong.eachOwn).  
 
-<a name="Objectware.has" />
-### Objectware.has(object, key)
+<a name="Oolong.has" />
+### Oolong.has(object, key)
 Checks whether the given object has the given property, inherited or not.  
 Given a set, but `undefined` property will still return `true`.
 
 **Examples**:
 ```javascript
-Objectware.has({name: "John"}) // => true
-Objectware.has(Object.create({name: "John"}), "name") // => true
-Objectware.has({}, "name") // => false
+Oolong.has({name: "John"}) // => true
+Oolong.has(Object.create({name: "John"}), "name") // => true
+Oolong.has({}, "name") // => false
 ```
 
-<a name="Objectware.hasOwn" />
-### Objectware.hasOwn(object, key)
+<a name="Oolong.hasOwn" />
+### Oolong.hasOwn(object, key)
 Checks whether the given object has the given property as an own property.  
 Given a set, but `undefined` property will still return `true`.
 
 **Examples**:
 ```javascript
-Objectware.hasOwn({name: "John"}) // => true
-Objectware.hasOwn(Object.create({name: "John"}), "name") // => false
-Objectware.hasOwn({}, "name") // => false
+Oolong.hasOwn({name: "John"}) // => true
+Oolong.hasOwn(Object.create({name: "John"}), "name") // => false
+Oolong.hasOwn({}, "name") // => false
 ```
 
-<a name="Objectware.isEmpty" />
-### Objectware.isEmpty(object)
+<a name="Oolong.isEmpty" />
+### Oolong.isEmpty(object)
 Checks whether the given object has any enumerable properties, inherited
 or not.
 
 **Examples**:
 ```javascript
-Objectware.isEmpty({name: "John"}) // => false
-Objectware.isEmpty(Object.create({name: "John"})) // => false
-Objectware.isEmpty({}) // => true
+Oolong.isEmpty({name: "John"}) // => false
+Oolong.isEmpty(Object.create({name: "John"})) // => false
+Oolong.isEmpty({}) // => true
 ```
 
-<a name="Objectware.isIn" />
-### Objectware.isIn(object, key)
-Alias of [`has`](#Objectware.has).  
+<a name="Oolong.isIn" />
+### Oolong.isIn(object, key)
+Alias of [`has`](#Oolong.has).  
 
-<a name="Objectware.isInOwn" />
-### Objectware.isInOwn(object, key)
-Alias of [`hasOwn`](#Objectware.hasOwn).  
+<a name="Oolong.isInOwn" />
+### Oolong.isInOwn(object, key)
+Alias of [`hasOwn`](#Oolong.hasOwn).  
 
-<a name="Objectware.isOwnEmpty" />
-### Objectware.isOwnEmpty(object)
+<a name="Oolong.isOwnEmpty" />
+### Oolong.isOwnEmpty(object)
 Checks whether the given object has any _own_ enumerable properties.
 
 **Examples**:
 ```javascript
-Objectware.isOwnEmpty({name: "John"}) // => false
-Objectware.isOwnEmpty(Object.create({name: "John"})) // => true
-Objectware.isOwnEmpty({}) // => true
+Oolong.isOwnEmpty({name: "John"}) // => false
+Oolong.isOwnEmpty(Object.create({name: "John"})) // => true
+Oolong.isOwnEmpty({}) // => true
 ```
 
-<a name="Objectware.isPlainObject" />
-### Objectware.isPlainObject(object)
+<a name="Oolong.isPlainObject" />
+### Oolong.isPlainObject(object)
 Checks whether the given object is one constructed by `Object` or inheriting
 from `null`.
 
@@ -221,25 +221,25 @@ That's the case when you do, for example, `new MyModel`, `new Date`.
 
 **Examples**:
 ```javascript
-Objectware.isPlainObject({name: "John", age: 42}) // => true
-Objectware.isPlainObject(Object.create(null)) // => true
-Objectware.isPlainObject(Math) // => true
-Objectware.isPlainObject(new Date) // => false
-Objectware.isPlainObject("John") // => false
+Oolong.isPlainObject({name: "John", age: 42}) // => true
+Oolong.isPlainObject(Object.create(null)) // => true
+Oolong.isPlainObject(Math) // => true
+Oolong.isPlainObject(new Date) // => false
+Oolong.isPlainObject("John") // => false
 ```
 
-<a name="Objectware.keys" />
-### Objectware.keys(object)
+<a name="Oolong.keys" />
+### Oolong.keys(object)
 Returns all enumerable keys of an object as an array.
 Similar to `Object.keys`, but takes inherited properties into account.
 
 **Examples**:
 ```javascript
-Objectware.keys({name: "John", age: 32}) // => ["name", "age"]
+Oolong.keys({name: "John", age: 32}) // => ["name", "age"]
 ```
 
-<a name="Objectware.map" />
-### Objectware.map(object, callback, [thisArg])
+<a name="Oolong.map" />
+### Oolong.map(object, callback, [thisArg])
 Maps all enumerable property values and returns a new object.
 
 The function will be called with arguments `value`, `key` and `object` and
@@ -248,12 +248,12 @@ bound to `thisArg`.
 **Examples**:
 ```javascript
 var obj = {a: 1, b: 2, c: 3}
-Objectware.map(obj, function(value, key) { return value * 2 })
+Oolong.map(obj, function(value, key) { return value * 2 })
 // => {a: 2, b: 4, c: 6}
 ```
 
-<a name="Objectware.mapKeys" />
-### Objectware.mapKeys(object, callback, [thisArg])
+<a name="Oolong.mapKeys" />
+### Oolong.mapKeys(object, callback, [thisArg])
 Transforms all enumerable keys and returns a new object.
 
 The function will be called with arguments `key`, `value` and `object` and
@@ -262,16 +262,16 @@ bound to `thisArg`.
 **Examples**:
 ```javascript
 var person = {name: "John", age: 32}
-Objectware.mapKeys(person, function(key) { return key.toUpperCase() })
+Oolong.mapKeys(person, function(key) { return key.toUpperCase() })
 // => {NAME: "John", AGE: 32}
 ```
 
-<a name="Objectware.merge" />
-### Objectware.merge(target, source...)
+<a name="Oolong.merge" />
+### Oolong.merge(target, source...)
 Assigns all enumerable properties on `source` objects to `target`
 recursively.  
 Only plain objects a merged. Refer to
-[`Objectware.isPlainObject`](#Objectware.isPlainObject) for the definition of
+[`Oolong.isPlainObject`](#Oolong.isPlainObject) for the definition of
 a plain object. Does not modify anything in the source objects.
 
 Think of it as _extending_ the first object step by step with others.
@@ -279,12 +279,12 @@ Think of it as _extending_ the first object step by step with others.
 **Examples**:
 ```javascript
 var person = {name: "John", attributes: {age: 42}}
-Objectware.merge(person, {attributes: {height: 190}})
+Oolong.merge(person, {attributes: {height: 190}})
 person // => {name: "John", attributes: {age: 42, height: 190}}
 ```
 
-<a name="Objectware.ownKeys" />
-### Objectware.ownKeys(object)
+<a name="Oolong.ownKeys" />
+### Oolong.ownKeys(object)
 Returns all enumerable _own_ keys of an object as an array.  
 Same as `Object.keys`, really.
 
@@ -292,14 +292,14 @@ Same as `Object.keys`, really.
 ```javascript
 var person = Object.create({name: "John"})
 person.age = 42
-Objectware.ownKeys(person) // => ["age"]
+Oolong.ownKeys(person) // => ["age"]
 ```
 
-<a name="Objectware.reject" />
-### Objectware.reject(object, callback, [thisArg])
+<a name="Oolong.reject" />
+### Oolong.reject(object, callback, [thisArg])
 Rejects all enumerable properties and returns a new object without those
 properties for which the given function returned truthy for.  
-Opposite of [`filter`](#Objectware.filter).
+Opposite of [`filter`](#Oolong.filter).
 
 The function will be called with arguments `value`, `key` and `object` and
 bound to `thisArg`.
@@ -307,15 +307,15 @@ bound to `thisArg`.
 **Examples**:
 ```javascript
 var obj = {a: 1, b: 2, c: 3, d: 4}
-Objectware.reject(obj, function(value, key) { return value % 2 == 0 })
+Oolong.reject(obj, function(value, key) { return value % 2 == 0 })
 // => {a: 1, c: 3}
 ```
 
-<a name="Objectware.values" />
-### Objectware.values(object)
+<a name="Oolong.values" />
+### Oolong.values(object)
 Returns all enumerable property values as an array.
 
 **Examples**:
 ```javascript
-Objectware.values({name: "John", age: 32}) // => ["John", 32]
+Oolong.values({name: "John", age: 32}) // => ["John", 32]
 ```

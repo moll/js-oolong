@@ -3,7 +3,7 @@ var Sinon = require("sinon")
 var demand = require("must")
 var toUpperCase = Function.call.bind(String.prototype.toUpperCase)
 
-describe("Objectware", function() {
+describe("Oolong", function() {
   describe(".assign", function() {
     it("must return undefined given nothing", function() {
       demand($.assign()).be.undefined()
