@@ -1,4 +1,4 @@
-var hasOwn = Object.prototype.hasOwnProperty
+var hasOwn = Function.call.bind(Object.hasOwnProperty)
 
 /**
  * @class Oolong
@@ -157,7 +157,7 @@ exports.each = function(obj, fn, context) {
  */
 exports.eachOwn = function(obj, fn, context) {
   for (var key in obj)
-    if (hasOwn.call(obj, key)) fn.call(context, obj[key], key, obj)
+    if (hasOwn(obj, key)) fn.call(context, obj[key], key, obj)
 
   return obj
 }
@@ -238,7 +238,7 @@ exports.has = function(obj, key) {
  * @param key
  */
 exports.hasOwn = function(obj, key) {
-  return hasOwn.call(obj, key)
+  return hasOwn(obj, key)
 }
 
 /**
@@ -286,7 +286,7 @@ exports.isInOwn = exports.hasOwn
  * @param object
  */
 exports.isOwnEmpty = function(obj) {
-  for (var key in obj) if (hasOwn.call(obj, key)) return false
+  for (var key in obj) if (hasOwn(obj, key)) return false
   return true
 }
 
