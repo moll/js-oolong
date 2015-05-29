@@ -1,4 +1,5 @@
 var hasOwn = Function.call.bind(Object.hasOwnProperty)
+var isEnumerable = Function.call.bind(Object.propertyIsEnumerable)
 
 /**
  * @class Oolong
@@ -114,6 +115,40 @@ exports.defaults = function(target) {
   }
 
   return target
+}
+
+/**
+ * Defines a getter on an object.  
+ * Similar to [`Object.prototype.__defineGetter__`][__defineGetter__], but
+ * works in a standards compliant way.  
+ * Returns `object`.
+ *
+ * The property is by default made *configurable* and *enumerable*. Should the
+ * property exist before, it's enumerability will be left as is.
+ *
+ * [__defineGetter__]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__
+ *
+ * @example
+ * var person = {birthyear: 1987}
+ *
+ * Oolong.defineGetter(person, "age", function() {
+ *   return new Date().getFullYear() - this.birthyear
+ * })
+ *
+ * person.age // => 28 as of today in 2015.
+ *
+ * @static
+ * @method defineGetter
+ * @param object
+ * @param property
+ * @param fn
+ */
+exports.defineGetter = function(obj, name, fn) {
+  return Object.defineProperty(obj, name, {
+    get: fn,
+    configurable: true,
+    enumerable: !hasOwn(obj, name) || isEnumerable(obj, name)
+  })
 }
 
 /**

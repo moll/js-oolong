@@ -6,6 +6,7 @@ Oolong.js API Documentation
 - [cloneDeep](#Oolong.cloneDeep)(object)
 - [create](#Oolong.create)(prototype, [source...])
 - [defaults](#Oolong.defaults)(target, source...)
+- [defineGetter](#Oolong.defineGetter)(object, property, fn)
 - [each](#Oolong.each)(object, callback, [thisArg])
 - [eachOwn](#Oolong.eachOwn)(object, callback, [thisArg])
 - [filter](#Oolong.filter)(object, callback, [thisArg])
@@ -103,6 +104,29 @@ will be skipped. Usually that's not a problem, but if you want to use
 var PERSON = {name: "Unknown", age: 0, shirt: "blue"}
 Oolong.defaults({name: "John", age: 42}, PERSON)
 // => {name: "John", age: 42, shirt: "blue"}
+```
+
+<a name="Oolong.defineGetter" />
+### Oolong.defineGetter(object, property, fn)
+Defines a getter on an object.  
+Similar to [`Object.prototype.__defineGetter__`][__defineGetter__], but
+works in a standards compliant way.  
+Returns `object`.
+
+The property is by default made *configurable* and *enumerable*. Should the
+property exist before, it's enumerability will be left as is.
+
+[__defineGetter__]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__
+
+**Examples**:
+```javascript
+var person = {birthyear: 1987}
+
+Oolong.defineGetter(person, "age", function() {
+  return new Date().getFullYear() - this.birthyear
+})
+
+person.age // => 28 as of today in 2015.
 ```
 
 <a name="Oolong.each" />

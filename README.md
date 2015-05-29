@@ -43,6 +43,7 @@ For extended documentation on all functions, please see the
 - [cloneDeep](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.cloneDeep)(object)
 - [create](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.create)(prototype, [source...])
 - [defaults](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.defaults)(target, source...)
+- [defineGetter](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.defineGetter)(object, property, fn)
 - [each](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.each)(object, callback, [thisArg])
 - [eachOwn](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.eachOwn)(object, callback, [thisArg])
 - [filter](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.filter)(object, callback, [thisArg])
