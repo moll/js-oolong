@@ -152,6 +152,41 @@ exports.defineGetter = function(obj, name, fn) {
 }
 
 /**
+ * Defines a setter on an object.  
+ * Similar to [`Object.prototype.__defineSetter__`][__defineSetter__], but
+ * works in a standards compliant way.  
+ * Returns `object`.
+ *
+ * The property is by default made *configurable* and *enumerable*. Should the
+ * property exist before, it's enumerability will be left as is.
+ *
+ * [__defineSetter__]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__
+ *
+ * @example
+ * var person = {}
+ *
+ * Oolong.defineSetter(person, "age", function(age) {
+ *   this.birthyear = new Date().getFullYear() - age
+ * })
+ *
+ * person.age = 28
+ * person.birthyear // => 1987 as of today in 2015.
+ *
+ * @static
+ * @method defineSetter
+ * @param object
+ * @param property
+ * @param fn
+ */
+exports.defineSetter = function(obj, name, fn) {
+  return Object.defineProperty(obj, name, {
+    set: fn,
+    configurable: true,
+    enumerable: !hasOwn(obj, name) || isEnumerable(obj, name)
+  })
+}
+
+/**
  * Calls the given function for all enumerable properties.  
  * Returns the given object.
  *

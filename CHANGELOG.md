@@ -1,7 +1,9 @@
 ## Unreleased
 - Adds [`Oolong.defineGetter`][defineGetter].
+- Adds [`Oolong.defineSetter`][defineSetter].
 
 [defineGetter]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.defineGetter
+[defineSetter]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.defineSetter
 
 ## 1.7.0 (Apr 15, 2015)
 - Renames Objectware to Oolong.
