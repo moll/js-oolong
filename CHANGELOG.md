@@ -1,4 +1,4 @@
-## Unreleased
+## 1.8.0 (May 29, 2015)
 - Adds [`Oolong.defineGetter`][defineGetter].
 - Adds [`Oolong.defineSetter`][defineSetter].
 
