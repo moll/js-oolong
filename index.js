@@ -548,4 +548,22 @@ exports.values = function(obj) {
   return values
 }
 
+/**
+ * Wraps a given value in an object under the specified key.  
+ * Works also with [ECMAScript 6 Symbol](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
+ *
+ * @example
+ * Oolong.wrap("John", "name") // => {name: "John"}
+ *
+ * @static
+ * @method wrap
+ * @param value
+ * @param key
+ */
+exports.wrap = function(value, key) {
+  var obj = {}
+  obj[key] = value
+  return obj
+}
+
 function not(fn) { return function() { return !fn.apply(this, arguments) }}

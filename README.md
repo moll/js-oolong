@@ -64,6 +64,7 @@ For extended documentation on all functions, please see the
 - [ownKeys](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.ownKeys)(object)
 - [reject](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.reject)(object, callback, [thisArg])
 - [values](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.values)(object)
+- [wrap](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.wrap)(value, key)
 
 
 License

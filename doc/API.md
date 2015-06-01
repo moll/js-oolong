@@ -27,6 +27,7 @@ Oolong.js API Documentation
 - [ownKeys](#Oolong.ownKeys)(object)
 - [reject](#Oolong.reject)(object, callback, [thisArg])
 - [values](#Oolong.values)(object)
+- [wrap](#Oolong.wrap)(value, key)
 
 
 <a name="Oolong" />
@@ -367,4 +368,14 @@ Returns all enumerable property values as an array.
 **Examples**:
 ```javascript
 Oolong.values({name: "John", age: 32}) // => ["John", 32]
+```
+
+<a name="Oolong.wrap" />
+### Oolong.wrap(value, key)
+Wraps a given value in an object under the specified key.  
+Works also with [ECMAScript 6 Symbol](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
+
+**Examples**:
+```javascript
+Oolong.wrap("John", "name") // => {name: "John"}
 ```
