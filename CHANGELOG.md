@@ -1,4 +1,4 @@
-## Unreleased
+## 1.9.0 (Jun 1, 2015)
 - Adds [`Oolong.wrap`][wrap].
 
 [wrap]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.wrap
