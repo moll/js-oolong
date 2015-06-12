@@ -48,6 +48,10 @@ describe("Oolong.isPlainObject", function() {
     $.isPlainObject("").must.be.false()
   })
 
+  it("must return true given an array", function() {
+    $.isPlainObject([]).must.be.false()
+  })
+
   it("must return false given a function", function() {
     $.isPlainObject(noop).must.be.false()
   })

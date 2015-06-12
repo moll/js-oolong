@@ -47,6 +47,10 @@ describe("Oolong.isObject", function() {
     $.isObject("").must.be.false()
   })
 
+  it("must return true given an array", function() {
+    $.isObject([]).must.be.true()
+  })
+
   it("must return false given a function", function() {
     $.isObject(noop).must.be.false()
   })
