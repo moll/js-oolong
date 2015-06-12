@@ -344,6 +344,23 @@ exports.isIn = exports.has
 exports.isInOwn = exports.hasOwn
 
 /**
+ * Checks whether the given object is of type object and is not null.
+ *
+ * @example
+ * Oolong.isObject({name: "John"}) // => true
+ * Oolong.isObject(new Date) // => true
+ * Oolong.isObject(42) // => false
+ * Oolong.isObject(null) // => false
+ *
+ * @static
+ * @method isObject
+ * @param object
+ */
+exports.isObject = function(obj) {
+  return obj != null && typeof obj == "object"
+}
+
+/**
  * Checks whether the given object has any _own_ enumerable properties.
  *
  * @example

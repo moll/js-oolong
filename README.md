@@ -55,6 +55,7 @@ For extended documentation on all functions, please see the
 - [isEmpty](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.isEmpty)(object)
 - [isIn](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.isIn)(object, key)
 - [isInOwn](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.isInOwn)(object, key)
+- [isObject](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.isObject)(object)
 - [isOwnEmpty](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.isOwnEmpty)(object)
 - [isPlainObject](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.isPlainObject)(object)
 - [keys](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.keys)(object)

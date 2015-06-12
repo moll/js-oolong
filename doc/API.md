@@ -18,6 +18,7 @@ Oolong.js API Documentation
 - [isEmpty](#Oolong.isEmpty)(object)
 - [isIn](#Oolong.isIn)(object, key)
 - [isInOwn](#Oolong.isInOwn)(object, key)
+- [isObject](#Oolong.isObject)(object)
 - [isOwnEmpty](#Oolong.isOwnEmpty)(object)
 - [isPlainObject](#Oolong.isPlainObject)(object)
 - [keys](#Oolong.keys)(object)
@@ -249,6 +250,18 @@ Alias of [`has`](#Oolong.has).
 <a name="Oolong.isInOwn" />
 ### Oolong.isInOwn(object, key)
 Alias of [`hasOwn`](#Oolong.hasOwn).  
+
+<a name="Oolong.isObject" />
+### Oolong.isObject(object)
+Checks whether the given object is of type object and is not null.
+
+**Examples**:
+```javascript
+Oolong.isObject({name: "John"}) // => true
+Oolong.isObject(new Date) // => true
+Oolong.isObject(42) // => false
+Oolong.isObject(null) // => false
+```
 
 <a name="Oolong.isOwnEmpty" />
 ### Oolong.isOwnEmpty(object)
