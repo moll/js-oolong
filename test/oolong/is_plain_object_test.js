@@ -41,7 +41,7 @@ describe("Oolong.isPlainObject", function() {
   })
 
   it("must return false given a number", function() {
-    $.isPlainObject(noop).must.be.false()
+    $.isPlainObject(1).must.be.false()
   })
 
   it("must return false given a string", function() {
