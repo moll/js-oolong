@@ -451,6 +451,33 @@ exports.lookupGetter = function(obj, name) {
 }
 
 /**
+ * Looks up and returns a setter on an object.  
+ * Similar to [`Object.prototype.__lookupSetter__`][__lookupSetter__], but
+ * works in a standards compliant way.  
+ * Takes inherited setters into account, just like `__lookupSetter__`.  
+ *
+ * [__lookupSetter__]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__
+ *
+ * @example
+ * var person = {birthyear: 1987}
+ *
+ * Oolong.defineSetter(person, "age", function(age) {
+ *   this.birthyear = new Date().getFullYear() - age
+ * })
+ *
+ * Oolong.lookupSetter(person, "age") // Returns the function above.
+ *
+ * @static
+ * @method lookupSetter
+ * @param object
+ * @param property
+ */
+exports.lookupSetter = function(obj, name) {
+  var desc = getPropertyDescriptor(obj, name)
+  return desc && desc.set
+}
+
+/**
  * Maps all enumerable property values and returns a new object.
  *
  * The function will be called with arguments `value`, `key` and `object` and

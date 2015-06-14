@@ -23,6 +23,7 @@ Oolong.js API Documentation
 - [isPlainObject](#Oolong.isPlainObject)(object)
 - [keys](#Oolong.keys)(object)
 - [lookupGetter](#Oolong.lookupGetter)(object, property)
+- [lookupSetter](#Oolong.lookupSetter)(object, property)
 - [map](#Oolong.map)(object, callback, [thisArg])
 - [mapKeys](#Oolong.mapKeys)(object, callback, [thisArg])
 - [merge](#Oolong.merge)(target, source...)
@@ -320,6 +321,26 @@ Oolong.defineGetter(person, "age", function() {
 })
 
 Oolong.lookupGetter(person, "age") // Returns the function above.
+```
+
+<a name="Oolong.lookupSetter" />
+### Oolong.lookupSetter(object, property)
+Looks up and returns a setter on an object.  
+Similar to [`Object.prototype.__lookupSetter__`][__lookupSetter__], but
+works in a standards compliant way.  
+Takes inherited setters into account, just like `__lookupSetter__`.  
+
+[__lookupSetter__]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__
+
+**Examples**:
+```javascript
+var person = {birthyear: 1987}
+
+Oolong.defineSetter(person, "age", function(age) {
+  this.birthyear = new Date().getFullYear() - age
+})
+
+Oolong.lookupSetter(person, "age") // Returns the function above.
 ```
 
 <a name="Oolong.map" />

@@ -60,6 +60,7 @@ For extended documentation on all functions, please see the
 - [isPlainObject](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.isPlainObject)(object)
 - [keys](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.keys)(object)
 - [lookupGetter](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.lookupGetter)(object, property)
+- [lookupSetter](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.lookupSetter)(object, property)
 - [map](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.map)(object, callback, [thisArg])
 - [mapKeys](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.mapKeys)(object, callback, [thisArg])
 - [merge](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.merge)(target, source...)
