@@ -1,6 +1,8 @@
 var hasOwn = Function.call.bind(Object.hasOwnProperty)
 var isEnumerable = Function.call.bind(Object.propertyIsEnumerable)
 var getPropertyDescriptor = require("./lib/es6").getPropertyDescriptor
+var lookupGetter = Object.prototype.__lookupGetter__
+var lookupSetter = Object.prototype.__lookupSetter__
 
 /**
  * @class Oolong
@@ -445,7 +447,8 @@ exports.keys = function(obj) {
  * @param object
  * @param property
  */
-exports.lookupGetter = function(obj, name) {
+exports.lookupGetter = lookupGetter ? Function.call.bind(lookupGetter) :
+  function(obj, name) {
   var desc = getPropertyDescriptor(obj, name)
   return desc && desc.get
 }
@@ -472,7 +475,8 @@ exports.lookupGetter = function(obj, name) {
  * @param object
  * @param property
  */
-exports.lookupSetter = function(obj, name) {
+exports.lookupSetter = lookupSetter ? Function.call.bind(lookupSetter) :
+  function(obj, name) {
   var desc = getPropertyDescriptor(obj, name)
   return desc && desc.set
 }
