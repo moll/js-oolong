@@ -1,3 +1,8 @@
+## Unreleased
+- Adds [`Oolong.lookupGetter`][lookupGetter].
+
+[lookupGetter]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.lookupGetter
+
 ## 1.10.0 (Jun 12, 2015)
 - Adds [`Oolong.isObject`][isObject].
 

@@ -22,6 +22,7 @@ Oolong.js API Documentation
 - [isOwnEmpty](#Oolong.isOwnEmpty)(object)
 - [isPlainObject](#Oolong.isPlainObject)(object)
 - [keys](#Oolong.keys)(object)
+- [lookupGetter](#Oolong.lookupGetter)(object, property)
 - [map](#Oolong.map)(object, callback, [thisArg])
 - [mapKeys](#Oolong.mapKeys)(object, callback, [thisArg])
 - [merge](#Oolong.merge)(target, source...)
@@ -299,6 +300,26 @@ Similar to `Object.keys`, but takes inherited properties into account.
 **Examples**:
 ```javascript
 Oolong.keys({name: "John", age: 32}) // => ["name", "age"]
+```
+
+<a name="Oolong.lookupGetter" />
+### Oolong.lookupGetter(object, property)
+Looks up and returns a getter on an object.  
+Similar to [`Object.prototype.__lookupGetter__`][__lookupGetter__], but
+works in a standards compliant way.  
+Takes inherited getters into account, just like `__lookupGetter__`.  
+
+[__lookupGetter__]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__
+
+**Examples**:
+```javascript
+var person = {birthyear: 1987}
+
+Oolong.defineGetter(person, "age", function() {
+  return new Date().getFullYear() - this.birthyear
+})
+
+Oolong.lookupGetter(person, "age") // Returns the function above.
 ```
 
 <a name="Oolong.map" />

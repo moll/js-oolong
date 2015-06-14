@@ -1,5 +1,6 @@
 var hasOwn = Function.call.bind(Object.hasOwnProperty)
 var isEnumerable = Function.call.bind(Object.propertyIsEnumerable)
+var getPropertyDescriptor = require("./lib/es6").getPropertyDescriptor
 
 /**
  * @class Oolong
@@ -420,6 +421,33 @@ exports.keys = function(obj) {
   var keys = []
   for (var key in obj) keys.push(key)
   return keys
+}
+
+/**
+ * Looks up and returns a getter on an object.  
+ * Similar to [`Object.prototype.__lookupGetter__`][__lookupGetter__], but
+ * works in a standards compliant way.  
+ * Takes inherited getters into account, just like `__lookupGetter__`.  
+ *
+ * [__lookupGetter__]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__
+ *
+ * @example
+ * var person = {birthyear: 1987}
+ *
+ * Oolong.defineGetter(person, "age", function() {
+ *   return new Date().getFullYear() - this.birthyear
+ * })
+ *
+ * Oolong.lookupGetter(person, "age") // Returns the function above.
+ *
+ * @static
+ * @method lookupGetter
+ * @param object
+ * @param property
+ */
+exports.lookupGetter = function(obj, name) {
+  var desc = getPropertyDescriptor(obj, name)
+  return desc && desc.get
 }
 
 /**
