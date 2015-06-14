@@ -1,4 +1,4 @@
-## Unreleased
+## 1.11.0 (Jun 14, 2015)
 - Adds [`Oolong.lookupGetter`][lookupGetter].
 - Adds [`Oolong.lookupSetter`][lookupSetter].
 
