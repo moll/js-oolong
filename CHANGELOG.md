@@ -1,4 +1,4 @@
-## Unreleased
+## 1.11.1 (Jun 24, 2015)
 - Fixes [`Oolong.isPlainObject`][isPlainObject] to return `false` for
   `Array.prototype`.  
   JavaScript is a prototypical language after all and the prototype of an array
