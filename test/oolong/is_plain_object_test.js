@@ -44,12 +44,16 @@ describe("Oolong.isPlainObject", function() {
     $.isPlainObject(1).must.be.false()
   })
 
-  it("must return false given a string", function() {
+  it("must return true given a string", function() {
     $.isPlainObject("").must.be.false()
   })
 
-  it("must return true given an array", function() {
+  it("must return false given an array", function() {
     $.isPlainObject([]).must.be.false()
+  })
+
+  it("must return false given Array.prototype", function() {
+    $.isPlainObject(Array.prototype).must.be.false()
   })
 
   it("must return false given a function", function() {

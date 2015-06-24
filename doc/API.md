@@ -284,11 +284,17 @@ from `null`.
 A non-plain object has a `constructor` property set to anything but `Object`.
 That's the case when you do, for example, `new MyModel`, `new Date`.
 
+`Array.prototype` is not considered a plain object just like an array isn't
+a plain object. JavaScript is a prototypical language and the prototype of
+an array should be considered an array.
+
 **Examples**:
 ```javascript
 Oolong.isPlainObject({name: "John", age: 42}) // => true
 Oolong.isPlainObject(Object.create(null)) // => true
 Oolong.isPlainObject(Math) // => true
+Oolong.isPlainObject([]) // => false
+Oolong.isPlainObject(Array.prototype) // => false
 Oolong.isPlainObject(new Date) // => false
 Oolong.isPlainObject("John") // => false
 ```
