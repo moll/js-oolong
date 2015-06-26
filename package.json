@@ -1,6 +1,6 @@
 {
 	"name": "oolong",
-	"version": "1.11.1",
+	"version": "1.12.0",
 	"description": "Utilities for objects. Simple, tasteful and plentiful. Supports inherited properties.",
 	"keywords": [
 		"functional",

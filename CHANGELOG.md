@@ -1,4 +1,4 @@
-## Unreleased
+## 1.12.0 (Jun 26, 2015)
 - Adds [`Oolong.setPrototypeOf`][setPrototypeOf].
 
 [setPrototypeOf]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.setPrototypeOf
