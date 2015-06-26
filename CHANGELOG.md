@@ -1,3 +1,8 @@
+## Unreleased
+- Adds [`Oolong.setPrototypeOf`][setPrototypeOf].
+
+[setPrototypeOf]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.setPrototypeOf
+
 ## 1.11.1 (Jun 24, 2015)
 - Fixes [`Oolong.isPlainObject`][isPlainObject] to return `false` for
   `Array.prototype`.  

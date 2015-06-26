@@ -3,6 +3,7 @@ var isEnumerable = Function.call.bind(Object.propertyIsEnumerable)
 var getPropertyDescriptor = require("./lib/es6").getPropertyDescriptor
 var lookupGetter = Object.prototype.__lookupGetter__
 var lookupSetter = Object.prototype.__lookupSetter__
+var SET_PROTO_OF_NULL = "Oolong.setPrototypeOf called on null or undefined"
 
 /**
  * @class Oolong
@@ -613,6 +614,31 @@ exports.ownKeys = Object.keys
  */
 exports.reject = function(obj, fn, context) {
   return exports.filter(obj, not(fn), context)
+}
+
+/**
+ * Set the prototype of the given object to the given prototype.  
+ * Pass `null` or another object for the prototype.  
+ * Returns `object`.
+ *
+ * Uses `Object.setPrototypeOf` if it exists. Otherwise uses a polyfill.
+ *
+ * @example
+ * var person = {name: "Unnamed", age: 42}
+ * var mike = Oolong.setPrototypeOf({name: "Mike"}, person)
+ * mike.name // => "Mike
+ * mike.age  // => 42
+ *
+ * @static
+ * @method setPrototypeOf
+ * @param object
+ * @param prototype
+ */
+exports.setPrototypeOf = Object.setPrototypeOf || function(obj, prototype) {
+  /* eslint no-proto: 0 */
+  if (obj == null) throw new TypeError(SET_PROTO_OF_NULL)
+  if (typeof obj == "object") obj.__proto__ = prototype
+  return obj
 }
 
 /**

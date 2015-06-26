@@ -29,6 +29,7 @@ Oolong.js API Documentation
 - [merge](#Oolong.merge)(target, source...)
 - [ownKeys](#Oolong.ownKeys)(object)
 - [reject](#Oolong.reject)(object, callback, [thisArg])
+- [setPrototypeOf](#Oolong.setPrototypeOf)(object, prototype)
 - [values](#Oolong.values)(object)
 - [wrap](#Oolong.wrap)(value, key)
 
@@ -420,6 +421,22 @@ bound to `thisArg`.
 var obj = {a: 1, b: 2, c: 3, d: 4}
 Oolong.reject(obj, function(value, key) { return value % 2 == 0 })
 // => {a: 1, c: 3}
+```
+
+<a name="Oolong.setPrototypeOf" />
+### Oolong.setPrototypeOf(object, prototype)
+Set the prototype of the given object to the given prototype.  
+Pass `null` or another object for the prototype.  
+Returns `object`.
+
+Uses `Object.setPrototypeOf` if it exists. Otherwise uses a polyfill.
+
+**Examples**:
+```javascript
+var person = {name: "Unnamed", age: 42}
+var mike = Oolong.setPrototypeOf({name: "Mike"}, person)
+mike.name // => "Mike
+mike.age  // => 42
 ```
 
 <a name="Oolong.values" />
