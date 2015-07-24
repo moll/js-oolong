@@ -27,6 +27,7 @@ Oolong.js API Documentation
 - [.map](#Oolong.map)(object, callback, [thisArg])
 - [.mapKeys](#Oolong.mapKeys)(object, callback, [thisArg])
 - [.merge](#Oolong.merge)(target, source...)
+- [.object](#Oolong.object)(keys, callback, [thisArg])
 - [.ownKeys](#Oolong.ownKeys)(object)
 - [.property](#Oolong.property)(key)
 - [.reject](#Oolong.reject)(object, callback, [thisArg])
@@ -394,6 +395,20 @@ Think of it as _extending_ the first object step by step with others.
 var person = {name: "John", attributes: {age: 42}}
 Oolong.merge(person, {attributes: {height: 190}})
 person // => {name: "John", attributes: {age: 42, height: 190}}
+```
+
+<a name="Oolong.object" />
+### Oolong.object(keys, callback, [thisArg])
+Returns a new object with keys taken from the array `keys` and values
+from the result of calling the given function with `key`, `index` and
+`keys`.  
+It's like the reverse of indexing an array.
+
+**Examples**:
+```javascript
+var names = ["Alice", "Bob", "Charlie"]
+var lengths = Oolong.object(names, function(name) { return name.length })
+lengths // => {Alice: 5, Bob: 3, Charlie: 7}
 ```
 
 <a name="Oolong.ownKeys" />

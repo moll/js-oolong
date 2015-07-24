@@ -579,6 +579,34 @@ exports.merge = function merge(target) {
 }
 
 /**
+ * Returns a new object with keys taken from the array `keys` and values
+ * from the result of calling the given function with `key`, `index` and
+ * `keys`.  
+ * It's like the reverse of indexing an array.
+ *
+ * @example
+ * var names = ["Alice", "Bob", "Charlie"]
+ * var lengths = Oolong.object(names, function(name) { return name.length })
+ * lengths // => {Alice: 5, Bob: 3, Charlie: 7}
+ *
+ * @static
+ * @method object
+ * @param keys
+ * @param callback
+ * @param [thisArg]
+ */
+exports.object = function(keys, fn, thisArg) {
+  var obj = {}
+
+  for (var i = 0; i < keys.length; ++i) {
+    var key = keys[i]
+    obj[key] = fn.call(thisArg, key, i, keys)
+  }
+
+  return obj
+}
+
+/**
  * Returns all enumerable _own_ keys of an object as an array.  
  * Same as `Object.keys`, really.
  *
