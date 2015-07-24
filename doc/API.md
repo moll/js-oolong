@@ -29,6 +29,7 @@ Oolong.js API Documentation
 - [.merge](#Oolong.merge)(target, source...)
 - [.object](#Oolong.object)(keys, callback, [thisArg])
 - [.ownKeys](#Oolong.ownKeys)(object)
+- [.pluck](#Oolong.pluck)(object, key)
 - [.property](#Oolong.property)(key)
 - [.reject](#Oolong.reject)(object, callback, [thisArg])
 - [.setPrototypeOf](#Oolong.setPrototypeOf)(object, prototype)
@@ -421,6 +422,23 @@ Same as `Object.keys`, really.
 var person = Object.create({name: "John"})
 person.age = 42
 Oolong.ownKeys(person) // => ["age"]
+```
+
+<a name="Oolong.pluck" />
+### Oolong.pluck(object, key)
+Returns a new object with the same keys, but with values being the value's
+property `key`.  
+In other words, it's the same as `Oolong.map(obj, Oolong.property(key))`.
+
+**Examples**:
+```javascript
+var people = {
+  a: {name: "Alice"},
+  b: {name: "Bob"},
+  c: {name: "Charlie"}
+}
+
+Oolong.pluck(people, "name") // => {a: "Alice", b: "Bob", c: "Charlie"}
 ```
 
 <a name="Oolong.property" />

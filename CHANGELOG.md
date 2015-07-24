@@ -1,9 +1,11 @@
 ## Unreleased
 - Adds [`Oolong.property`][property].
 - Adds [`Oolong.object`][object].
+- Adds [`Oolong.pluck`][pluck].
 
 [property]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.property
 [object]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.object
+[pluck]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.pluck
 
 ## 1.12.0 (Jun 26, 2015)
 - Adds [`Oolong.setPrototypeOf`][setPrototypeOf].

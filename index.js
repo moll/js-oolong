@@ -622,6 +622,29 @@ exports.object = function(keys, fn, thisArg) {
 exports.ownKeys = Object.keys
 
 /**
+ * Returns a new object with the same keys, but with values being the value's
+ * property `key`.  
+ * In other words, it's the same as `Oolong.map(obj, Oolong.property(key))`.
+ *
+ * @example
+ * var people = {
+ *   a: {name: "Alice"},
+ *   b: {name: "Bob"},
+ *   c: {name: "Charlie"}
+ * }
+ *
+ * Oolong.pluck(people, "name") // => {a: "Alice", b: "Bob", c: "Charlie"}
+ *
+ * @static
+ * @method pluck
+ * @param object
+ * @param key
+ */
+exports.pluck = function(obj, key) {
+  return exports.map(obj, exports.property(key))
+}
+
+/**
  * Returns a function that returns the given property of an object.
  *
  * @example
