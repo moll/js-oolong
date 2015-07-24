@@ -55,5 +55,5 @@ clean:
 .PHONY: love
 .PHONY: test spec autotest autospec
 .PHONY: pack publish tag
-.PHONY: clean
 .PHONY: doc toc doc.json
+.PHONY: clean
