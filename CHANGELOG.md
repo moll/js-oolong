@@ -1,4 +1,4 @@
-## Unreleased
+## 1.13.0 (Jul 24, 2015)
 - Adds [`Oolong.property`][property].
 - Adds [`Oolong.object`][object].
 - Adds [`Oolong.pluck`][pluck].
