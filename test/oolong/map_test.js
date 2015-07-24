@@ -27,8 +27,8 @@ describe("Oolong.map", function() {
   })
 
   it("must not change the given object", function() {
-    var obj = {name: "John"}
-    $.map(obj, function() { return "Mike" }).must.not.equal(obj)
-    obj.must.eql({name: "John"})
+    var obj = {answer: 42}
+    $.map(obj, double).must.not.equal(obj)
+    obj.must.eql({answer: 42})
   })
 })
