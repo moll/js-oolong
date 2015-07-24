@@ -594,6 +594,21 @@ exports.merge = function merge(target) {
 exports.ownKeys = Object.keys
 
 /**
+ * Returns a function that returns the given property of an object.
+ *
+ * @example
+ * var getName = Oolong.property("name")
+ * getName({name: "John"}) // => "John
+ *
+ * @static
+ * @method property
+ * @param key
+ */
+exports.property = function(key) {
+  return function(obj) { return obj[key] }
+}
+
+/**
  * Rejects all enumerable properties and returns a new object without those
  * properties for which the given function returned truthy for.  
  * Opposite of [`filter`](#Oolong.filter).

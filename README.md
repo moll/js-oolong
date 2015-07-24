@@ -65,6 +65,7 @@ For extended documentation on all functions, please see the
 - [.mapKeys](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.mapKeys)(object, callback, [thisArg])
 - [.merge](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.merge)(target, source...)
 - [.ownKeys](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.ownKeys)(object)
+- [.property](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.property)(key)
 - [.reject](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.reject)(object, callback, [thisArg])
 - [.setPrototypeOf](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.setPrototypeOf)(object, prototype)
 - [.values](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.values)(object)

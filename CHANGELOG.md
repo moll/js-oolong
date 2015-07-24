@@ -1,3 +1,8 @@
+## Unreleased
+- Adds [`Oolong.property`][property].
+
+[property]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.property
+
 ## 1.12.0 (Jun 26, 2015)
 - Adds [`Oolong.setPrototypeOf`][setPrototypeOf].
 

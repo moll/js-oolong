@@ -28,6 +28,7 @@ Oolong.js API Documentation
 - [.mapKeys](#Oolong.mapKeys)(object, callback, [thisArg])
 - [.merge](#Oolong.merge)(target, source...)
 - [.ownKeys](#Oolong.ownKeys)(object)
+- [.property](#Oolong.property)(key)
 - [.reject](#Oolong.reject)(object, callback, [thisArg])
 - [.setPrototypeOf](#Oolong.setPrototypeOf)(object, prototype)
 - [.values](#Oolong.values)(object)
@@ -405,6 +406,16 @@ Same as `Object.keys`, really.
 var person = Object.create({name: "John"})
 person.age = 42
 Oolong.ownKeys(person) // => ["age"]
+```
+
+<a name="Oolong.property" />
+### Oolong.property(key)
+Returns a function that returns the given property of an object.
+
+**Examples**:
+```javascript
+var getName = Oolong.property("name")
+getName({name: "John"}) // => "John
 ```
 
 <a name="Oolong.reject" />
