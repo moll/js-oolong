@@ -1,7 +1,7 @@
-var $ = require("../..")
+var O = require("../..")
 
 describe("Oolong.isInOwn", function() {
   it("must be an alias to .hasOwn", function() {
-    $.isInOwn.must.equal($.hasOwn)
+    O.isInOwn.must.equal(O.hasOwn)
   })
 })

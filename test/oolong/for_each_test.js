@@ -1,7 +1,7 @@
-var $ = require("../..")
+var O = require("../..")
 
 describe("Oolong.forEach", function() {
   it("must be an alias to .each", function() {
-    $.forEach.must.equal($.each)
+    O.forEach.must.equal(O.each)
   })
 })

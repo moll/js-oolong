@@ -1,13 +1,13 @@
-var $ = require("../..")
+var O = require("../..")
 
 describe("Oolong.defineSetter", function() {
   it("must return object", function() {
     var obj = {}
-    $.defineSetter(obj, "name", setter).must.equal(obj)
+    O.defineSetter(obj, "name", setter).must.equal(obj)
   })
 
   it("must define a setter", function() {
-    var obj = $.defineSetter({}, "name", setter)
+    var obj = O.defineSetter({}, "name", setter)
     var desc = Object.getOwnPropertyDescriptor(obj, "name")
     desc.set.must.equal(setter)
     desc.enumerable.must.be.true()
@@ -15,15 +15,15 @@ describe("Oolong.defineSetter", function() {
   })
 
   it("must not define getter", function() {
-    var obj = $.defineSetter({}, "name", setter)
+    var obj = O.defineSetter({}, "name", setter)
     var desc = Object.getOwnPropertyDescriptor(obj, "name")
     desc.must.have.property("get", undefined)
   })
 
   it("must not remove getter", function() {
     var obj = {}
-    $.defineGetter(obj, "name", getter)
-    $.defineSetter(obj, "name", setter)
+    O.defineGetter(obj, "name", getter)
+    O.defineSetter(obj, "name", setter)
 
     var desc = Object.getOwnPropertyDescriptor(obj, "name")
     desc.get.must.equal(getter)
@@ -35,7 +35,7 @@ describe("Oolong.defineSetter", function() {
       writable: true, configurable: true, enumerable: true, value: "John"
     })
 
-    $.defineSetter(obj, "name", setter)
+    O.defineSetter(obj, "name", setter)
     var desc = Object.getOwnPropertyDescriptor(obj, "name")
     desc.set.must.equal(setter)
     desc.enumerable.must.be.true()
@@ -49,7 +49,7 @@ describe("Oolong.defineSetter", function() {
       writable: true, configurable: true, value: "John"
     })
 
-    $.defineSetter(obj, "name", setter)
+    O.defineSetter(obj, "name", setter)
     var desc = Object.getOwnPropertyDescriptor(obj, "name")
     desc.set.must.equal(setter)
     desc.enumerable.must.be.false()

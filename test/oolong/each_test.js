@@ -1,4 +1,4 @@
-var $ = require("../..")
+var O = require("../..")
 var Sinon = require("sinon")
 
 describe("Oolong.each", function() {
@@ -6,7 +6,7 @@ describe("Oolong.each", function() {
     var obj = {name: "John", age: 42, height: 190}
     var spy = Sinon.spy()
     var context = {}
-    $.each(obj, spy, context)
+    O.each(obj, spy, context)
 
     spy.callCount.must.equal(3)
     spy.args[0][0].must.equal("John")
@@ -28,7 +28,7 @@ describe("Oolong.each", function() {
     obj.age = 42
     var spy = Sinon.spy()
     var context = {}
-    $.each(obj, spy, context)
+    O.each(obj, spy, context)
 
     spy.callCount.must.equal(2)
     spy.args[0][0].must.equal(42)
@@ -43,12 +43,12 @@ describe("Oolong.each", function() {
 
   it("must return the given object", function() {
     var obj = {}
-    $.each(obj, noop).must.equal(obj)
+    O.each(obj, noop).must.equal(obj)
   })
 
   it("must not change the given object", function() {
     var obj = {name: "John"}
-    $.each(obj, noop)
+    O.each(obj, noop)
     obj.must.eql({name: "John"})
   })
 })

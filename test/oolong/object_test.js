@@ -1,11 +1,11 @@
-var $ = require("../..")
+var O = require("../..")
 var Sinon = require("sinon")
 
 describe("Oolong.object", function() {
   function lengthOf(value) { return value.length }
 
   it("must create object", function() {
-    var obj = $.object(["Alice", "Bob", "Charlie"], lengthOf)
+    var obj = O.object(["Alice", "Bob", "Charlie"], lengthOf)
     obj.must.eql({Alice: 5, Bob: 3, Charlie: 7})
   })
 
@@ -13,7 +13,7 @@ describe("Oolong.object", function() {
     var keys = ["Alice"]
     var spy = Sinon.spy()
     var context = {}
-    $.object(keys, spy, context)
+    O.object(keys, spy, context)
 
     spy.callCount.must.equal(1)
     spy.firstCall.args[0].must.equal("Alice")
@@ -24,7 +24,7 @@ describe("Oolong.object", function() {
 
   it("must not change the given object", function() {
     var obj = ["Alice", "Bob", "Charlie"]
-    $.object(obj, lengthOf).must.not.equal(obj)
+    O.object(obj, lengthOf).must.not.equal(obj)
     obj.must.eql(["Alice", "Bob", "Charlie"])
   })
 })
