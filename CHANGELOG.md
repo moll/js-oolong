@@ -1,7 +1,9 @@
 ## Unreleased
 - Adds [`Oolong.pick`][pick].
+- Adds [`Oolong.pickDeep`][pickDeep].
 
 [pick]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.pick
+[pickDeep]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.pickDeep
 
 ## 1.13.0 (Jul 24, 2015)
 - Adds [`Oolong.property`][property].

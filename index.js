@@ -636,14 +636,46 @@ exports.ownKeys = Object.keys
  *
  */
 exports.pick = function(obj) {
-  var picked = {}
+  var target = {}
 
   for (var i = 1; i < arguments.length; ++i) {
     var key = arguments[i]
-    if (key in obj) picked[key] = obj[key]
+    if (key in obj) target[key] = obj[key]
   }
 
-  return picked
+  return target
+}
+
+/**
+ * Filters the keys of an object to only those given as `keys...` with support
+ * for nested keys in the syntax of `a.b.c`.  
+ * Only keys that exist in `object` are included.
+ *
+ * @example
+ * var person = {name: "Alice", address: {country: "UK", street: "Downing"}}
+ * var obj = Oolong.pickDeep(person, "name", "address.country")
+ * obj // => {name: "Alice", address: {country: "UK"}}
+ *
+ * @static
+ * @method pickDeep
+ * @param object
+ * @param keys...
+ *
+ */
+exports.pickDeep = function(obj) {
+  var target = {}
+
+  for (var i = 1; i < arguments.length; ++i) {
+    var keys = arguments[i].split("."), length = keys.length
+    var key, value = obj, t = target, j
+
+    for (j = 0; j < length && (key = keys[j]) in value; ++j) value = value[key]
+    if (j !== length) continue
+    for (j = 0; j < length - 1; ++j) t = t[keys[j]] || (t[keys[j]] = {})
+    t[keys[j]] = value
+  }
+
+  return target
 }
 
 /**

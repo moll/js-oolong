@@ -30,6 +30,7 @@ Oolong.js API Documentation
 - [.object](#Oolong.object)(keys, callback, [thisArg])
 - [.ownKeys](#Oolong.ownKeys)(object)
 - [.pick](#Oolong.pick)(object, keys...)
+- [.pickDeep](#Oolong.pickDeep)(object, keys...)
 - [.pluck](#Oolong.pluck)(object, key)
 - [.property](#Oolong.property)(key)
 - [.reject](#Oolong.reject)(object, callback, [thisArg])
@@ -434,6 +435,19 @@ Only keys that exist in `object` are included.
 ```javascript
 var person = {name: "Alice", email: "alice@example.com", age: 42}
 Oolong.pick(person, "name", "age") // => {name: "Alice", age: 42}
+```
+
+<a name="Oolong.pickDeep" />
+### Oolong.pickDeep(object, keys...)
+Filters the keys of an object to only those given as `keys...` with support
+for nested keys in the syntax of `a.b.c`.  
+Only keys that exist in `object` are included.
+
+**Examples**:
+```javascript
+var person = {name: "Alice", address: {country: "UK", street: "Downing"}}
+var obj = Oolong.pickDeep(person, "name", "address.country")
+obj // => {name: "Alice", address: {country: "UK"}}
 ```
 
 <a name="Oolong.pluck" />
