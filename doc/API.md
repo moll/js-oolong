@@ -29,6 +29,7 @@ Oolong.js API Documentation
 - [.merge](#Oolong.merge)(target, source...)
 - [.object](#Oolong.object)(keys, callback, [thisArg])
 - [.ownKeys](#Oolong.ownKeys)(object)
+- [.pick](#Oolong.pick)(object, keys...)
 - [.pluck](#Oolong.pluck)(object, key)
 - [.property](#Oolong.property)(key)
 - [.reject](#Oolong.reject)(object, callback, [thisArg])
@@ -422,6 +423,16 @@ Same as `Object.keys`, really.
 var person = Object.create({name: "John"})
 person.age = 42
 Oolong.ownKeys(person) // => ["age"]
+```
+
+<a name="Oolong.pick" />
+### Oolong.pick(object, keys...)
+Filters the keys of an object to only those given as `keys...`.
+
+**Examples**:
+```javascript
+var person = {name: "Alice", email: "alice@example.com", age: 42}
+Oolong.pick(person, "name", "age") // => {name: "Alice", age: 42}
 ```
 
 <a name="Oolong.pluck" />

@@ -1,3 +1,8 @@
+## Unreleased
+- Adds [`Oolong.pick`][pick].
+
+[pick]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.pick
+
 ## 1.13.0 (Jul 24, 2015)
 - Adds [`Oolong.property`][property].
 - Adds [`Oolong.object`][object].

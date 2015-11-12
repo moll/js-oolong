@@ -622,6 +622,30 @@ exports.object = function(keys, fn, thisArg) {
 exports.ownKeys = Object.keys
 
 /**
+ * Filters the keys of an object to only those given as `keys...`.
+ *
+ * @example
+ * var person = {name: "Alice", email: "alice@example.com", age: 42}
+ * Oolong.pick(person, "name", "age") // => {name: "Alice", age: 42}
+ *
+ * @static
+ * @method pick
+ * @param object
+ * @param keys...
+ *
+ */
+exports.pick = function(obj) {
+  var picked = {}
+
+  for (var i = 1; i < arguments.length; ++i) {
+    var key = arguments[i]
+    if (key in obj) picked[key] = obj[key]
+  }
+
+  return picked
+}
+
+/**
  * Returns a new object with the same keys, but with values being the value's
  * property `key`.  
  * In other words, it's the same as `Oolong.map(obj, Oolong.property(key))`.
