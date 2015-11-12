@@ -1,4 +1,4 @@
-## Unreleased
+## 1.14.0 (Nov 12, 2015)
 - Adds [`Oolong.pick`][pick].
 - Adds [`Oolong.pickDeep`][pickDeep].
 
