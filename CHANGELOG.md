@@ -1,6 +1,8 @@
-## Unreleased
+## 1.14.1 (Nov 12, 2015)
 - Changes [`Oolong.pickDeep`][pickDeep] to take an array of keys (`["a", "b",
-  "c"]`) instead of a string with embedded periods (`a.b.c`).
+  "c"]`) instead of a string with embedded periods (`a.b.c`).  
+  As using periods initially was a brain fluke noticed shortly after releasing
+  v1.14, increasing only the patch version number.
 
 ## 1.14.0 (Nov 12, 2015)
 - Adds [`Oolong.pick`][pick].
