@@ -440,13 +440,22 @@ Oolong.pick(person, "name", "age") // => {name: "Alice", age: 42}
 <a name="Oolong.pickDeep" />
 ### Oolong.pickDeep(object, keys...)
 Filters the keys of an object to only those given as `keys...` with support
-for nested keys in the syntax of `a.b.c`.  
+for nested keys in an array (`["a", "b", "c"]`).  
 Only keys that exist in `object` are included.
+
+If you'd like to use some other path syntax, feel free to preprocess your
+keys before passing them to `pickDeep`. For example, for a period-separated
+syntax (`a.b.c`), use a helper:
+
+```javascript
+function path(s) { return s.split(".") }
+Oolong.pickDeep(person, "name", path("address.country"))
+```
 
 **Examples**:
 ```javascript
 var person = {name: "Alice", address: {country: "UK", street: "Downing"}}
-var obj = Oolong.pickDeep(person, "name", "address.country")
+var obj = Oolong.pickDeep(person, "name", ["address", "country"])
 obj // => {name: "Alice", address: {country: "UK"}}
 ```
 

@@ -3,6 +3,7 @@ var isEnumerable = Function.call.bind(Object.propertyIsEnumerable)
 var getPropertyDescriptor = require("./lib/es6").getPropertyDescriptor
 var lookupGetter = Object.prototype.__lookupGetter__
 var lookupSetter = Object.prototype.__lookupSetter__
+var isArray = Array.isArray
 var SET_PROTO_OF_NULL = "Oolong.setPrototypeOf called on null or undefined"
 
 /**
@@ -408,7 +409,7 @@ exports.isOwnEmpty = function(obj) {
 exports.isPlainObject = function(obj) {
   if (obj == null) return false
   if (typeof obj != "object") return false
-  if (Array.isArray(obj)) return false
+  if (isArray(obj)) return false
 
   var prototype = Object.getPrototypeOf(obj)
   if (prototype === null) return true
@@ -648,12 +649,21 @@ exports.pick = function(obj) {
 
 /**
  * Filters the keys of an object to only those given as `keys...` with support
- * for nested keys in the syntax of `a.b.c`.  
+ * for nested keys in an array (`["a", "b", "c"]`).  
  * Only keys that exist in `object` are included.
+ *
+ * If you'd like to use some other path syntax, feel free to preprocess your
+ * keys before passing them to `pickDeep`. For example, for a period-separated
+ * syntax (`a.b.c`), use a helper:
+ *
+ * ```javascript
+ * function path(s) { return s.split(".") }
+ * Oolong.pickDeep(person, "name", path("address.country"))
+ * ```
  *
  * @example
  * var person = {name: "Alice", address: {country: "UK", street: "Downing"}}
- * var obj = Oolong.pickDeep(person, "name", "address.country")
+ * var obj = Oolong.pickDeep(person, "name", ["address", "country"])
  * obj // => {name: "Alice", address: {country: "UK"}}
  *
  * @static
@@ -666,7 +676,7 @@ exports.pickDeep = function(obj) {
   var target = {}
 
   for (var i = 1; i < arguments.length; ++i) {
-    var keys = arguments[i].split("."), length = keys.length
+    var keys = arrayify(arguments[i]), length = keys.length
     var key, value = obj, t = target, j
 
     for (j = 0; j < length && (key = keys[j]) in value; ++j) value = value[key]
@@ -799,3 +809,4 @@ exports.wrap = function(value, key) {
 }
 
 function not(fn) { return function() { return !fn.apply(this, arguments) }}
+function arrayify(value) { return isArray(value) ? value : [value] }
