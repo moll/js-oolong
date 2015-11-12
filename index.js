@@ -622,7 +622,8 @@ exports.object = function(keys, fn, thisArg) {
 exports.ownKeys = Object.keys
 
 /**
- * Filters the keys of an object to only those given as `keys...`.
+ * Filters the keys of an object to only those given as `keys...`.  
+ * Only keys that exist in `object` are included.
  *
  * @example
  * var person = {name: "Alice", email: "alice@example.com", age: 42}

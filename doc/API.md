@@ -427,7 +427,8 @@ Oolong.ownKeys(person) // => ["age"]
 
 <a name="Oolong.pick" />
 ### Oolong.pick(object, keys...)
-Filters the keys of an object to only those given as `keys...`.
+Filters the keys of an object to only those given as `keys...`.  
+Only keys that exist in `object` are included.
 
 **Examples**:
 ```javascript
