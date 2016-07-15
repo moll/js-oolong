@@ -1,3 +1,8 @@
+## Unreleased
+- Adds [`Oolong.assignOwn`][assignOwn].
+
+[assignOwn]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.assignOwn
+
 ## 1.14.1 (Nov 12, 2015)
 - Changes [`Oolong.pickDeep`][pickDeep] to take an array of keys (`["a", "b",
   "c"]`) instead of a string with embedded periods (`a.b.c`).  

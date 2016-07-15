@@ -37,6 +37,31 @@ exports.assign = function(target) {
 }
 
 /**
+ * Assigns all own enumerable properties on `source` objects to `target`.  
+ * Like `Object.assign`. Does not modify anything in the source objects.  
+ * Returns `target`.
+ *
+ * Think of it as _extending_ the first object step by step with others.
+ *
+ * @example
+ * Oolong.assignOwn({name: "John"}, {age: 32}, Object.create({shirt: "blue"}))
+ * // => {name: "John", age: 32}
+ *
+ * @static
+ * @method assignOwn
+ * @param target
+ * @param source...
+ */
+exports.assignOwn = function(target) {
+  if (target != null) for (var i = 1; i < arguments.length; ++i) {
+    var source = arguments[i]
+    for (var key in source) if (hasOwn(source, key)) target[key] = source[key]
+  }
+
+  return target
+}
+
+/**
  * Creates a shallow clone of the given object, taking all enumerable
  * properties into account.  
  * Shallow means if you've got nested objects, those will be shared.

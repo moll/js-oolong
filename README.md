@@ -39,6 +39,7 @@ For extended documentation on all functions, please see the
 
 ### [Oolong](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong)
 - [.assign](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.assign)(target, source...)
+- [.assignOwn](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.assignOwn)(target, source...)
 - [.clone](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.clone)(object)
 - [.cloneDeep](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.cloneDeep)(object)
 - [.create](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.create)(prototype, [source...])

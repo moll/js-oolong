@@ -2,6 +2,7 @@ Oolong.js API Documentation
 ===========================
 ### [Oolong](#Oolong)
 - [.assign](#Oolong.assign)(target, source...)
+- [.assignOwn](#Oolong.assignOwn)(target, source...)
 - [.clone](#Oolong.clone)(object)
 - [.cloneDeep](#Oolong.cloneDeep)(object)
 - [.create](#Oolong.create)(prototype, [source...])
@@ -57,6 +58,20 @@ Think of it as _extending_ the first object step by step with others.
 ```javascript
 Oolong.assign({name: "John"}, {age: 32}, {shirt: "blue"})
 // => {name: "John", age: 32, shirt: "blue"}
+```
+
+<a name="Oolong.assignOwn" />
+### Oolong.assignOwn(target, source...)
+Assigns all own enumerable properties on `source` objects to `target`.  
+Like `Object.assign`. Does not modify anything in the source objects.  
+Returns `target`.
+
+Think of it as _extending_ the first object step by step with others.
+
+**Examples**:
+```javascript
+Oolong.assignOwn({name: "John"}, {age: 32}, Object.create({shirt: "blue"}))
+// => {name: "John", age: 32}
 ```
 
 <a name="Oolong.clone" />
