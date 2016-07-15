@@ -10,7 +10,7 @@ strictly on functions **dealing with objects**.  It's implementation emphasizes
 properties** into account leading to less surprises for users of your code.
 
 **Oolong.js** grew out of my frustration with [Underscore.js][underscore]
-and [Lodash.js][lodash] and their inconsistent and sometimes outright ignoring
+and [Lodash.js][lodash] and their inconsistent and sometimes outright ignorance
 of inherited properties. This leads to unnecessary complexity, arbitrary
 constraints and a leaky-implementation in your code or public APIs. This
 behavior is cancer propelled around by ignorance and misunderstandings between
