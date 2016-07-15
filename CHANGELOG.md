@@ -1,4 +1,4 @@
-## Unreleased
+## 1.15.0 (Jul 15, 2016)
 - Adds [`Oolong.assignOwn`][assignOwn].
 
 [assignOwn]: https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.assignOwn
