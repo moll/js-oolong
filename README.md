@@ -1,6 +1,7 @@
 Oolong.js
 =========
 [![NPM version][npm-badge]](https://www.npmjs.com/package/oolong)
+[![Build status][travis-badge]](https://travis-ci.org/moll/js-oolong)
 
 **Oolong.js** is a library for JavaScript full of **object-related
 utilities**.  It's similar to [Underscore.js][underscore], but it focuses
@@ -16,6 +17,7 @@ behavior is cancer propelled around by ignorance and misunderstandings between
 dictionaries and interfaces. Oolong.js is my first step at killing it.
 
 [npm-badge]: https://img.shields.io/npm/v/oolong.svg
+[travis-badge]: https://travis-ci.org/moll/js-oolong.png?branch=master
 [underscore]: https://underscorejs.org
 [lodash]: https://lodash.com
 
