@@ -27,7 +27,7 @@ var SET_PROTO_OF_NULL = "Oolong.setPrototypeOf called on null or undefined"
  * @param target
  * @param source...
  */
-exports.assign = function(target) {
+exports.assign = function assign(target) {
   if (target != null) for (var i = 1; i < arguments.length; ++i) {
     var source = arguments[i]
     for (var key in source) target[key] = source[key]
@@ -52,7 +52,7 @@ exports.assign = function(target) {
  * @param target
  * @param source...
  */
-exports.assignOwn = function(target) {
+exports.assignOwn = function assignOwn(target) {
   if (target != null) for (var i = 1; i < arguments.length; ++i) {
     var source = arguments[i]
     for (var key in source) if (hasOwn(source, key)) target[key] = source[key]
@@ -74,7 +74,7 @@ exports.assignOwn = function(target) {
  * @method clone
  * @param object
  */
-exports.clone = function(obj) {
+exports.clone = function clone(obj) {
   return obj == null ? obj : exports.assign({}, obj)
 }
 
@@ -90,7 +90,7 @@ exports.clone = function(obj) {
  * @method cloneDeep
  * @param object
  */
-exports.cloneDeep = function(obj) {
+exports.cloneDeep = function cloneDeep(obj) {
   return obj == null ? obj : exports.merge({}, obj)
 }
 
@@ -111,7 +111,7 @@ exports.cloneDeep = function(obj) {
  * @param prototype
  * @param [source...]
  */
-exports.create = function(obj) {
+exports.create = function create(obj) {
   obj = Object.create(obj)
   return arguments.length == 1 ? obj : exports.assign.apply(this, arguments)
 }
@@ -138,7 +138,7 @@ exports.create = function(obj) {
  * @param target
  * @param source...
  */
-exports.defaults = function(target) {
+exports.defaults = function defaults(target) {
   if (target != null) for (var i = 1; i < arguments.length; ++i) {
     var source = arguments[i]
     for (var key in source) if (!(key in target)) target[key] = source[key]
@@ -173,7 +173,7 @@ exports.defaults = function(target) {
  * @param property
  * @param fn
  */
-exports.defineGetter = function(obj, name, fn) {
+exports.defineGetter = function defineGetter(obj, name, fn) {
   return Object.defineProperty(obj, name, {
     get: fn,
     configurable: true,
@@ -208,7 +208,7 @@ exports.defineGetter = function(obj, name, fn) {
  * @param property
  * @param fn
  */
-exports.defineSetter = function(obj, name, fn) {
+exports.defineSetter = function defineSetter(obj, name, fn) {
   return Object.defineProperty(obj, name, {
     set: fn,
     configurable: true,
@@ -233,7 +233,7 @@ exports.defineSetter = function(obj, name, fn) {
  * @param callback
  * @param [thisArg]
  */
-exports.each = function(obj, fn, context) {
+exports.each = function each(obj, fn, context) {
   for (var key in obj) fn.call(context, obj[key], key, obj)
   return obj
 }
@@ -255,7 +255,7 @@ exports.each = function(obj, fn, context) {
  * @param callback
  * @param [thisArg]
  */
-exports.eachOwn = function(obj, fn, context) {
+exports.eachOwn = function eachOwn(obj, fn, context) {
   for (var key in obj)
     if (hasOwn(obj, key)) fn.call(context, obj[key], key, obj)
 
@@ -280,7 +280,7 @@ exports.eachOwn = function(obj, fn, context) {
  * @param callback
  * @param [thisArg]
  */
-exports.filter = function(obj, fn, context) {
+exports.filter = function filter(obj, fn, context) {
   var filtered = {}
 
   for (var key in obj) {
@@ -319,7 +319,7 @@ exports.forEachOwn = exports.eachOwn
  * @param object
  * @param key
  */
-exports.has = function(obj, key) {
+exports.has = function has(obj, key) {
   return key in obj
 }
 
@@ -337,9 +337,7 @@ exports.has = function(obj, key) {
  * @param object
  * @param key
  */
-exports.hasOwn = function(obj, key) {
-  return hasOwn(obj, key)
-}
+exports.hasOwn = hasOwn
 
 /**
  * Checks whether the given object has any enumerable properties, inherited
@@ -354,7 +352,7 @@ exports.hasOwn = function(obj, key) {
  * @method isEmpty
  * @param object
  */
-exports.isEmpty = function(obj) {
+exports.isEmpty = function isEmpty(obj) {
   for (obj in obj) return false
   return true
 }
@@ -386,7 +384,7 @@ exports.isInOwn = exports.hasOwn
  * @method isObject
  * @param object
  */
-exports.isObject = function(obj) {
+exports.isObject = function isObject(obj) {
   return obj != null && typeof obj == "object"
 }
 
@@ -402,7 +400,7 @@ exports.isObject = function(obj) {
  * @method isOwnEmpty
  * @param object
  */
-exports.isOwnEmpty = function(obj) {
+exports.isOwnEmpty = function isOwnEmpty(obj) {
   for (var key in obj) if (hasOwn(obj, key)) return false
   return true
 }
@@ -431,7 +429,7 @@ exports.isOwnEmpty = function(obj) {
  * @method isPlainObject
  * @param object
  */
-exports.isPlainObject = function(obj) {
+exports.isPlainObject = function isPlainObject(obj) {
   if (obj == null) return false
   if (typeof obj != "object") return false
   if (isArray(obj)) return false
@@ -453,7 +451,7 @@ exports.isPlainObject = function(obj) {
  * @method keys
  * @param object
  */
-exports.keys = function(obj) {
+exports.keys = function keys(obj) {
   var keys = []
   for (var key in obj) keys.push(key)
   return keys
@@ -482,7 +480,7 @@ exports.keys = function(obj) {
  * @param property
  */
 exports.lookupGetter = lookupGetter ? Function.call.bind(lookupGetter) :
-  function(obj, name) {
+  function lookupSetter(obj, name) {
   var desc = getPropertyDescriptor(obj, name)
   return desc && desc.get
 }
@@ -510,7 +508,7 @@ exports.lookupGetter = lookupGetter ? Function.call.bind(lookupGetter) :
  * @param property
  */
 exports.lookupSetter = lookupSetter ? Function.call.bind(lookupSetter) :
-  function(obj, name) {
+  function lookupSetter(obj, name) {
   var desc = getPropertyDescriptor(obj, name)
   return desc && desc.set
 }
@@ -532,7 +530,7 @@ exports.lookupSetter = lookupSetter ? Function.call.bind(lookupSetter) :
  * @param callback
  * @param [thisArg]
  */
-exports.map = function(obj, fn, context) {
+exports.map = function map(obj, fn, context) {
   var mapped = {}
   for (var key in obj) mapped[key] = fn.call(context, obj[key], key, obj)
   return mapped
@@ -555,7 +553,7 @@ exports.map = function(obj, fn, context) {
  * @param callback
  * @param [thisArg]
  */
-exports.mapKeys = function(obj, fn, context) {
+exports.mapKeys = function mapKeys(obj, fn, context) {
 	var result = {}
 
 	for (var key in obj) {
@@ -621,7 +619,7 @@ exports.merge = function merge(target) {
  * @param callback
  * @param [thisArg]
  */
-exports.object = function(keys, fn, thisArg) {
+exports.object = function object(keys, fn, thisArg) {
   var obj = {}
 
   for (var i = 0; i < keys.length; ++i) {
@@ -661,7 +659,7 @@ exports.ownKeys = Object.keys
  * @param keys...
  *
  */
-exports.pick = function(obj) {
+exports.pick = function pick(obj) {
   var target = {}
 
   for (var i = 1; i < arguments.length; ++i) {
@@ -697,7 +695,7 @@ exports.pick = function(obj) {
  * @param keys...
  *
  */
-exports.pickDeep = function(obj) {
+exports.pickDeep = function pickDeep(obj) {
   var target = {}
 
   for (var i = 1; i < arguments.length; ++i) {
@@ -732,7 +730,7 @@ exports.pickDeep = function(obj) {
  * @param object
  * @param key
  */
-exports.pluck = function(obj, key) {
+exports.pluck = function pluck(obj, key) {
   return exports.map(obj, exports.property(key))
 }
 
@@ -747,7 +745,7 @@ exports.pluck = function(obj, key) {
  * @method property
  * @param key
  */
-exports.property = function(key) {
+exports.property = function property(key) {
   return function(obj) { return obj[key] }
 }
 
@@ -770,7 +768,7 @@ exports.property = function(key) {
  * @param callback
  * @param [thisArg]
  */
-exports.reject = function(obj, fn, context) {
+exports.reject = function reject(obj, fn, context) {
   return exports.filter(obj, not(fn), context)
 }
 
@@ -792,7 +790,8 @@ exports.reject = function(obj, fn, context) {
  * @param object
  * @param prototype
  */
-exports.setPrototypeOf = Object.setPrototypeOf || function(obj, prototype) {
+exports.setPrototypeOf = Object.setPrototypeOf ||
+  function setPrototypeOf(obj, prototype) {
   /* eslint no-proto: 0 */
   if (obj == null) throw new TypeError(SET_PROTO_OF_NULL)
   if (typeof obj == "object") obj.__proto__ = prototype
@@ -809,7 +808,7 @@ exports.setPrototypeOf = Object.setPrototypeOf || function(obj, prototype) {
  * @method values
  * @param object
  */
-exports.values = function(obj) {
+exports.values = function values(obj) {
   var values = []
   for (var key in obj) values.push(obj[key])
   return values
@@ -827,7 +826,7 @@ exports.values = function(obj) {
  * @param value
  * @param key
  */
-exports.wrap = function(value, key) {
+exports.wrap = function wrap(value, key) {
   var obj = {}
   obj[key] = value
   return obj
