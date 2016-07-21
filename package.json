@@ -30,8 +30,8 @@
 	"scripts": {"test": "make test"},
 
 	"devDependencies": {
-		"mocha": ">= 2.1.0 < 3",
-		"must": "< 1",
+		"mocha": ">= 2.5.3 < 3",
+		"must": ">= 0.13.2 < 0.14",
 		"sinon": ">= 1.10.3 < 2"
 	}
 }
