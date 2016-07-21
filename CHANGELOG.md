@@ -1,3 +1,7 @@
+## Unreleased
+- Fixes [`Oolong.create`][create] to not mutate the prototype argument under global strict mode when given objects to assign to it.  
+  This affected only people running their JavaScript engine (like V8) under global strict mode (`--use-strict`), which seems very rare.
+
 ## 1.15.0 (Jul 15, 2016)
 - Adds [`Oolong.assignOwn`][assignOwn].
 

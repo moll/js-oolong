@@ -112,7 +112,7 @@ exports.cloneDeep = function cloneDeep(obj) {
  * @param [source...]
  */
 exports.create = function create(obj) {
-  obj = Object.create(obj)
+  obj = arguments[0] = Object.create(obj)
   return arguments.length == 1 ? obj : exports.assign.apply(this, arguments)
 }
 
