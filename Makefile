@@ -29,7 +29,7 @@ publish:
 	npm publish
 
 tag:
-	git tag "v$$(node -e 'console.log(require("./package").version)')"
+	git tag "v$$($(NODE) -e 'console.log(require("./package").version)')"
 
 doc: doc.json
 	@mkdir -p doc
