@@ -40,13 +40,11 @@ Oolong.js API Documentation
 - [.wrap](#Oolong.wrap)(value, key)
 
 
-<a name="Oolong" />
-Oolong
+Oolong <a name="Oolong"></a>
 ------
 
 
-<a name="Oolong.assign" />
-### Oolong.assign(target, source...)
+### Oolong.assign(target, source...) <a name="Oolong.assign"></a>
 Assigns all enumerable properties on `source` objects to `target`.  
 Similar to `Object.assign`, but takes inherited properties into account.
 Does not modify anything in the source objects.  
@@ -60,8 +58,7 @@ Oolong.assign({name: "John"}, {age: 32}, {shirt: "blue"})
 // => {name: "John", age: 32, shirt: "blue"}
 ```
 
-<a name="Oolong.assignOwn" />
-### Oolong.assignOwn(target, source...)
+### Oolong.assignOwn(target, source...) <a name="Oolong.assignOwn"></a>
 Assigns all own enumerable properties on `source` objects to `target`.  
 Like `Object.assign`. Does not modify anything in the source objects.  
 Returns `target`.
@@ -74,8 +71,7 @@ Oolong.assignOwn({name: "John"}, {age: 32}, Object.create({shirt: "blue"}))
 // => {name: "John", age: 32}
 ```
 
-<a name="Oolong.clone" />
-### Oolong.clone(object)
+### Oolong.clone(object) <a name="Oolong.clone"></a>
 Creates a shallow clone of the given object, taking all enumerable
 properties into account.  
 Shallow means if you've got nested objects, those will be shared.
@@ -86,8 +82,7 @@ Oolong.clone({name: "John", age: 32})
 // => {name: "John", age: 32}
 ```
 
-<a name="Oolong.cloneDeep" />
-### Oolong.cloneDeep(object)
+### Oolong.cloneDeep(object) <a name="Oolong.cloneDeep"></a>
 Creates a deep clone of the given object, taking all enumerable properties
 into account.
 
@@ -97,8 +92,7 @@ Oolong.cloneDeep({name: "John", attributes: {age: 42}})
 // => {name: "John", attributes: {age: 42}}
 ```
 
-<a name="Oolong.create" />
-### Oolong.create(prototype, [source...])
+### Oolong.create(prototype, [source...]) <a name="Oolong.create"></a>
 Creates and returns an object inheriting from `prototype` and, optionally,
 assigns enumerable properties from `source` objects to the new object.  
 Uses `Object.create` and [`Oolong.assign`](#Oolong.assign)
@@ -112,8 +106,7 @@ Oolong.create(PERSON, {name: "John"}, {shirt: "blue"})
 // => {name: "John", age: 0, shirt: "blue"}
 ```
 
-<a name="Oolong.defaults" />
-### Oolong.defaults(target, source...)
+### Oolong.defaults(target, source...) <a name="Oolong.defaults"></a>
 Assigns all enumerable properties on `source` objects to `target` that the
 `target` already _doesn't_ have. Uses `key in obj` to check for existence.  
 Does not modify anything in the source objects.  
@@ -132,8 +125,7 @@ Oolong.defaults({name: "John", age: 42}, PERSON)
 // => {name: "John", age: 42, shirt: "blue"}
 ```
 
-<a name="Oolong.defineGetter" />
-### Oolong.defineGetter(object, property, fn)
+### Oolong.defineGetter(object, property, fn) <a name="Oolong.defineGetter"></a>
 Defines a getter on an object.  
 Similar to [`Object.prototype.__defineGetter__`][__defineGetter__], but
 works in a standards compliant way.  
@@ -155,8 +147,7 @@ Oolong.defineGetter(person, "age", function() {
 person.age // => 28 as of today in 2015.
 ```
 
-<a name="Oolong.defineSetter" />
-### Oolong.defineSetter(object, property, fn)
+### Oolong.defineSetter(object, property, fn) <a name="Oolong.defineSetter"></a>
 Defines a setter on an object.  
 Similar to [`Object.prototype.__defineSetter__`][__defineSetter__], but
 works in a standards compliant way.  
@@ -179,8 +170,7 @@ person.age = 28
 person.birthyear // => 1987 as of today in 2015.
 ```
 
-<a name="Oolong.each" />
-### Oolong.each(object, callback, [thisArg])
+### Oolong.each(object, callback, [thisArg]) <a name="Oolong.each"></a>
 Calls the given function for all enumerable properties.  
 Returns the given object.
 
@@ -193,8 +183,7 @@ var obj = {name: "John", age: 42}
 Oolong.each(obj, function(val, key) { console.log(key + "=" + val) })
 ```
 
-<a name="Oolong.eachOwn" />
-### Oolong.eachOwn(object, callback, [thisArg])
+### Oolong.eachOwn(object, callback, [thisArg]) <a name="Oolong.eachOwn"></a>
 Calls the given function for all _own_ enumerable properties.  
 Returns the given object.
 
@@ -207,8 +196,7 @@ var obj = {name: "John", age: 42}
 Oolong.eachOwn(obj, function(val, key) { console.log(key + "=" + val) })
 ```
 
-<a name="Oolong.filter" />
-### Oolong.filter(object, callback, [thisArg])
+### Oolong.filter(object, callback, [thisArg]) <a name="Oolong.filter"></a>
 Filters all enumerable properties and returns a new object with only those
 properties for which the given function returned truthy for.
 
@@ -222,16 +210,13 @@ Oolong.filter(obj, function(value, key) { return value % 2 == 0 })
 // => {b: 2, d: 4}
 ```
 
-<a name="Oolong.forEach" />
-### Oolong.forEach(object, callback, [thisArg])
+### Oolong.forEach(object, callback, [thisArg]) <a name="Oolong.forEach"></a>
 Alias of [`each`](#Oolong.each).  
 
-<a name="Oolong.forEachOwn" />
-### Oolong.forEachOwn(object, callback, [thisArg])
+### Oolong.forEachOwn(object, callback, [thisArg]) <a name="Oolong.forEachOwn"></a>
 Alias of [`eachOwn`](#Oolong.eachOwn).  
 
-<a name="Oolong.has" />
-### Oolong.has(object, key)
+### Oolong.has(object, key) <a name="Oolong.has"></a>
 Checks whether the given object has the given property, inherited or not.  
 Given a set, but `undefined` property will still return `true`.
 
@@ -242,8 +227,7 @@ Oolong.has(Object.create({name: "John"}), "name") // => true
 Oolong.has({}, "name") // => false
 ```
 
-<a name="Oolong.hasOwn" />
-### Oolong.hasOwn(object, key)
+### Oolong.hasOwn(object, key) <a name="Oolong.hasOwn"></a>
 Checks whether the given object has the given property as an own property.  
 Given a set, but `undefined` property will still return `true`.
 
@@ -254,8 +238,7 @@ Oolong.hasOwn(Object.create({name: "John"}), "name") // => false
 Oolong.hasOwn({}, "name") // => false
 ```
 
-<a name="Oolong.isEmpty" />
-### Oolong.isEmpty(object)
+### Oolong.isEmpty(object) <a name="Oolong.isEmpty"></a>
 Checks whether the given object has any enumerable properties, inherited
 or not.
 
@@ -266,16 +249,13 @@ Oolong.isEmpty(Object.create({name: "John"})) // => false
 Oolong.isEmpty({}) // => true
 ```
 
-<a name="Oolong.isIn" />
-### Oolong.isIn(object, key)
+### Oolong.isIn(object, key) <a name="Oolong.isIn"></a>
 Alias of [`has`](#Oolong.has).  
 
-<a name="Oolong.isInOwn" />
-### Oolong.isInOwn(object, key)
+### Oolong.isInOwn(object, key) <a name="Oolong.isInOwn"></a>
 Alias of [`hasOwn`](#Oolong.hasOwn).  
 
-<a name="Oolong.isObject" />
-### Oolong.isObject(object)
+### Oolong.isObject(object) <a name="Oolong.isObject"></a>
 Checks whether the given object is of type object and is not null.
 
 **Examples**:
@@ -286,8 +266,7 @@ Oolong.isObject(42) // => false
 Oolong.isObject(null) // => false
 ```
 
-<a name="Oolong.isOwnEmpty" />
-### Oolong.isOwnEmpty(object)
+### Oolong.isOwnEmpty(object) <a name="Oolong.isOwnEmpty"></a>
 Checks whether the given object has any _own_ enumerable properties.
 
 **Examples**:
@@ -297,8 +276,7 @@ Oolong.isOwnEmpty(Object.create({name: "John"})) // => true
 Oolong.isOwnEmpty({}) // => true
 ```
 
-<a name="Oolong.isPlainObject" />
-### Oolong.isPlainObject(object)
+### Oolong.isPlainObject(object) <a name="Oolong.isPlainObject"></a>
 Checks whether the given object is one constructed by `Object` or inheriting
 from `null`.
 
@@ -320,8 +298,7 @@ Oolong.isPlainObject(new Date) // => false
 Oolong.isPlainObject("John") // => false
 ```
 
-<a name="Oolong.keys" />
-### Oolong.keys(object)
+### Oolong.keys(object) <a name="Oolong.keys"></a>
 Returns all enumerable keys of an object as an array.
 Similar to `Object.keys`, but takes inherited properties into account.
 
@@ -330,8 +307,7 @@ Similar to `Object.keys`, but takes inherited properties into account.
 Oolong.keys({name: "John", age: 32}) // => ["name", "age"]
 ```
 
-<a name="Oolong.lookupGetter" />
-### Oolong.lookupGetter(object, property)
+### Oolong.lookupGetter(object, property) <a name="Oolong.lookupGetter"></a>
 Looks up and returns a getter on an object.  
 Similar to [`Object.prototype.__lookupGetter__`][__lookupGetter__], but
 works in a standards compliant way.  
@@ -350,8 +326,7 @@ Oolong.defineGetter(person, "age", function() {
 Oolong.lookupGetter(person, "age") // Returns the function above.
 ```
 
-<a name="Oolong.lookupSetter" />
-### Oolong.lookupSetter(object, property)
+### Oolong.lookupSetter(object, property) <a name="Oolong.lookupSetter"></a>
 Looks up and returns a setter on an object.  
 Similar to [`Object.prototype.__lookupSetter__`][__lookupSetter__], but
 works in a standards compliant way.  
@@ -370,8 +345,7 @@ Oolong.defineSetter(person, "age", function(age) {
 Oolong.lookupSetter(person, "age") // Returns the function above.
 ```
 
-<a name="Oolong.map" />
-### Oolong.map(object, callback, [thisArg])
+### Oolong.map(object, callback, [thisArg]) <a name="Oolong.map"></a>
 Maps all enumerable property values and returns a new object.
 
 The function will be called with arguments `value`, `key` and `object` and
@@ -384,8 +358,7 @@ Oolong.map(obj, function(value, key) { return value * 2 })
 // => {a: 2, b: 4, c: 6}
 ```
 
-<a name="Oolong.mapKeys" />
-### Oolong.mapKeys(object, callback, [thisArg])
+### Oolong.mapKeys(object, callback, [thisArg]) <a name="Oolong.mapKeys"></a>
 Transforms all enumerable keys and returns a new object.
 
 The function will be called with arguments `key`, `value` and `object` and
@@ -398,8 +371,7 @@ Oolong.mapKeys(person, function(key) { return key.toUpperCase() })
 // => {NAME: "John", AGE: 32}
 ```
 
-<a name="Oolong.merge" />
-### Oolong.merge(target, source...)
+### Oolong.merge(target, source...) <a name="Oolong.merge"></a>
 Assigns all enumerable properties on `source` objects to `target`
 recursively.  
 Only plain objects a merged. Refer to
@@ -415,8 +387,7 @@ Oolong.merge(person, {attributes: {height: 190}})
 person // => {name: "John", attributes: {age: 42, height: 190}}
 ```
 
-<a name="Oolong.object" />
-### Oolong.object(keys, callback, [thisArg])
+### Oolong.object(keys, callback, [thisArg]) <a name="Oolong.object"></a>
 Returns a new object with keys taken from the array `keys` and values
 from the result of calling the given function with `key`, `index` and
 `keys`.  
@@ -429,8 +400,7 @@ var lengths = Oolong.object(names, function(name) { return name.length })
 lengths // => {Alice: 5, Bob: 3, Charlie: 7}
 ```
 
-<a name="Oolong.ownKeys" />
-### Oolong.ownKeys(object)
+### Oolong.ownKeys(object) <a name="Oolong.ownKeys"></a>
 Returns all enumerable _own_ keys of an object as an array.  
 Same as `Object.keys`, really.
 
@@ -441,8 +411,7 @@ person.age = 42
 Oolong.ownKeys(person) // => ["age"]
 ```
 
-<a name="Oolong.pick" />
-### Oolong.pick(object, keys...)
+### Oolong.pick(object, keys...) <a name="Oolong.pick"></a>
 Filters the keys of an object to only those given as `keys...`.  
 Only keys that exist in `object` are included.
 
@@ -452,8 +421,7 @@ var person = {name: "Alice", email: "alice@example.com", age: 42}
 Oolong.pick(person, "name", "age") // => {name: "Alice", age: 42}
 ```
 
-<a name="Oolong.pickDeep" />
-### Oolong.pickDeep(object, keys...)
+### Oolong.pickDeep(object, keys...) <a name="Oolong.pickDeep"></a>
 Filters the keys of an object to only those given as `keys...` with support
 for nested keys in an array (`["a", "b", "c"]`).  
 Only keys that exist in `object` are included.
@@ -474,8 +442,7 @@ var obj = Oolong.pickDeep(person, "name", ["address", "country"])
 obj // => {name: "Alice", address: {country: "UK"}}
 ```
 
-<a name="Oolong.pluck" />
-### Oolong.pluck(object, key)
+### Oolong.pluck(object, key) <a name="Oolong.pluck"></a>
 Returns a new object with the same keys, but with values being the value's
 property `key`.  
 In other words, it's the same as `Oolong.map(obj, Oolong.property(key))`.
@@ -491,8 +458,7 @@ var people = {
 Oolong.pluck(people, "name") // => {a: "Alice", b: "Bob", c: "Charlie"}
 ```
 
-<a name="Oolong.property" />
-### Oolong.property(key)
+### Oolong.property(key) <a name="Oolong.property"></a>
 Returns a function that returns the given property of an object.
 
 **Examples**:
@@ -501,8 +467,7 @@ var getName = Oolong.property("name")
 getName({name: "John"}) // => "John
 ```
 
-<a name="Oolong.reject" />
-### Oolong.reject(object, callback, [thisArg])
+### Oolong.reject(object, callback, [thisArg]) <a name="Oolong.reject"></a>
 Rejects all enumerable properties and returns a new object without those
 properties for which the given function returned truthy for.  
 Opposite of [`filter`](#Oolong.filter).
@@ -517,8 +482,7 @@ Oolong.reject(obj, function(value, key) { return value % 2 == 0 })
 // => {a: 1, c: 3}
 ```
 
-<a name="Oolong.setPrototypeOf" />
-### Oolong.setPrototypeOf(object, prototype)
+### Oolong.setPrototypeOf(object, prototype) <a name="Oolong.setPrototypeOf"></a>
 Set the prototype of the given object to the given prototype.  
 Pass `null` or another object for the prototype.  
 Returns `object`.
@@ -533,8 +497,7 @@ mike.name // => "Mike
 mike.age  // => 42
 ```
 
-<a name="Oolong.values" />
-### Oolong.values(object)
+### Oolong.values(object) <a name="Oolong.values"></a>
 Returns all enumerable property values as an array.
 
 **Examples**:
@@ -542,8 +505,7 @@ Returns all enumerable property values as an array.
 Oolong.values({name: "John", age: 32}) // => ["John", 32]
 ```
 
-<a name="Oolong.wrap" />
-### Oolong.wrap(value, key)
+### Oolong.wrap(value, key) <a name="Oolong.wrap"></a>
 Wraps a given value in an object under the specified key.  
 Works also with [ECMAScript 6 Symbol](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
 
