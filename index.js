@@ -18,6 +18,8 @@ var SET_PROTO_OF_NULL = "Oolong.setPrototypeOf called on null or undefined"
  *
  * Think of it as _extending_ the first object step by step with others.
  *
+ * **Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
+ *
  * @example
  * Oolong.assign({name: "John"}, {age: 32}, {shirt: "blue"})
  * // => {name: "John", age: 32, shirt: "blue"}
@@ -43,6 +45,8 @@ exports.assign = function assign(target) {
  *
  * Think of it as _extending_ the first object step by step with others.
  *
+ * **Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
+ *
  * @example
  * Oolong.assignOwn({name: "John"}, {age: 32}, Object.create({shirt: "blue"}))
  * // => {name: "John", age: 32}
@@ -66,6 +70,8 @@ exports.assignOwn = function assignOwn(target) {
  * properties into account.  
  * Shallow means if you've got nested objects, those will be shared.
  *
+ * **Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
+ *
  * @example
  * Oolong.clone({name: "John", age: 32})
  * // => {name: "John", age: 32}
@@ -81,6 +87,8 @@ exports.clone = function clone(obj) {
 /**
  * Creates a deep clone of the given object, taking all enumerable properties
  * into account.
+ *
+ * **Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
  *
  * @example
  * Oolong.cloneDeep({name: "John", attributes: {age: 42}})
@@ -100,6 +108,8 @@ exports.cloneDeep = function cloneDeep(obj) {
  * Uses `Object.create` and [`Oolong.assign`](#Oolong.assign)
  * internally.  
  * Does not modify the given `prototype` nor source objects.
+ *
+ * **Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
  *
  * @example
  * var PERSON = {name: "Unknown", age: 0}
@@ -127,6 +137,8 @@ exports.create = function create(obj) {
  * will be skipped. Usually that's not a problem, but if you want to use
  * `Oolong.defaults` for hashmaps/dictionaries with unknown keys, ensure
  * `target` inherits from `null` instead (use `Object.create(null)`).
+ *
+ * **Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
  *
  * @example
  * var PERSON = {name: "Unknown", age: 0, shirt: "blue"}
@@ -573,6 +585,8 @@ exports.mapKeys = function mapKeys(obj, fn, context) {
  *
  * Think of it as _extending_ the first object step by step with others.
  *
+ * **Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
+ *
  * @example
  * var person = {name: "John", attributes: {age: 42}}
  * Oolong.merge(person, {attributes: {height: 190}})
@@ -777,7 +791,7 @@ exports.reject = function reject(obj, fn, context) {
  * Pass `null` or another object for the prototype.  
  * Returns `object`.
  *
- * Uses `Object.setPrototypeOf` if it exists. Otherwise uses a polyfill.
+ * Uses `Object.setPrototypeOf` if it exists. Otherwise uses a polyfill that depends on the presence of the non-standard [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) property.
  *
  * @example
  * var person = {name: "Unnamed", age: 42}

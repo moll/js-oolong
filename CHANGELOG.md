@@ -1,3 +1,6 @@
+## Unreleased
+- Adds info and warnings about JavaScript engines (e.g. V8) that have the non-standard (as of ECMAScript 5) `__proto__` property.
+
 ## 1.15.1 (Jul 21, 2016)
 - Fixes [`Oolong.create`][create] to not mutate the prototype argument under global strict mode when given objects to assign to it.  
   This affected only people running their JavaScript engine (like V8) under global strict mode (`--use-strict`), which seems very rare.

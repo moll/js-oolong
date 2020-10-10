@@ -52,6 +52,8 @@ Returns `target`.
 
 Think of it as _extending_ the first object step by step with others.
 
+**Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
+
 **Examples**:
 ```javascript
 Oolong.assign({name: "John"}, {age: 32}, {shirt: "blue"})
@@ -65,6 +67,8 @@ Returns `target`.
 
 Think of it as _extending_ the first object step by step with others.
 
+**Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
+
 **Examples**:
 ```javascript
 Oolong.assignOwn({name: "John"}, {age: 32}, Object.create({shirt: "blue"}))
@@ -76,6 +80,8 @@ Creates a shallow clone of the given object, taking all enumerable
 properties into account.  
 Shallow means if you've got nested objects, those will be shared.
 
+**Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
+
 **Examples**:
 ```javascript
 Oolong.clone({name: "John", age: 32})
@@ -85,6 +91,8 @@ Oolong.clone({name: "John", age: 32})
 ### Oolong.cloneDeep(object) <a name="Oolong.cloneDeep"></a>
 Creates a deep clone of the given object, taking all enumerable properties
 into account.
+
+**Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
 
 **Examples**:
 ```javascript
@@ -98,6 +106,8 @@ assigns enumerable properties from `source` objects to the new object.
 Uses `Object.create` and [`Oolong.assign`](#Oolong.assign)
 internally.  
 Does not modify the given `prototype` nor source objects.
+
+**Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
 
 **Examples**:
 ```javascript
@@ -117,6 +127,8 @@ property that exists on `Object.prototype` (e.g. `toString`, `valueOf`)
 will be skipped. Usually that's not a problem, but if you want to use
 `Oolong.defaults` for hashmaps/dictionaries with unknown keys, ensure
 `target` inherits from `null` instead (use `Object.create(null)`).
+
+**Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
 
 **Examples**:
 ```javascript
@@ -380,6 +392,8 @@ a plain object. Does not modify anything in the source objects.
 
 Think of it as _extending_ the first object step by step with others.
 
+**Warning**: Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) that could cause unwanted behavior. Please see the [README](https://github.com/moll/js-oolong/blob/master/README.md#__proto__) for more details.
+
 **Examples**:
 ```javascript
 var person = {name: "John", attributes: {age: 42}}
@@ -487,7 +501,7 @@ Set the prototype of the given object to the given prototype.
 Pass `null` or another object for the prototype.  
 Returns `object`.
 
-Uses `Object.setPrototypeOf` if it exists. Otherwise uses a polyfill.
+Uses `Object.setPrototypeOf` if it exists. Otherwise uses a polyfill that depends on the presence of the non-standard [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto) property.
 
 **Examples**:
 ```javascript

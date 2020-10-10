@@ -78,6 +78,47 @@ For extended documentation on all functions, please see the
 - [.values](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.values)(object)
 - [.wrap](https://github.com/moll/js-oolong/blob/master/doc/API.md#Oolong.wrap)(value, key)
 
+### <a id="__proto__"></a> Warning About `__proto__`
+Some JavaScript runtimes, notably V8 (used by Chrome and Node.js) support a nonstandard (as of ECMAScript 5) property called [`__proto__`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto). Assigning to the `__proto__` property, even if done dynamically via `obj[key] = {foo: 42}` changes the object's _prototype_, rather than merely giving it a new property named `__proto__`. That also means if you've got an object with a plain `__proto__` property (like when parsing JSON) and pass it to Oolong's `assign`, it could inadvertently overwrite the target's prototype:
+
+```javascript
+var O = require("oolong")
+
+function Person(name) {
+  this.name = name
+}
+
+Person.prototype.greet = function() { return "Hi, " + this.name }
+
+var john = new Person("John")
+O.assign(john, JSON.parse("{\"__proto__\": {\"age\": 42}}"))
+john.name // => "John"
+john.age // => 42
+john.greet // => undefined
+```
+
+In other situations, like when you're merging two objects recursively with `merge`, this could cause the global prototype (`Object.prototype`) to be modified.
+
+As Oolong.js is written primarily for ECMAScript 5 compliant runtimes with no engine-specific workarounds, it doesn't have special handling for ignoring `__proto__`. Unfortunately, even if it did, the presence of such special properties is far too likely to cause issues elsewhere to make a difference. It's quite common to assign dynamic values to object keys, e.g. when indexing an array (by creating an object with keys as values). Fortunately, you can and should **disable `__proto__` globally** by overwriting it on the global `Object.prototype`:
+
+```javascript
+Object.defineProperty(Object.prototype, "__proto__", {
+  value: undefined, configurable: true, writable: true
+})
+```
+
+After overwriting `__proto__` on `Object.prototype`, assigning, merging or cloning objects with `__proto__` properties won't behave in any special manner. Assignments to `__proto__` will become regular property assignments:
+
+```javascript
+var john = new Person("John")
+O.assign(john, JSON.parse("{\"__proto__\": {\"age\": 42}}"))
+
+john.name // => "John"
+john.age // => undefined
+john.greet() // => "Hi, John"
+john.__proto__ // => {age: 42}
+```
+
 
 License
 -------
