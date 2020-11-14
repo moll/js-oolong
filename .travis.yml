@@ -8,6 +8,15 @@ node_js:
   - "4"
   - "5"
   - "6"
+  - "7"
+  - "8"
+  - "9"
+  - "10"
+  - "11"
+  - "12"
+  - "13"
+  - "14"
+  - "15"
 
 # NPM < v3.10.10 fails with "Error: Missing required argument #1" in
 # npm/lib/fetch-package-metadata.js:31:3.
